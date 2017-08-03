@@ -1,0 +1,31 @@
+create user ss identified by ss;
+grant connect, resource to ss;
+
+conn ss/ss;
+
+/* Drop Tables */
+
+DROP TABLE users CASCADE CONSTRAINTS;
+
+
+/* Create Tables */
+
+CREATE TABLE users
+(
+	id varchar2(20) NOT NULL UNIQUE,
+	pwd varchar2(20) NOT NULL,
+	PRIMARY KEY (id)
+);
+
+
+/* Test Data */
+
+INSERT INTO users (id, pwd) VALUES ('a', 'a');
+INSERT INTO users (id, pwd) VALUES ('b', 'b');
+INSERT INTO users (id, pwd) VALUES ('c', 'c');
+INSERT INTO users (id, pwd) VALUES ('d', 'd');
+INSERT INTO users (id, pwd) VALUES ('e', 'e');
+INSERT INTO users (id, pwd) VALUES ('f', 'f');
+
+
+
