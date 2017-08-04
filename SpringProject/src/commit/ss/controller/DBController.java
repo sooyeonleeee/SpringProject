@@ -21,7 +21,7 @@ public class DBController {
 
 	@RequestMapping("/redisTest")
 	public ModelAndView test() {
-		/////////////////////////////////////////////////////////////!!!
+		
 		
 		JSONObject obj = new JSONObject();
 		

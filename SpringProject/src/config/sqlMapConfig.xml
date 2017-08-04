@@ -2,7 +2,13 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+
+	<!-- log4j 설정으로 query를 log에 출력 -->
+	<settings>
+		<setting name="defaultStatementTimeout" value="3" /> <!-- 3초동안 timeout 시간 설정 -->
+		<setting name="logImpl" value="LOG4J2" />
+	</settings>
 	<typeAliases>
-		<typeAlias alias="UserVO" type="commit.ss.vo.UserVO"/>
+		<typeAlias alias="UserVO" type="commit.ss.vo.UserVO" />
 	</typeAliases>
 </configuration>
