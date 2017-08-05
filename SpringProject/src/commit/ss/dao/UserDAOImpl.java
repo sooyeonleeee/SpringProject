@@ -13,6 +13,16 @@ public class UserDAOImpl implements UserDAO {
 	SqlSession session;
 	
 	@Override
+	public boolean signDuplicate_id(String id) {
+		// TODO Auto-generated method stub
+		int cnt=session.selectOne("userMapper.selectUser", id);
+		if(cnt==1)
+			return false;
+		else
+			return true;
+	}	
+
+	@Override
 	public boolean signIn(UserVO user) {
 		UserVO vo = session.selectOne("userMapper.selectUser", user.getId());
 		if (user.getPwd().equals(vo.getPwd())) {

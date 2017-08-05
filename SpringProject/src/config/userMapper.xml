@@ -5,7 +5,9 @@
 <select id="selectUser" parameterType="String" resultType="UserVO">
 	select from users where id=#{id}
 </select>
-
+<select id="selectUser" parameterType="String" resultType="Integer">
+	select count(id) from users where id=#{id}
+</select>
 <update id="updateUser" parameterType="UserVO">
 	update users set pwd=#{pwd} where id=#{id}
 </update>
