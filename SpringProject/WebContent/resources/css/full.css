@@ -1,0 +1,69 @@
+/*
+ * Start Bootstrap - Full (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+.navbar-brand-centered {
+	position: absolute;
+	left: 50%;
+	display: block;
+	width: 160px;
+	text-align: center;
+	background-color: transparent;
+}
+
+#id {
+	font-weight: 40px;
+}
+
+.navbar>.container .navbar-brand-centered, .navbar>.container-fluid .navbar-brand-centered
+	{
+	margin-left: -80px;
+}
+
+#content {
+	position: relative;
+	z-index: 1;
+}
+
+#content:after {
+	background-image:
+		url(http://localhost:9090/commit/resources/img/test1.jpg);
+	top: 0;
+	left: 0;
+	position: absolute;
+	background-size: 100%;
+	opacity: 0.4 !important;
+	filter: alpha(opacity = 40);
+	z-index: -1;
+	content: "";
+	width: 100%;
+	height: 100%;
+}
+
+#content {
+	width: 100%;
+	height: 80%;
+	vertical-align: middle;
+	text-align: center;
+	margin-top:-17px;
+}
+
+#container {
+	width: 100%;
+	margin-top:0px;
+	text-align: center;
+}
+
+#block {
+	width: 1200px;
+	display: inline-block;
+	margin: 300px 0;
+}
+
+#testhead {
+	height: 90px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	
+}
