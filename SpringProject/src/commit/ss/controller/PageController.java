@@ -28,22 +28,44 @@ public class PageController {
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, Boolean> home1(UserVO user, HttpSession session) {
+
 		boolean login = dao.signIn(user);
+		System.out.println(login);
 		if (login == true) {
-			result.put("result", true);
+			result.put("result", login);
 			session.setAttribute("id", user.getId());
 		} else
-			result.put("result", false);
+			result.put("result", login);
 
 		return result;
+	}
+
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session.removeAttribute("id");
+
+		return "index";
 	}
 
 	@RequestMapping(value = "/duplicate.do", method = RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, Boolean> duplicate(@RequestParam("id") String id) {
 		boolean id_result = dao.signDuplicate_id(id);
+
 		result.put("result", id_result);
 		return result;
+	}
+
+	@RequestMapping(value = "/join.do", method = RequestMethod.POST)
+	public String join(UserVO user) {
+		boolean id_result = dao.signUp(user);
+
+		if (id_result == true) {
+			return "index";
+		} else {
+			return "index";
+		}
+
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)

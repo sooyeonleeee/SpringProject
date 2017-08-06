@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html class="full" lang="en">
 <!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
@@ -10,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Commit1</title>
+<title>Commit</title>
 <!-- Bootstrap Core CSS -->
 <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom CSS -->
@@ -40,11 +41,19 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a data-toggle="modal" href="#login"><button
-								class="btn btn-info">Login</button></a></li>
-					<li><a data-toggle="modal" href="#join"><button
-								class="btn btn-info">회원가입</button></a></li>
 
+					<c:if test="${ empty sessionScope.id}">
+						<li><a data-toggle="modal" href="#login"><button
+									class="btn btn-info">Login</button></a></li>
+						<li><a data-toggle="modal" href="#join"><button
+									class="btn btn-info">회원가입</button></a></li>
+					</c:if>
+					
+					<c:if test="${not empty sessionScope.id}">
+						<li><a href=""><button type="button" class="btn btn-info">${sessionScope.id}님
+									&nbsp;환영합니다</button></a></li>
+						<li><a href="http://localhost:9090/SpringProject/logout.do"><button type="button" class="btn btn-info">LOGOUT</button></a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>
@@ -54,7 +63,7 @@
 	<div id="content">
 		<div id="container">
 			<div id="block">
-				<div class="well" >
+				<div class="well">
 					<form class="form-inline">
 						<table class="table table-bordered">
 							<thead>
@@ -103,39 +112,18 @@
 </body>
 </html>
 <script>
-$( function() {
-    var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $( "#search1 ,#search2" ).autocomplete({
-      source: availableTags
-    });
-    
-    
-    $( "#datepicker1,#datepicker2" ).datepicker({    dateFormat: "yy-mm-dd"});
+	$(function() {
+		var availableTags = [ "ActionScript", "AppleScript", "Asp", "BASIC",
+				"C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang",
+				"Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp",
+				"Perl", "PHP", "Python", "Ruby", "Scala", "Scheme" ];
+		$("#search1 ,#search2").autocomplete({
+			source : availableTags
+		});
 
-  } );
-  
-  
+		$("#datepicker1,#datepicker2").datepicker({
+			dateFormat : "yy-mm-dd"
+		});
+
+	});
 </script>

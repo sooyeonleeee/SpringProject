@@ -16,12 +16,12 @@
 							<tr>
 								<th class="col-md-4">아이디</th>
 								<td class="col-md-8"><input type="text"
-									class="form-control " size="10px" name="id" id="sky_id">
+									class="form-control "  name="id" id="login_id">
 							</tr>
 							<tr>
 								<th>패스워드</th>
-								<td class="col-md-8"><input type="text"
-									class="form-control" name="sky_pw" id="pw"></td>
+								<td class="col-md-8"><input type="password"
+									class="form-control" name="pwd" id="login_pwd"></td>
 							</tr>
 						</thead>
 					</table>
@@ -47,21 +47,27 @@
 </div>
 <!-- line modal -->
 <script type="text/javascript">
-	var sky_id = $("#sky_id");
-	var sky_pw = $("#sky_pw");
+	var test_id = $("#login_id");
+	var test_pw = $("#login_pwd");
 	$("#skylogin").click(function() {
-	
+		
 		$.ajax({
 			url : 'http://localhost:9090/SpringProject/login.do',
 			dataType : "json",
 			type : "post",
-			data : {"id":sky_id.val(),"pw":sky_id.val()},
+			data : {
+				"id" : test_id.val(),
+				"pwd" : test_pw.val()
+			},
 			success : function(data) {
-				if( data.result==false){
-					alart("로그인을 실패했습니다");
-				}else{
-					location.href="http://localhost:9090/SpringProject/";
-
+				if (data.result == false) {
+					alert("로그인을 실패했습니다\n 다시 입력해주세요");
+					test_id.val("");
+					test_pw.val("");
+				} else {
+					location.href = "http://localhost:9090/SpringProject/";
+					
+					
 				}
 			},
 			error : function(request, status, error) {
