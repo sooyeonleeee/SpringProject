@@ -51,7 +51,7 @@
 <script>
 	$(function() {
 		var availableTags =[
-			 {value:"인천국제공항",data:"ICN" },  
+			 {value:"인천국제공항111",data:"ICN" },  
 			 {value:"김포국제공항",data:"GMP" },
 			 {value:"김해국제공항",data:"PUS" },
 			 {value:"제주국제공항",data:"CJU" },
