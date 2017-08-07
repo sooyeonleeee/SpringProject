@@ -4,6 +4,6 @@
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <property name="java-output-path" value="/SpringProject/build/classes"/>
-        <property name="context-root" value="SpringProject_back"/>
+        <property name="context-root" value="SpringProject"/>
     </wb-module>
 </project-modules>
