@@ -1,0 +1,23 @@
+@charset "UTF-8";
+html {
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.table {
+    border: none;
+}
+
+.table-definition thead th:first-child {
+    pointer-events: none;
+    background: white;
+    border: none;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.page-item > * {
+    border: none;
+}
