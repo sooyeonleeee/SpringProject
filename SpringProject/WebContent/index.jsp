@@ -1,126 +1,81 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html class="full" lang="en">
-<!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>Commit</title>
-<!-- Bootstrap Core CSS -->
-<link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-<!-- Custom CSS -->
-<link href="./resources/css/full.css" rel="stylesheet">
-<!-- jQuery -->
-<script src="./resources/js/jquery.js"></script>
-<link href="./resources/css/logo-nav.css" rel="stylesheet">
-<!-- Bootstrap Core JavaScript -->
-<script src="./resources/js/bootstrap.min.js"></script>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-</head>
-
-<body>
-
-	<div>
-		<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header" style="padding: 15px">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand  navbar-brand-centered" href="#">BRANDING</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav navbar-right">
-
-					<c:if test="${ empty sessionScope.id}">
-						<li><a data-toggle="modal" href="#login"><button
-									class="btn btn-info">Login</button></a></li>
-						<li><a data-toggle="modal" href="#join"><button
-									class="btn btn-info">ȸ������</button></a></li>
-					</c:if>
-					
-					<c:if test="${not empty sessionScope.id}">
-						<li><a href=""><button type="button" class="btn btn-info">${sessionScope.id}��
-									&nbsp;ȯ���մϴ�</button></a></li>
-						<li><a href="http://localhost:8087/SpringProject/logout.do"><button type="button" class="btn btn-info">LOGOUT</button></a></li>
-					</c:if>
-				</ul>
-			</div>
-		</div>
-		</nav>
-	</div>
-
-	<div id="content">
-		<div id="container">
-			<div id="block">
-				<div class="well">
-					<form class="form-inline">
-						<table class="table table-bordered">
-							<thead>
-								<th>�����</th>
-								<th>������</th>
-								<th>���½ð�</th>
-								<th>���½ð�</th>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<div class="ui-widget">
-											<input type="text" id="search1" class="form-control">
-										</div>
-									</td>
-									<td><div class="ui-widget">
-											<input type="text" id="search2" class="form-control">
-										</div></td>
-									<td><input type="text" class="form-control"
-										id="datepicker1"></td>
-									<td><input type="text" class="form-control"
-										id="datepicker2"></td>
-								</tr>
-							</tbody>
-							<tfoot>
-								<tr>
-									<td colspan="4"><input type="submit" value="�װ��ǰ˻�"
-										class="btn btn-info"></td>
-								</tr>
-							</tfoot>
-						</table>
-					</form>
-				</div>
+<jsp:include page="/include/header.jsp" />
+<div id="content">
+	<div id="container">
+		<div id="block">
+			<div class="well">
+				<form class="form-inline">
+					<table class="table table-bordered">
+						<thead>
+							<th>출발지</th>
+							<th>도착지</th>
+							<th>가는시간</th>
+							<th>오는시간</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="ui-widget">
+										<input type="text" id="search1" class="form-control">
+										<input type="hidden" class="search1_code" value="">
+									</div>
+								</td>
+								<td><div class="ui-widget">
+										<input type="text" id="search2" class="form-control">
+										<input type="hidden" class="search2_code">
+									</div></td>
+								<td><input type="text" class="form-control" id="datepicker1"></td>
+								<td><input type="text" class="form-control" id="datepicker2"></td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="4"><input type="submit" value="항공권검색" class="btn btn-info"></td>
+							</tr>
+						</tfoot>
+					</table>
+				</form>
 			</div>
 		</div>
 	</div>
-	</div>
+</div>
+</div>
 <!-- 	<footer class="container-fluid text-center"> -->
 <!-- 	<p>Footer Text</p> -->
 <!-- 	</footer> -->
-
-	<jsp:include page="/main/login.jsp" />
-	<jsp:include page="/main/join.jsp" />
-
-
+<jsp:include page="/main/login.jsp" />
+<jsp:include page="/main/join.jsp" />
 </body>
 </html>
 <script>
 	$(function() {
-		var availableTags = [ "ActionScript", "AppleScript", "Asp", "BASIC",
-				"C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang",
-				"Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp",
-				"Perl", "PHP", "Python", "Ruby", "Scala", "Scheme" ];
+		var availableTags =[
+			 {value:"인천국제공항",data:"ICN" },  
+			 {value:"김포국제공항",data:"GMP" },
+			 {value:"김해국제공항",data:"PUS" },
+			 {value:"제주국제공항",data:"CJU" },
+			 {value:"양양국제공항",data:"YNY" },
+			 {value:"청주국제공항",data:"CJJ" },
+			 {value:"대구국제공항",data:"TAE" },
+			 {value:"포항공항",data:"KPO" },
+			 {value:"원주공항",data:"WJU" },
+			 {value:"울산공항",data:"USN" },
+			 {value:"사천공항",data:"HIN" },
+			 {value:"군산공항",data:"KUV" },
+			 {value:"여수공항",data:"RSU" },
+			 {value:"울릉공항",data:"VDH" } 
+			 ];
 		$("#search1 ,#search2").autocomplete({
-			source : availableTags
+			source : availableTags,
+			select : function(event, ui) {
+				var value = ui.item.value;
+				var code = value.split(":");
+			
+			}
+		
 		});
-
+		$(".search2_code").val(111);
 		$("#datepicker1,#datepicker2").datepicker({
 			dateFormat : "yy-mm-dd"
 		});

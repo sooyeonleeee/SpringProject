@@ -51,8 +51,21 @@
 	<!-- 메뉴 -->
 	<div id="content">
 		<div id="container">
-			<div class="row">
-			
+			<div id="block">
+			<table>
+			<tr>
+			<td><h1>여행일정확인</h1></td>
+			</tr>
+			<tr>
+			<td></td>
+			</tr>
+			<tr>
+			<td></td>
+			</tr>
+			<tr>
+			<td></td>
+			</tr>
+			</table>
 			</div>
 		</div>
 	</div>

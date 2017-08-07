@@ -68,7 +68,12 @@ public class PageController {
 		}
 
 	}
+	@RequestMapping("/listinfo")
+	public String listinfo(HttpSession session) {
+		session.removeAttribute("id");
 
+		return "listinfo";
+	}
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 
 	public String home(Locale locale, Model model) {

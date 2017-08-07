@@ -90,7 +90,7 @@
 			if (id_dup == false) {
 				alert("중복확인이 필요합니다");
 			} else {
-				if (sky_pw1.val() == sky_pw1.val()) {
+				if (sky_pw1.val() == sky_pw2.val()) {
 
 					alert("가입성공");
 					$("#joinform").submit();
