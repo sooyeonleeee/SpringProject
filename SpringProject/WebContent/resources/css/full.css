@@ -28,7 +28,7 @@
 
 #content:after {
 	background-image:
-		url(http://localhost:9090/commit/resources/img/test1.jpg);
+		url(http://localhost:8087/SpringProject/resources/img/test1.jpg);
 	top: 0;
 	left: 0;
 	position: absolute;

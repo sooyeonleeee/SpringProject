@@ -28,6 +28,7 @@ public class UserDAOImpl implements UserDAO {
 		
 		UserVO vo = session.selectOne("userMapper.selectUser", user.getId());
 		int cnt = session.selectOne("userMapper.selectCnt", user.getId());
+		System.out.println(cnt);
 		if (cnt == 1) {
 			if (user.getPwd().equals(vo.getPwd())) {
 				return true;

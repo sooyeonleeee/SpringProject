@@ -49,11 +49,12 @@
 <script type="text/javascript">
 	var test_id = $("#login_id");
 	var test_pw = $("#login_pwd");
-	$(function() {
+	$(document).ready(function(){
 		$("#skylogin").click(function() {
-
+			console.log(test_id.val());
+			console.log(test_pw.val());
 			$.ajax({
-				url : 'http://localhost:9090/SpringProject/login.do',
+				url : 'http://localhost:8087/SpringProject/login.do',
 				dataType : "json",
 				type : "post",
 				data : {
@@ -66,7 +67,7 @@
 						test_id.val("");
 						test_pw.val("");
 					} else {
-						location.href = "http://localhost:9090/SpringProject/";
+						location.href = "http://localhost:8087/SpringProject/";
 
 					}
 				},
@@ -91,6 +92,6 @@
 		});
 
 	});
-	});
+	
 </script>
 

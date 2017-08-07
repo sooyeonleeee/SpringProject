@@ -23,12 +23,12 @@ public class PageController {
 	@Autowired
 	UserDAO dao;
 
-	HashMap<String, Boolean> result = new HashMap<String, Boolean>();// 결과를 리턴할 해쉬맵
+	HashMap<String, Boolean> result = new HashMap<String, Boolean>();
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, Boolean> home1(UserVO user, HttpSession session) {
-
+		System.out.println(user.toString());
 		boolean login = dao.signIn(user);
 		System.out.println(login);
 		if (login == true) {
@@ -50,6 +50,7 @@ public class PageController {
 	@RequestMapping(value = "/duplicate.do", method = RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, Boolean> duplicate(@RequestParam("id") String id) {
+		System.out.println(id+"----------------------------------------------");
 		boolean id_result = dao.signDuplicate_id(id);
 
 		result.put("result", id_result);
