@@ -50,7 +50,7 @@
 			<div class="col-md-3">
 				<div class="list-group">
 					
-					<a href="index.jsp" class="list-group-item"> 
+					<a href="customer.jsp" class="list-group-item"> 
 						<span class="glyphicon glyphicon-user"></span>      회원정보</a> 
 					<a href="book.jsp" class="list-group-item">
 						<span class="glyphicon glyphicon-list-alt"></span>     즐겨찾기</a>
