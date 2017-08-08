@@ -28,7 +28,7 @@ public class UserDAOImpl implements UserDAO {
 	private final String historyKey = "history:";
 
 	// ·Î±×ÀÎ
-
+//!!!!
 	@Override
 	public boolean signDuplicate_id(String id) {
 		// TODO Auto-generated method stub
