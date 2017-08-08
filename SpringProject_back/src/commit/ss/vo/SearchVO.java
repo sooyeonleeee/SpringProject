@@ -80,4 +80,13 @@ public class SearchVO {
 		this.childCount = childCount;
 	}
 
+	@Override
+	public String toString() {
+		return "SearchVO [departure=" + departure + ", arrival=" + arrival + ", depDate=" + depDate + ", arrDate="
+				+ arrDate + ", isOneWay=" + isOneWay + ", adultCount=" + adultCount + ", childCount=" + childCount
+				+ "]";
+	}
+	
+	
+
 }
