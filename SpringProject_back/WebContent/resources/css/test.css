@@ -1,0 +1,20 @@
+@charset "UTF-8";
+.day-content .day-list-item {
+    padding: 0;
+    margin: 6px 0;
+    list-style-type: none;
+    position: relative;
+    display: block;
+    float: left;
+    width: 100%;
+    background-color: #fff;
+    -webkit-text-size-adjust: none;
+    min-height: 100px;
+    margin-bottom: 10px;
+}
+
+.li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+     
+}
