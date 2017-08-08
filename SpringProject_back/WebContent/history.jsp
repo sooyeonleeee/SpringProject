@@ -29,6 +29,7 @@ td, th {
 	padding: 8px;
 }
 
+
 tr:nth-child(even) {
 	background-color: #dddddd;
 }
@@ -39,7 +40,7 @@ tr:nth-child(even) {
 
 <body>
 
-	<jsp:include page = "header.jsp"></jsp:include>
+	<jsp:include page = "include/header.jsp"></jsp:include>
 
 	<!-- 기본 정보 -->
 	<div class="container">
