@@ -27,19 +27,17 @@ public class UserDAOImpl implements UserDAO {
 	private final String bookmarkKey = "bookmark:";
 	private final String historyKey = "history:";
 
-	// 로그인
-//!!!!
 	@Override
 	public boolean signDuplicate_id(String id) {
 		// TODO Auto-generated method stub
 		int cnt = session.selectOne("userMapper.selectCnt", id);
-
 		if (cnt == 1)
 			return true;
 		else
 			return false;
 	}
 
+	// 로그인
 	@Override
 	public boolean signIn(UserVO user) {
 
@@ -104,16 +102,18 @@ public class UserDAOImpl implements UserDAO {
 
 	// 최근검색 목록
 	public List<SearchVO> getHistory(String id) {
-		return null;
+		List<SearchVO> list = redisDAO.getObject(historyKey + id, List.class);
+		return list;
 	}
 
 	// 최근검색 삭제
-	public boolean deleteHistory(SearchVO search) {
+	public boolean deleteHistory(String id, SearchVO search) {
 		return true;
 	}
 
 	// 최근검색 모두 삭제
 	public boolean deleteAllHistory(String id) {
+		redisDAO.removeAllObject(historyKey + id);
 		return true;
 	}
 
