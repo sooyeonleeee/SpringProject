@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -142,18 +143,12 @@ public class PageController {
 		return new ModelAndView("history", "history", list);
 	}
 
-	// 검색 기록 삭제
-	@RequestMapping("/deleteHistory")
-	public String deleteHistory(@RequestParam String id, SearchVO search) {
-		dao.deleteHistory(id, search);
-		return "redirect:/history";
-	}
-
 	// 검색 기록 모두 삭제
 	@RequestMapping("/deleteAllHistory")
 	public String deleteAllHistory(@RequestParam String id) {
+		System.out.println(id);
 		dao.deleteAllHistory(id);
-		return "redirect:/history";
+		return "history";
 	}
 
 }

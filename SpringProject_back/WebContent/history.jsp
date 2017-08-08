@@ -63,6 +63,9 @@ tr:nth-child(even) {
 				<div class="cont">
 					<div class="well" style="background-color: white">
 						검색내용
+						<a href="<%=request.getContextPath()%>/deleteAllHistory?id=${sessionScope.id}"><button type="button" class="btn btn-default btn-sm">
+    							      <span class="glyphicon glyphicon-trash"></span>검색기록 전체삭제
+       								  </button></a>
 						<hr>
 						<div class="row" style="background-color: white">
 
@@ -76,7 +79,6 @@ tr:nth-child(even) {
 									<th>편도/왕복</th>
 									<th>성인 수</th>
 									<th>소아미만 수</th>
-									<th>삭제</th>
 								</tr>
 									<c:forEach var="history" items="${history}" varStatus="status">
 								<tr style="background-color: white">
@@ -88,9 +90,6 @@ tr:nth-child(even) {
        								<td>${history.isOneWay }</td>
        								<td>${history.adultCount }</td>
        								<td>${history.childCount }</td>
-									<td><a href="<%=request.getContextPath()%>/deleteHistory?num=${status.count }"><button type="button" class="btn btn-default btn-sm">
-    							      <span class="glyphicon glyphicon-trash"></span>삭제
-       								  </button></a></td>
 								</tr>
 								</c:forEach>
 							</table>
