@@ -1,8 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="include/header.jsp" />
-<div class="container">
-		<div id="row" style="margin-top: 250px">
+<html class="full1" lang="en">
+<!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="./resources/css/full.css" rel="stylesheet">
+<!-- Custom CSS -->
+<script src="./resources/js/jquery.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Start Bootstrap</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+	<div class="container">
+		<div id="row" style="margin-top: 300px">
 			<div class="well">
 				<form class="form-inline">
 					<table class="table table-bordered">
@@ -71,97 +118,15 @@
 			</div>
 		</div>
 	</div>
+    <!-- Put your page content here! -->
 
-<jsp:include page="/main/login.jsp" />
-<jsp:include page="/main/join.jsp" />
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
 </body>
+
 </html>
-<script>
-	$(function() {
-		
-		$("html").addClass("full1");
-		
-		var availableTags = [
-			{
-				value : "인천국제공항",
-				data : "ICN"
-			}, {
-				value : "김포국제공항",
-				data : "GMP"
-			}, {
-				value : "김해국제공항",
-				data : "PUS"
-			}, {
-				value : "제주국제공항",
-				data : "CJU"
-			}, {
-				value : "양양국제공항",
-				data : "YNY"
-			}, {
-				value : "청주국제공항",
-				data : "CJJ"
-			}, {
-				value : "대구국제공항",
-				data : "TAE"
-			}, {
-				value : "포항공항",
-				data : "KPO"
-			}, {
-				value : "원주공항",
-				data : "WJU"
-			}, {
-				value : "울산공항",
-				data : "USN"
-			}, {
-				value : "사천공항",
-				data : "HIN"
-			}, {
-				value : "군산공항",
-				data : "KUV"
-			}, {
-				value : "여수공항",
-				data : "RSU"
-			}, {
-				value : "울릉공항",
-				data : "VDH"
-			} ];
-
-		$("#search1").autocomplete({
-			source : availableTags,
-			select : function(event, ui) {
-				$(".search1_code").val(ui.item.data);
-			}
-		});
-
-		$("#search2").autocomplete({
-			source : availableTags,
-			select : function(event, ui) {
-				$(".search2_code").val(ui.item.data);
-			}
-		});
-
-		$("#datepicker1,#datepicker2").datepicker({
-			dateFormat : "yy-mm-dd"
-		});
-
-		$(document).on('click', '.number-spinner button',
-			function() {
-				var btn = $(this),
-					oldValue = btn
-						.closest('.number-spinner').find('input').val()
-						.trim(),
-					newVal = 0;
-
-				if (btn.attr('data-dir') == 'up') {
-					newVal = parseInt(oldValue) + 1;
-				} else {
-					if (oldValue > 1) {
-						newVal = parseInt(oldValue) - 1;
-					} else {
-						newVal = 1;
-					}
-				}
-				btn.closest('.number-spinner').find('input').val(newVal);
-			});
-	});
-</script>
+</html>

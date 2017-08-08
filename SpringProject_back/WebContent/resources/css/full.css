@@ -21,30 +21,10 @@
 	margin-left: -80px;
 }
 
-#content {
-	position: relative;
-	z-index: 1;
-}
 
-#content:after {
-	background-image:
-		url(http://localhost:8087/SpringProject/resources/img/test1.jpg);
-	top: 0;
-	left: 0;
-	position: absolute;
-	background-size: 100%;
-	opacity: 0.4 !important;
-	filter: alpha(opacity = 40);
-	z-index: -1;
-	content: "";
-	width: 100%;
-	height: 100%;
-}
 
-#content {
-	width: 100%;
-	margin-top:-17px;
-}
+
+
 
 #container {
 	width: 100%;
@@ -63,4 +43,24 @@
 	padding-top: 20px;
 	padding-bottom: 20px;
 	
+}
+
+body {
+    margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+
+.full1:after {
+    background:	url(http://localhost:8087/SpringProject/resources/img/test1.jpg) no-repeat center center fixed;
+  top: 0;
+	left: 0;
+	position: absolute;
+	background-size: 100%;
+	opacity: 0.4 !important;
+	filter: alpha(opacity = 40);
+	z-index: -1;
+	content: "";
+	width: 100%;
+	height: 100%;
 }

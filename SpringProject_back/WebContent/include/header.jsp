@@ -5,7 +5,7 @@ request.setCharacterEncoding("UTF-8");
 String id = (String)session.getAttribute("id");
 %>
 
-<html class="full" lang="en">
+<html lang="en">
 <!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
 <head>
 <meta charset="utf-8">
@@ -17,9 +17,9 @@ String id = (String)session.getAttribute("id");
 <!-- Bootstrap Core CSS -->
 <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom CSS -->
+<script src="./resources/js/jquery.js"></script>
 <link href="./resources/css/full.css" rel="stylesheet">
 <!-- jQuery -->
-<script src="./resources/js/jquery.js"></script>
 <link href="./resources/css/logo-nav.css" rel="stylesheet">
 <!-- Bootstrap Core JavaScript -->
 <script src="./resources/js/bootstrap.min.js"></script>
