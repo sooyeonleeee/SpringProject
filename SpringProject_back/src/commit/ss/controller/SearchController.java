@@ -30,7 +30,7 @@ public class SearchController {
 		
 		// ga.getTickets(출발지, 도착지, 출발일, 성인 수, 아동 수)
 		// 편도일 때.
-		if(svo.getIsOneWay()) {
+		if(svo.getIsOneWay().equals("편도")) {
 			// 편도 가는거 : 출발, 도착, 출발일, 성인 수, 아동 수. 
 			List<FlightVO> oneWay = ga.getTickets(svo.getDeparture(),
 																			svo.getArrival(),

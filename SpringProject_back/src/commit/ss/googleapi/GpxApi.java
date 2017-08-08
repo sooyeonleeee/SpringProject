@@ -114,7 +114,6 @@ public class GpxApi {
 		} catch (Throwable t) {
 			t.printStackTrace();
 		}
-		System.exit(1);
 		
 		return null;
 	}
