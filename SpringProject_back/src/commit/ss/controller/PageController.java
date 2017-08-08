@@ -1,6 +1,7 @@
 package commit.ss.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -27,6 +28,7 @@ public class PageController {
 
 	HashMap<String, Boolean> result = new HashMap<String, Boolean>();
 
+	// ë¡œê·¸ì¸
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, Boolean> home1(UserVO user, HttpSession session) {
@@ -42,12 +44,14 @@ public class PageController {
 		return result;
 	}
 
+	// ë¡œê·¸ì•„ì›ƒ, ë©”ì¸
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		session.removeAttribute("id");
 		return "index";
 	}
 
+	// ì¤‘ë³µì²´í¬
 	@RequestMapping(value = "/duplicate.do", method = RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, Boolean> duplicate(@RequestParam("id") String id) {
@@ -58,6 +62,7 @@ public class PageController {
 		return result;
 	}
 
+	// íšŒì›ê°€ì…
 	@RequestMapping(value = "/join.do", method = RequestMethod.POST)
 	public String join(UserVO user) {
 		boolean id_result = dao.signUp(user);
@@ -67,30 +72,25 @@ public class PageController {
 		} else {
 			return "index";
 		}
-
 	}
 
-	// ºñ¹Ğ¹øÈ£ º¯°æ
+	// ë¹„ë°€ë²ˆí˜¸ ë³€ê²½
 	@RequestMapping(value = "/changePwd", method = RequestMethod.POST)
 	public ModelAndView changePwd(@RequestParam String id, @RequestParam String pwd) {
 		UserVO user = new UserVO(id, pwd);
 		String result = "";
-		// º¯°æ ¼º°ø
 		if (dao.signUp(user)) {
 			result = "success";
-		}
-		// º¯°æ ½ÇÆĞ
-		else {
+		} else {
 			result = "fail";
 		}
 		return new ModelAndView("book", "result", result);
 	}
 
-	// °Ë»öÀ» ÅëÇØ ³ª¿Â °á°úÀÇ »ó¼¼ ÆäÀÌÁö(ºñÇà±âÆí ÇÏ³ª)
+	// ìƒì„¸ í˜ì´ì§€
 	@RequestMapping("/listinfo")
 	public String listinfo(HttpSession session) {
 		session.removeAttribute("id");
-
 		return "listinfo";
 	}
 
@@ -99,47 +99,55 @@ public class PageController {
 		return "index";
 	}
 
-	// ¸¶ÀÌÆäÀÌÁö(Ã¹ºÎºĞ - È¸¿øÁ¤º¸¸¦ º¸¿©ÁÖ°í ºñ¹Ğ¹øÈ£¸¦ º¯°æÇÒ ¼ö ÀÖ´Â ÆäÀÌÁö)
+	// ë§ˆì´í˜ì´ì§€
 	@RequestMapping("/mypage")
 	public String gotoMyPage() {
 		return "customer";
 	}
 
-	// Áñ°ÜÃ£±â Å¬¸¯
+	// ì¦ê²¨ì°¾ê¸° ë¦¬ìŠ¤íŠ¸
 	@RequestMapping("/bookmark")
-	public String gotoBookMark() {
-		return "book";
+	public ModelAndView gotoBookMark(@RequestParam String id) {
+		List<FlightVO> list = dao.getBookMark(id);
+		return new ModelAndView("book", "bookmark", list);
 	}
 
-	// Áñ°ÜÃ£±â Ãß°¡
+	// ì¦ê²¨ì°¾ê¸°ì— ì¶”ê°€(details)
 	@RequestMapping("/addBookMark")
 	public String addBookMark(@RequestParam String id, FlightVO flight) {
 		dao.addBookMark(id, flight);
 		return "redirect:/listinfo";
 	}
 
-	// Áñ°ÜÃ£±â »èÁ¦
+	// ì¦ê²¨ì°¾ê¸° ì‚­ì œ
 	@RequestMapping("/deleteBookMark")
 	public String deleteBookMark(@RequestParam String id, FlightVO flight) {
 		dao.deleteBookMark(id, flight);
 		return "redirect:/bookmark";
 	}
 
-	// Áñ°ÜÃ£±â ¸ğµÎ »èÁ¦
+	// ì¦ê²¨ì°¾ê¸° ëª¨ë‘ ì‚­ì œ
 	@RequestMapping("/deleteAllBookMark")
 	public String deleteAllBookMark(@RequestParam String id) {
 		dao.deleteAllBookMark(id);
 		return "redirect:/bookmark";
 	}
 
-	// ÃÖ±Ù°Ë»ö »èÁ¦
+	// ê²€ìƒ‰ ê¸°ë¡ ë¦¬ìŠ¤íŠ¸
+	@RequestMapping("/history")
+	public ModelAndView gotoHistory(@RequestParam String id) {
+		List<SearchVO> list = dao.getHistory(id);
+		return new ModelAndView("history", "history", list);
+	}
+
+	// ê²€ìƒ‰ ê¸°ë¡ ì‚­ì œ
 	@RequestMapping("/deleteHistory")
 	public String deleteHistory(@RequestParam String id, SearchVO search) {
 		dao.deleteHistory(id, search);
 		return "redirect:/bookmark";
 	}
 
-	// ÃÖ±Ù°Ë»ö ¸ğµÎ »èÁ¦
+	// ê²€ìƒ‰ ê¸°ë¡ ëª¨ë‘ ì‚­ì œ
 	@RequestMapping("/deleteAllHistory")
 	public String deleteAllHistory(@RequestParam String id) {
 		dao.deleteAllHistory(id);

@@ -4,13 +4,15 @@ package commit.ss.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import commit.ss.dao.UserDAO;
 import commit.ss.googleapi.GpxApi;
 import commit.ss.googleapi.MakeResult;
 import commit.ss.vo.FlightVO;
@@ -20,9 +22,17 @@ import commit.ss.vo.SearchVO;
 @Controller
 public class SearchController {
 
-
+	@Autowired
+	UserDAO dao;
+	
+	
 	@RequestMapping(value="/search", method=RequestMethod.POST)
-	public ModelAndView getFlightList(@ModelAttribute SearchVO svo) {
+	public ModelAndView getFlightList(@ModelAttribute SearchVO svo, @RequestParam String id) {
+		
+		//검색 기록에 추가
+		if (!id.isEmpty()) {
+			dao.addHistory(id, svo);
+		}
 		
 		GpxApi ga = new GpxApi();
 		MakeResult gr = new MakeResult();

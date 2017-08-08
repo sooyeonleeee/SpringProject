@@ -38,6 +38,7 @@ tr:nth-child(even) {
 
 <body>
 
+
 	<jsp:include page = "include/header.jsp"></jsp:include>
 
 	<!-- 기본 정보 -->
@@ -48,11 +49,11 @@ tr:nth-child(even) {
 			<div class="col-md-3">
 				<div class="list-group">
 					
-					<a href="customer.jsp" class="list-group-item"> 
+					<a href="<%=request.getContextPath() %>/mypage?id=${sessionScope.id}" class="list-group-item"> 
 						<span class="glyphicon glyphicon-user"></span>      회원정보</a> 
-					<a href="book.jsp" class="list-group-item">
+					<a href="<%=request.getContextPath() %>/bookmark?id=${sessionScope.id}" class="list-group-item">
 						<span class="glyphicon glyphicon-list-alt"></span>     즐겨찾기</a>
-					<a href="history.jsp" class="list-group-item">
+					<a href="<%=request.getContextPath() %>/history?id=${sessionScope.id}" class="list-group-item">
 						<span class="glyphicon glyphicon-list-alt"></span>     검색 내역</a>	
 				</div>
 			</div>
@@ -73,7 +74,7 @@ tr:nth-child(even) {
 									<th>출발일</th>
 									<th>도착일</th>
 									<th>가격</th>
-									<th>기타</th>
+									<th>삭제</th>
 								<tr style="background-color: white">
 									<td>서울</td>
 									<td>제주</td>
@@ -82,7 +83,7 @@ tr:nth-child(even) {
 									<td>100,000원</td>
 									<td>  <!--  삭제버튼 -->
 									  <button type="button" class="btn btn-default btn-sm">
-    							      <span class="glyphicon glyphicon-trash"></span> Trash 
+    							      <span class="glyphicon glyphicon-trash"></span> 삭제
        								  </button> 
        								</td>
 

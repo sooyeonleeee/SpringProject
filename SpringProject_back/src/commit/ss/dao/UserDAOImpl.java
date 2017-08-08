@@ -37,7 +37,7 @@ public class UserDAOImpl implements UserDAO {
 			return false;
 	}
 
-	// ·Î±×ÀÎ
+	// ï¿½Î±ï¿½ï¿½ï¿½
 	@Override
 	public boolean signIn(UserVO user) {
 
@@ -55,7 +55,7 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
-	// È¸¿ø°¡ÀÔ
+	// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public boolean signUp(UserVO user) {
 		int cnt = session.insert("userMapper.insertUser", user);
 		if (cnt == 1) {
@@ -64,7 +64,7 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
-	// ºñ¹Ð¹øÈ£ º¯°æ
+	// ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½
 	public boolean changePwd(UserVO user) {
 		int cnt = session.update("userMapper.updateUser", user);
 		if (cnt == 1) {
@@ -73,13 +73,13 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
-	// Áñ°ÜÃ£±â ¸ñ·Ï
+	// ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½
 	public List<FlightVO> getBookMark(String id) {
 		List<FlightVO> list = redisDAO.getObject(bookmarkKey + id, List.class);
 		return list;
 	}
 
-	// Áñ°ÜÃ£±â Ãß°¡
+	// ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½ß°ï¿½
 	public boolean addBookMark(String id, FlightVO flight) {
 		JSONObject obj = new JSONObject();
 		obj.put("date", getDate());
@@ -89,29 +89,29 @@ public class UserDAOImpl implements UserDAO {
 		return true;
 	}
 
-	// Áñ°ÜÃ£±â »èÁ¦
+	// ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean deleteBookMark(String id, FlightVO flight) {
 		return true;
 	}
 
-	// Áñ°ÜÃ£±â ¸ðµÎ »èÁ¦
+	// ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean deleteAllBookMark(String id) {
 		redisDAO.removeAllObject(bookmarkKey + id);
 		return true;
 	}
 
-	// ÃÖ±Ù°Ë»ö ¸ñ·Ï
+	// ï¿½Ö±Ù°Ë»ï¿½ ï¿½ï¿½ï¿½
 	public List<SearchVO> getHistory(String id) {
 		List<SearchVO> list = redisDAO.getObject(historyKey + id, List.class);
 		return list;
 	}
 
-	// ÃÖ±Ù°Ë»ö »èÁ¦
+	// ï¿½Ö±Ù°Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean deleteHistory(String id, SearchVO search) {
 		return true;
 	}
 
-	// ÃÖ±Ù°Ë»ö ¸ðµÎ »èÁ¦
+	// ï¿½Ö±Ù°Ë»ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean deleteAllHistory(String id) {
 		redisDAO.removeAllObject(historyKey + id);
 		return true;
@@ -119,5 +119,14 @@ public class UserDAOImpl implements UserDAO {
 
 	public static String getDate() {
 		return Calendar.getInstance().getTime().toString();
+	}
+
+	public boolean addHistory(String id, SearchVO search) {
+		JSONObject obj = new JSONObject();
+		obj.put("date", getDate());
+		redisDAO.setObject(historyKey + id, obj.toJSONString());
+		String history = new Gson().toJson(search);
+		redisDAO.setObject("history", history);
+		return true;
 	}
 }

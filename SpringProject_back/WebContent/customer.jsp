@@ -55,11 +55,11 @@
 			<div class="col-md-3">
 				<div class="list-group">
 					
-					<a href="customer.jsp" class="list-group-item"> 
+					<a href="<%=request.getContextPath() %>/mypage?id=${sessionScope.id}" class="list-group-item"> 
 						<span class="glyphicon glyphicon-user"></span>      회원정보</a> 
-					<a href="book.jsp" class="list-group-item">
+					<a href="<%=request.getContextPath() %>/bookmark?id=${sessionScope.id}" class="list-group-item">
 						<span class="glyphicon glyphicon-list-alt"></span>     즐겨찾기</a>
-					<a href="history.jsp" class="list-group-item">
+					<a href="<%=request.getContextPath() %>/history?id=${sessionScope.id}" class="list-group-item">
 						<span class="glyphicon glyphicon-list-alt"></span>     검색 내역</a>	
 				</div>
 			</div>
