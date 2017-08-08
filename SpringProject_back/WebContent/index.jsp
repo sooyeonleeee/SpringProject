@@ -4,7 +4,7 @@
 <div class="container">
 		<div id="row" style="margin-top: 250px">
 			<div class="well">
-				<form class="form-inline">
+				<form class="form-inline" action="http://localhost:8087/SpringProject/search.do">
 					<table class="table table-bordered">
 						<thead>
 							<th>출발지</th>
@@ -16,14 +16,14 @@
 							<tr>
 								<td>
 									<div class="ui-widget">
-										<input type="text" id="search1" class="form-control"> <input type="hidden" class="search1_code" value="">
+										<input type="text" id="search1"  class="form-control"> <input type="hidden" class="search1_code" name="departure" >
 									</div>
 								</td>
 								<td><div class="ui-widget">
-										<input type="text" id="search2" class="form-control"> <input type="hidden" class="search2_code">
+										<input type="text" id="search2" class="form-control"> <input type="hidden" name="arrival" class="search2_code">
 									</div></td>
-								<td><input type="text" class="form-control" id="datepicker1"></td>
-								<td><input type="text" class="form-control" id="datepicker2"></td>
+								<td><input type="text" name="depDate" class="form-control" id="datepicker1"></td>
+								<td><input type="text" name="arrDate" class="form-control" id="datepicker2"></td>
 							</tr>
 							<tr>
 								<td><b>성인석</b></td>
@@ -34,10 +34,10 @@
 								<td>
 									<div class="input-group number-spinner">
 										<span class="input-group-btn">
-											<button type="button" class="btn btn-default" data-dir="dwn">
+											<button type="button" class="btn btn-default" data-dir="dwn" >
 												<span class="glyphicon glyphicon-minus"></span>
 											</button>
-										</span> <input type="text" class="form-control text-center" value="1" name=""> <span class="input-group-btn">
+										</span> <input type="text" class="form-control text-center" value="1" name="adultCount" > <span class="input-group-btn">
 											<button type="button" class="btn btn-default" data-dir="up">
 												<span class="glyphicon glyphicon-plus"></span>
 											</button>
@@ -50,14 +50,14 @@
 											<button type="button" class="btn btn-default" data-dir="dwn">
 												<span class="glyphicon glyphicon-minus"></span>
 											</button>
-										</span> <input type="text" class="form-control text-center" value="1" name=""> <span class="input-group-btn">
+										</span> <input type="text" class="form-control text-center" value="1" name="childCount"> <span class="input-group-btn">
 											<button type="button" class="btn btn-default" data-dir="up">
 												<span class="glyphicon glyphicon-plus"></span>
 											</button>
 										</span>
 									</div>
 								</td>
-								<td colspan="2"><span class="col-sm-3"> <label for="path1"><input type="radio" class="form-control text-center" name="path" id="path1">왕복</label></span> <span class="col-sm-3"> <label for="path2"><input type="radio" class="form-control text-center" name="path" id="path2">편도</label>
+								<td colspan="2"><span class="col-sm-3"> <label for="path1"><input type="radio" class="form-control text-center" name="isOneWay" id="path1">왕복</label></span> <span class="col-sm-3"> <label for="path2"><input type="radio" class="form-control text-center" name="isOneWay" id="path2">편도</label>
 								</span></td>
 							</tr>
 						</tbody>
