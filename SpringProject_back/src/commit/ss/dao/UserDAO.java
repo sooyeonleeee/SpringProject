@@ -8,37 +8,39 @@ import commit.ss.vo.UserVO;
 
 public interface UserDAO {
 
-	// ·Î±×ÀÎ
+	// ï¿½Î±ï¿½ï¿½ï¿½
 	public boolean signIn(UserVO user);
 
-	// È¸¿ø°¡ÀÔ
+	// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public boolean signUp(UserVO user);
 
-	// È¸¿ø°¡ÀÔ-Áßº¹È®ÀÎ
+	// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ßºï¿½È®ï¿½ï¿½
 	public boolean signDuplicate_id(String id);
 
-	// ºñ¹Ð¹øÈ£ º¯°æ
+	// ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½
 	public boolean changePwd(UserVO user);
 
-	// Áñ°ÜÃ£±â ¸ñ·Ï
+	// ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½
 	public List<FlightVO> getBookMark(String id);
 
-	// Áñ°ÜÃ£±â Ãß°¡
+	// ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½ß°ï¿½
 	public boolean addBookMark(String id, FlightVO flight);
 
-	// Áñ°ÜÃ£±â »èÁ¦
+	// ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean deleteBookMark(String id, FlightVO flight);
 
-	// Áñ°ÜÃ£±â ¸ðµÎ »èÁ¦
+	// ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean deleteAllBookMark(String id);
 
-	// ÃÖ±Ù°Ë»ö ¸ñ·Ï
+	// ï¿½Ö±Ù°Ë»ï¿½ ï¿½ï¿½ï¿½
 	public List<SearchVO> getHistory(String id);
+	
+	public boolean addHistory(String id, SearchVO search);
 
-	// ÃÖ±Ù°Ë»ö »èÁ¦
+	// ï¿½Ö±Ù°Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean deleteHistory(String id, SearchVO search);
 
-	// ÃÖ±Ù°Ë»ö ¸ðµÎ »èÁ¦
+	// ï¿½Ö±Ù°Ë»ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean deleteAllHistory(String id);
 
 }
