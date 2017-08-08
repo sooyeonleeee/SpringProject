@@ -7,13 +7,13 @@
 <title>Insert title here</title>
 
 <!-- Custom CSS -->
-<link href="resource/css/shop-item.css" rel="stylesheet">
-<link href="resource/css/table-item.css" rel="stylesheet">
-<link href="resource/css/nav-bar.css" rel="stylesheet">
+<link href="resources/css/shop-item.css" rel="stylesheet">
+<link href="resources/css/table-item.css" rel="stylesheet">
+<link href="resources/css/nav-bar.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="resource/css/reset.css" rel="stylesheet">
-<link href="resource/css/test.css" rel="stylesheet">
-<link href="resource/css/style.css" rel="stylesheet">
+<link href="resources/css/reset.css" rel="stylesheet">
+<link href="resources/css/test.css" rel="stylesheet">
+<link href="resources/css/style.css" rel="stylesheet">
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -32,7 +32,7 @@
 <body>
 
 	<!-- Header -->
-	<jsp:include page = "header.jsp"></jsp:include>
+	<jsp:include page = "include/header.jsp"></jsp:include>
 	
 	<!-- Nav bar -->
 	<ul class="nav nav-tabs-primary">	

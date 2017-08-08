@@ -14,22 +14,22 @@
 <title>Shop Item - Start Bootstrap Template</title>
 
 <!-- Bootstrap Core CSS -->
-<link href="resource/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- Custom CSS -->
-<link href="resource/css/shop-item.css" rel="stylesheet">
+<link href="resources/css/shop-item.css" rel="stylesheet">
 
-<link href="resource/css/nav-bar.css" rel="stylesheet">
+<link href="resources/css/nav-bar.css" rel="stylesheet">
 
-<link href="resource/css/table-item.css" rel="stylesheet">
+<link href="resources/css/table-item.css" rel="stylesheet">
 
 </head>
 <body>
 	<!--  -->
-	<jsp:include page = "header.jsp"></jsp:include>
+	<jsp:include page = "include/header.jsp"></jsp:include>
 	 
 	<ul class="nav nav-tabs-primary">	
 	
