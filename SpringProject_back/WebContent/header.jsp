@@ -11,18 +11,18 @@
 <meta name="author" content="">
 <title>Commit</title>
 <!-- Bootstrap Core CSS -->
-<link href="./Resource/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="./Resource/css/full.css" rel="stylesheet">
+<link href="resources/css/full.css" rel="stylesheet">
 
 <!-- jQuery -->
-<script src="./Resource/js/jquery.js"></script>
+<script src="resources/js/jquery.js"></script>
 
-<link href="./Resource/css/logo-nav.css" rel="stylesheet">
+<link href="resources/css/logo-nav.css" rel="stylesheet">
 
 <!-- Bootstrap Core JavaScript -->
-<script src="./Resource/js/bootstrap.min.js"></script>
+<script src="resources/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">

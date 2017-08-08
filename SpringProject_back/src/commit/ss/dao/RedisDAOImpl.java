@@ -33,6 +33,4 @@ public class RedisDAOImpl implements RedisDAO {
 		// TODO Auto-generated method stub
 		redisTemplate.opsForList().remove(key, 0, value);
 	}
-	
-	
 }
