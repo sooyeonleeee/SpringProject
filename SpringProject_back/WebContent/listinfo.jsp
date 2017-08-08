@@ -22,12 +22,15 @@
 					</h4>
 				</section>
 				<div class="row">
-					<div type="button" style="padding: 10px 200px" class="btn btn-default" data-toggle="collapse" data-target="#demo1">
-						<div class="col-sm-12 listbox">
-							<span>INC</span> <img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow.png" width="50"> <img alt="" src="http://localhost:8087/SpringProject/resources/img/airplane.png"> <span>INC</span>
-						</div>
-						<div>
-							<img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png">
+					<div type="button" style="padding: 10px 175px" class="btn btn-default" data-toggle="collapse" data-target="#demo1">
+						<div class="col-sm-12 ">
+							<div class="row listbox" >
+								<span >INC</span>
+								<span><img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow.png" width="50"> </span>
+								<span><img alt="" src="http://localhost:8087/SpringProject/resources/img/airplane.png"> </span>
+								<span>INC</span> 
+								<span id="down"><img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png"></span>
+							</div>
 						</div>
 						<!-- 						<img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png"> -->
 					</div>
@@ -57,6 +60,7 @@
 					</ul>
 				</div>
 			</div>
+<!-- 			가는날시작 -->
 			<div class="panel-body" style="margin-left: 20px">
 				<section>
 					<h4>
@@ -64,12 +68,15 @@
 					</h4>
 				</section>
 				<div class="row">
-					<div type="button" style="padding: 10px 200px" class="btn btn-default" data-toggle="collapse" data-target="#demo2">
-						<div class="col-sm-12 listbox">
-							<span>INC</span> <img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow.png" width="50"> <img alt="" src="http://localhost:8087/SpringProject/resources/img/airplane.png"> <span>INC</span>
-						</div>
-						<div>
-							<img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png">
+					<div type="button" style="padding: 10px 175px" class="btn btn-default" data-toggle="collapse" data-target="#demo2">
+						<div class="col-sm-12 ">
+							<div class="row listbox" >
+								<span >INC</span>
+								<span><img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow.png" width="50"> </span>
+								<span><img alt="" src="http://localhost:8087/SpringProject/resources/img/airplane.png"> </span>
+								<span>INC</span> 
+								<span id="down"><img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png"></span>
+							</div>
 						</div>
 						<!-- 						<img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png"> -->
 					</div>
@@ -99,6 +106,7 @@
 					</ul>
 				</div>
 			</div>
+<!-- 			 가는날끝 -->
 			<div class="panel-body" style="margin-left: 20px">
 				<section>
 					<h4>
