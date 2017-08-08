@@ -1,24 +1,27 @@
 package commit.ss.vo;
 
 public class SearchVO {
-	// Ãâ¹ßÁö, µµÂøÁö, Ãâ¹ßÀÏ, ¿Õº¹/Æíµµ, ¸Å¼ö
+
+	// ì¶œë°œì§€, ë„ì°©ì§€, ì¶œêµ­ì¼, ê·€êµ­ì¼, í¸ë„ëƒ?, ì„±ì¸ ìˆ˜, ì•„ì´ ìˆ˜.
 	private String departure;
 	private String arrival;
 	private String depDate;
-	private String isOneWay;
-	private int number;
+	private String arrDate;
+	private boolean isOneWay;
+	private int adultCount;
+	private int childCount;
 
-	public SearchVO() {
+	public SearchVO() {}
 
-	}
-
-	public SearchVO(String departure, String arrival, String depDate, String isOneWay, int number) {
-		super();
+	public SearchVO(String departure, String arrival, String depDate, String arrDate, boolean isOneWay, int adultCount,
+			int childCount) {
 		this.departure = departure;
 		this.arrival = arrival;
 		this.depDate = depDate;
+		this.arrDate = arrDate;
 		this.isOneWay = isOneWay;
-		this.number = number;
+		this.adultCount = adultCount;
+		this.childCount = childCount;
 	}
 
 	public String getDeparture() {
@@ -45,26 +48,36 @@ public class SearchVO {
 		this.depDate = depDate;
 	}
 
-	public String getIsOneWay() {
+	public String getArrDate() {
+		return arrDate;
+	}
+
+	public void setArrDate(String arrDate) {
+		this.arrDate = arrDate;
+	}
+
+	public boolean getIsOneWay() {
 		return isOneWay;
 	}
 
-	public void setIsOneWay(String isOneWay) {
+	public void setIsOneWay(boolean isOneWay) {
 		this.isOneWay = isOneWay;
 	}
 
-	public int getNumber() {
-		return number;
+	public int getAdultCount() {
+		return adultCount;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
+	public void setAdultCount(int adultCount) {
+		this.adultCount = adultCount;
 	}
 
-	@Override
-	public String toString() {
-		return "SearchVO [departure=" + departure + ", arrival=" + arrival + ", depDate=" + depDate + ", isOneWay="
-				+ isOneWay + ", number=" + number + "]";
+	public int getChildCount() {
+		return childCount;
+	}
+
+	public void setChildCount(int childCount) {
+		this.childCount = childCount;
 	}
 
 }

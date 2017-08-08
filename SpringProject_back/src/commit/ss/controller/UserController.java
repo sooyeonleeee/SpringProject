@@ -17,60 +17,60 @@ public class UserController {
 	@Autowired
 	UserDAO userDAO;
 
-	// ·Î±×ÀÎ
+	// ï¿½Î±ï¿½ï¿½ï¿½
 	@RequestMapping(value="/signIn", method=RequestMethod.POST)
 	public ModelAndView signIn(@RequestParam String id, @RequestParam String pwd) {
 		UserVO user = new UserVO(id, pwd);
 		String result = "";
-		// ·Î±×ÀÎ ¼º°ø
+		// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if (userDAO.signIn(user)) {
 			result = "success";
 		}
-		// ·Î±×ÀÎ ½ÇÆÐ
+		// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		else {
 			result = "fail";
 		}
 		return new ModelAndView("main", "result", result);
 	}
 
-	// È¸¿ø°¡ÀÔ
+	// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value="/signUp", method=RequestMethod.POST) 
 	public ModelAndView signUp(@RequestParam String id, @RequestParam String pwd) {
 		UserVO user = new UserVO(id, pwd);
 		String result = "";
-		// È¸¿ø°¡ÀÔ ¼º°ø
+		// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if (userDAO.signUp(user)) {
 			result = "success";
 		}
-		// È¸¿ø°¡ÀÔ ½ÇÆÐ
+		// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		else {
 			result = "fail";
 		}
 		return new ModelAndView("main", "result", result);
 	}
 	
-	// ºñ¹Ð¹øÈ£ º¯°æ
+	// ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value="/changePwd", method=RequestMethod.POST) 
 	public ModelAndView changePwd(@RequestParam String id, @RequestParam String pwd) {
 		UserVO user = new UserVO(id, pwd);
 		String result = "";
-		// º¯°æ ¼º°ø
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if (userDAO.signUp(user)) {
 			result = "success";
 		}
-		// º¯°æ ½ÇÆÐ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		else {
 			result = "fail";
 		}
 		return new ModelAndView("mypage", "result", result);
 	}
 
-	// Áñ°ÜÃ£±â
+	// ï¿½ï¿½ï¿½Ã£ï¿½ï¿½
 	@RequestMapping("/bookmark")
 	public ModelAndView getBookMark(@RequestParam String id) {
 		return null;
 	}
 	
-	// ÃÖ±Ù °Ë»ö
+	// ï¿½Ö±ï¿½ ï¿½Ë»ï¿½
 	
 }

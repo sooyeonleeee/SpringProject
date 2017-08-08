@@ -1,69 +1,38 @@
 package commit.ss.vo;
 
-import java.util.List;
-
 public class FlightVO {
-	// Ãâ¹ßÁö, µµÂøÁö, Ãâ¹ßÀÏ, ¿Õº¹/Æíµµ, ¸Å¼ö->SearchVO
-	// Æí¸í, Ç×°ø±â¸í, Ãâ¹ßÀÏ, Ãâ¹ß½Ã°£, µµÂøÀÏ, µµÂø½Ã°£, Æ¯º°¿îÀÓ°ú ÀÜ¿©ÁÂ¼®, Á¤»ó¿îÀÓ°ú ÀÜ¿©ÁÂ¼®
+	
+	// í•­ê³µì‚¬, ê±¸ë¦¬ëŠ” ì‹œê°„, ì¶œë°œ ì‹œê°„, ë„ì°© ì‹œê°„, ê°€ê²©
+	private String flightCarrier;
+	private int duration;
+	private String depTime;
+	private String arrTime;
+	private int price;
 
-	private SearchVO search; // searchVO
-	private String flightName; // Æí¸í
-	private String airplaneName; // Ç×°ø±â¸í
-	private String depDate; // Ãâ¹ßÀÏ
-	private String depTime; // Ãâ¹ß½Ã°£
-	private String arrDate; // µµÂøÀÏ
-	private String arrTime; // µµÂø½Ã°£
-	private List<RatesAndSeats> specialRates; // Æ¯º°¿îÀÓ°ú ÀÜ¿©ÁÂ¼®
-	private List<RatesAndSeats> normalRates; // Á¤»ó¿îÀÓ°ú ÀÜ¿©ÁÂ¼®
+	public FlightVO() {}
 
-	public FlightVO() {
-
-	}
-
-	public FlightVO(SearchVO search, String flightName, String airplaneName, String depDate, String depTime,
-			String arrDate, String arrTime, List<RatesAndSeats> specialRates, List<RatesAndSeats> normalRates) {
-		super();
-		this.search = search;
-		this.flightName = flightName;
-		this.airplaneName = airplaneName;
-		this.depDate = depDate;
+	public FlightVO(String flightCarrier, int duration, String depTime, String arrTime, int price) {
+		this.flightCarrier = flightCarrier;
+		this.duration = duration;
 		this.depTime = depTime;
-		this.arrDate = arrDate;
 		this.arrTime = arrTime;
-		this.specialRates = specialRates;
-		this.normalRates = normalRates;
+		this.price = price;
 	}
 
-	public SearchVO getSearch() {
-		return search;
+	public String getFlightCarrier() {
+		return flightCarrier;
 	}
 
-	public void setSearch(SearchVO search) {
-		this.search = search;
+	public void setFlightCarrier(String flightCarrier) {
+		this.flightCarrier = flightCarrier;
 	}
 
-	public String getFlightName() {
-		return flightName;
+	public int getDuration() {
+		return duration;
 	}
 
-	public void setFlightName(String flightName) {
-		this.flightName = flightName;
-	}
-
-	public String getAirplaneName() {
-		return airplaneName;
-	}
-
-	public void setAirplaneName(String airplaneName) {
-		this.airplaneName = airplaneName;
-	}
-
-	public String getDepDate() {
-		return depDate;
-	}
-
-	public void setDepDate(String depDate) {
-		this.depDate = depDate;
+	public void setDuration(int duration) {
+		this.duration = duration;
 	}
 
 	public String getDepTime() {
@@ -74,14 +43,6 @@ public class FlightVO {
 		this.depTime = depTime;
 	}
 
-	public String getArrDate() {
-		return arrDate;
-	}
-
-	public void setArrDate(String arrDate) {
-		this.arrDate = arrDate;
-	}
-
 	public String getArrTime() {
 		return arrTime;
 	}
@@ -90,64 +51,12 @@ public class FlightVO {
 		this.arrTime = arrTime;
 	}
 
-	public List<RatesAndSeats> getSpecialRates() {
-		return specialRates;
+	public int getPrice() {
+		return price;
 	}
 
-	public void setSpecialRates(List<RatesAndSeats> specialRates) {
-		this.specialRates = specialRates;
+	public void setPrice(int price) {
+		this.price = price;
 	}
-
-	public List<RatesAndSeats> getNormalRates() {
-		return normalRates;
-	}
-
-	public void setNormalRates(List<RatesAndSeats> normalRates) {
-		this.normalRates = normalRates;
-	}
-
-	@Override
-	public String toString() {
-		return "FlightVO [search=" + search + ", flightName=" + flightName + ", airplaneName=" + airplaneName
-				+ ", depDate=" + depDate + ", depTime=" + depTime + ", arrDate=" + arrDate + ", arrTime=" + arrTime
-				+ ", specialRates=" + specialRates + ", normalRates=" + normalRates + "]";
-	}
-
-}
-
-class RatesAndSeats {
-	private int rates;
-	private int seats;
-
-	public RatesAndSeats() {
-
-	}
-
-	public RatesAndSeats(int rates, int seats) {
-		super();
-		this.rates = rates;
-		this.seats = seats;
-	}
-
-	public int getRates() {
-		return rates;
-	}
-
-	public void setRates(int rates) {
-		this.rates = rates;
-	}
-
-	public int getSeats() {
-		return seats;
-	}
-
-	public void setSeats(int seats) {
-		this.seats = seats;
-	}
-
-	@Override
-	public String toString() {
-		return "RatesAndSeats [rates=" + rates + ", seats=" + seats + "]";
-	}
-
+	
 }
