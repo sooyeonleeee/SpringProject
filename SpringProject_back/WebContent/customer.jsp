@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	    
+<%
+	request.setCharacterEncoding("UTF-8");
+	String id = (String)session.getAttribute("id");
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,7 +78,7 @@
 						<div class="col-md-9">
 							<table>
 								<tr>
-									<td>이메일 정보</td> 
+									<td>${sessionScope.id }</td> 
 								</tr>
 							</table>
 						</div>

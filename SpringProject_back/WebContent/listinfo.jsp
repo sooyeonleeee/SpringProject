@@ -15,8 +15,8 @@
 					</h4>
 				</section>
 				<div class="row">
-					<div type="button" style="padding: 40px 250px" class="btn btn-default" data-toggle="collapse" data-target="#demo">Simple collapsible</div>
-					<div id="demo" class="collapse" style="padding: 40px 250px">ea commodo consequat.</div>
+					<div type="button" style="padding: 40px 100px" class="btn btn-default" data-toggle="collapse" data-target="#demo"><div class="col-sm-4 well" >INC</div><div class="col-sm-4">  <img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow.png" width="50"></div><img alt=""  src="http://localhost:8087/SpringProject/resources/img/airplane.png"><div class="col-sm-4">INC</div></div>
+					<div id="demo" class="collapse" style="padding: 40px 250px"></div>
 				</div>
 			</div>
 			<div class="panel-body">

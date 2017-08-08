@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,8 +40,6 @@
 	<ul class="nav nav-tabs-primary">	
 	
     <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-plane"></span> 항공권</a></li>
-    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-bed"></span>  호텔</a></li>
-    <li role="presentation"><a href="#"> <i class="fa fa-automobile"></i> 렌터카</a></li>
 	</ul>
 	
 	<ol class="breadcrumb-primary">
@@ -100,111 +100,116 @@
 				
 				<article data-cid="model_79942" data-deeplink="details" class="card result clearfix no-details   " ontouchstart="">
 				
-					<li class="day-list-item clearfix " style="list-style:none">
-				    
-				         <div class="card-body clearfix">
-				            <div class="clearfix carrier">
-					               <div class="airline">
-					                  <img src="//logos.skyscnr.com/images/airlines/favicon/E1.png"
-					                     alt="이스타항공" onerror="__imgErrRemove__(this)"> <span>이스타항공</span>
+					<c:forEach var="item" items="${reList }">
+						<li class="day-list-item clearfix " style="list-style:none">
+					    
+					         <div class="card-body clearfix">
+					            <div class="clearfix carrier">
+						               <div class="airline">
+						                  <img src="//logos.sky  scnr.com/images/airlines/favicon/E1.png"
+						                     alt="이스타항공" onerror="__imgErrRemove__(this)"><span>${item.goFlightCarrier}</span>
+						               </div>
+					            </div>
+					            
+			            <section data-id="0" class="card-main leg clearfix dept">
+			               <div class="big-airline">
+<!-- 			                  <img class="big" -->
+<!-- 			                     src="//logos.skyscnr.com/images/airlines/small/E1.png" -->
+<!-- 			                     alt="이스타항공" data-name="이스타항공" onerror="__logoReplace__(this)"> -->
+			                     <span>${item.goFlightCarrier}</span>
+			               </div>
+			               
+			               <div class="leg-details long-date-format">
+			                  <div class="depart">
+			                     <span class="station-tooltip" data-id="11876"> <span
+			                        class="times">${item.goDepTime}</span><br> <span class="stop-station"
+			                        data-id="11876">${item.origin}</span></span>
+			                  </div>
+			                  
+			                  <div class="stops">
+			                     <span class="duration">${item.goDuration}분 소요</span>
+			                     <ul class="stop-line">
+			                        <li class="stop-line"></li>
+			                     </ul>
+			                     <div class="leg-stops no-stops">
+			                        <span class="leg-stops-green leg-stops-label">직항 </span><span
+			                           class="leg-stops-station"></span>
+			                     </div>
+			                  </div>
+			                  
+			                  <div class="arrive">
+			                     <span class="station-tooltip" data-id="10562"> <span
+			                        class="times">${item.goArrTime}</span><br> <span class="stop-station"
+			                        data-id="10562">${item.destination}</span></span>
+			                  </div>
+			                  
+			                  <div class="clearfix"></div>
+			               </div>
+			            </section>
+			            
+			            <section data-id="1" class="card-main leg clearfix retn">
+			               <div class="big-airline">
+			                 <!--  <img class="big"
+			                     src="//logos.skyscnr.com/images/airlines/small/E1.png"
+			                     alt="이스타항공" data-name="이스타항공" onerror="__logoReplace__(this)"> --><span>${item.backFlightCarrier}</span>
+			               </div>
+			               
+			               <div class="leg-details long-date-format">
+			                  <div class="depart">
+			                     <span class="station-tooltip" data-id="10562"> <span
+			                        class="times">${item.backDepTime}</span> <br><span class="stop-station"
+			                        data-id="10562">${item.destination}</span></span>
+			                  </div>
+			                  <div class="stops">
+			                     <span class="duration">${item.backDuration}분 소요</span>
+			                     <ul class="stop-line">
+			                        <li class="stop-line"></li>
+			                     </ul>
+			                     <div class="leg-stops no-stops">
+			                        <span class="leg-stops-green leg-stops-label">직항 </span> <span
+			                           class="leg-stops-station"></span>
+			                     </div>
+			                  </div>
+			                  
+			                  <div class="arrive">
+			                     <span class="station-tooltip" data-id="11876"> <span
+			                        class="times">${item.backArrTime}</span> <br><span class="stop-station"
+			                        data-id="11876">${item.origin}</span></span>
+			                  </div>
+			                  
+			                  <div class="clearfix"></div>
+			               </div>
+			            </section>
+			         </div>
+			         
+			         <aside class="notch-holder"></aside>
+			         <div class="mainquote-cba clearfix">
+				            <div class="mainquote-wrapper-cba">
+					               <div class="mq-container-wrapper">
+						                  <div class="mq-container">
+							                     <div class="cba-price">
+							                        <div class="mainquote-group-price">
+							                           <a href="#" data-deeplink="details" target="_blank"
+							                              class="mainquote-price expand-cba select-action"> <span
+							                              class="" aria-hidden="true"></span>${item.goPrice + item.backPrice}
+							                           </a>
+							                        </div>
+							                     </div>
+							                     <a class="fss-bpk-button expand-cba select-action" href="#"
+							                        title="선택" data-deeplink="details" target="_blank"> <span
+							                        class="bpk-text">선택 >&nbsp;</span> <span
+							                        class="bpk-icon-sm bpk-icon-pointer bpk-icon-sm--align-to-button"></span></a>
+						                  </div>
 					               </div>
 				            </div>
-				            
-		            <section data-id="0" class="card-main leg clearfix dept">
-		               <div class="big-airline">
-		                  <img class="big"
-		                     src="//logos.skyscnr.com/images/airlines/small/E1.png"
-		                     alt="이스타항공" data-name="이스타항공" onerror="__logoReplace__(this)">
-		               </div>
-		               
-		               <div class="leg-details long-date-format">
-		                  <div class="depart">
-		                     <span class="station-tooltip" data-id="11876"> <span
-		                        class="times">오후 1:50</span><br> <span class="stop-station"
-		                        data-id="11876">GMP</span></span>
-		                  </div>
-		                  
-		                  <div class="stops">
-		                     <span class="duration">1시간 10분</span>
-		                     <ul class="stop-line">
-		                        <li class="stop-line"></li>
-		                     </ul>
-		                     <div class="leg-stops no-stops">
-		                        <span class="leg-stops-green leg-stops-label">직항 </span><span
-		                           class="leg-stops-station"></span>
-		                     </div>
-		                  </div>
-		                  
-		                  <div class="arrive">
-		                     <span class="station-tooltip" data-id="10562"> <span
-		                        class="times">오후 3:00</span><br> <span class="stop-station"
-		                        data-id="10562">CJU</span></span>
-		                  </div>
-		                  
-		                  <div class="clearfix"></div>
-		               </div>
-		            </section>
-		            
-		            <section data-id="1" class="card-main leg clearfix retn">
-		               <div class="big-airline">
-		                  <img class="big"
-		                     src="//logos.skyscnr.com/images/airlines/small/E1.png"
-		                     alt="이스타항공" data-name="이스타항공" onerror="__logoReplace__(this)">
-		               </div>
-		               
-		               <div class="leg-details long-date-format">
-		                  <div class="depart">
-		                     <span class="station-tooltip" data-id="10562"> <span
-		                        class="times">오후 9:25</span> <span class="stop-station"
-		                        data-id="10562">CJU</span></span>
-		                  </div>
-		                  <div class="stops">
-		                     <span class="duration">1시간 10분</span>
-		                     <ul class="stop-line">
-		                        <li class="stop-line"></li>
-		                     </ul>
-		                     <div class="leg-stops no-stops">
-		                        <span class="leg-stops-green leg-stops-label">직항 </span> <span
-		                           class="leg-stops-station"></span>
-		                     </div>
-		                  </div>
-		                  
-		                  <div class="arrive">
-		                     <span class="station-tooltip" data-id="11876"> <span
-		                        class="times">오후 10:35</span> <span class="stop-station"
-		                        data-id="11876">GMP</span></span>
-		                  </div>
-		                  
-		                  <div class="clearfix"></div>
-		               </div>
-		            </section>
-		         </div>
-		         
-		         <aside class="notch-holder"></aside>
-		         <div class="mainquote-cba clearfix">
-			            <div class="mainquote-wrapper-cba">
-				               <div class="mq-container-wrapper">
-					                  <div class="mq-container">
-						                     <div class="cba-price">
-						                        <div class="mainquote-group-price">
-						                           <a href="#" data-deeplink="details" target="_blank"
-						                              class="mainquote-price expand-cba select-action"> <span
-						                              class="" aria-hidden="true"></span>50,000
-						                           </a>
-						                        </div>
-						                     </div>
-						                     <a class="fss-bpk-button expand-cba select-action" href="#"
-						                        title="선택" data-deeplink="details" target="_blank"> <span
-						                        class="bpk-text">선택 >&nbsp;</span> <span
-						                        class="bpk-icon-sm bpk-icon-pointer bpk-icon-sm--align-to-button"></span></a>
-					                  </div>
-				               </div>
-			            </div>
-			          </div>		    
-			      
-			   </li>
+				          </div>		    
+				   </li>
+						
+					</c:forEach>
+					
+			   
 	    </article>
-			    
+			   
 	   </div>
 	</div></div>
 	
