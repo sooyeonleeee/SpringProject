@@ -53,7 +53,6 @@ public class SearchController {
 			
 			reList = gr.getResult(svo, go, back);
 		}
-		
 		return new ModelAndView("search", "reList", reList);
 	}
 
