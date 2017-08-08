@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Shop Item - Start Bootstrap Template</title>
+<title>회원정보 페이지</title>
 
 <!-- Bootstrap Core CSS -->
 <!-- <link href="./resources/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -50,14 +51,17 @@
 			<div class="col-md-3">
 				<div class="list-group">
 					
-					<a href="index.jsp" class="list-group-item"> 
+					<a href="customer.jsp" class="list-group-item"> 
 						<span class="glyphicon glyphicon-user"></span>      회원정보</a> 
 					<a href="book.jsp" class="list-group-item">
 						<span class="glyphicon glyphicon-list-alt"></span>     즐겨찾기</a>
+					<a href="history.jsp" class="list-group-item">
+						<span class="glyphicon glyphicon-list-alt"></span>     검색 내역</a>	
 				</div>
 			</div>
 
 			<div class="col-md-9" >
+			
 				<div id="con" class="well" style="background-color:white">
 				 	<div class="conn" >
 				 		 기본정보	
@@ -68,16 +72,21 @@
 						<div class="col-md-3">이메일 주소</div>
 
 						<div class="col-md-9">
-							<input type="text" class="input-md form-control"
-								name="email" id="email" autocomplete="off">
+							<table>
+								<tr>
+									<td>이메일 정보</td> 
+								</tr>
+							</table>
 						</div>
-
+						<hr>
 						<div class="col-md-3">
 							<button id="changePW">비밀번호 변경</button>
 						</div>
 					</div>
 				</div>
 			</div>
+			
+			
 		</div>
 	</div>
 
