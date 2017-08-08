@@ -101,9 +101,13 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	// �ֱٰ˻� ���
-	public List<SearchVO> getHistory(String id) {
-		List<SearchVO> list = redisDAO.getObject(historyKey + id, List.class);
-		return list;
+	public String getHistory(String id) {
+		List<String> list = redisDAO.getObject(historyKey + id, List.class);
+		System.out.println("------------------------------------------history(userdaoimpl");
+		for (String string : list) {
+			System.out.println(string);
+		}
+		return list.toString();
 	}
 
 	// �ֱٰ˻� ����
@@ -122,11 +126,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public boolean addHistory(String id, SearchVO search) {
-		JSONObject obj = new JSONObject();
-		obj.put("date", getDate());
-		redisDAO.setObject(historyKey + id, obj.toJSONString());
 		String history = new Gson().toJson(search);
-		redisDAO.setObject("history", history);
+		redisDAO.setObject(historyKey + id, history);
 		return true;
 	}
 }

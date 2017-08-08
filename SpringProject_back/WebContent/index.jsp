@@ -4,7 +4,7 @@
 <div class="container">
 		<div id="row" style="margin-top: 250px">
 			<div class="well">
-				<form class="form-inline" action="http://localhost:8087/SpringProject/search" method="post">
+				<form class="form-inline" action="http://localhost:8087/SpringProject/search?id=${sessionScope.id }" method="post">
 					<table class="table table-bordered">
 						<thead>
 							<th>출발지</th>

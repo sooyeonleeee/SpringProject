@@ -136,7 +136,8 @@ public class PageController {
 	// 검색 기록 리스트
 	@RequestMapping("/history")
 	public ModelAndView gotoHistory(@RequestParam String id) {
-		List<SearchVO> list = dao.getHistory(id);
+		String list = dao.getHistory(id);
+		System.out.println("controller");		
 		return new ModelAndView("history", "history", list);
 	}
 

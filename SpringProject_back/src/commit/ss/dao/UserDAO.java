@@ -33,7 +33,7 @@ public interface UserDAO {
 	public boolean deleteAllBookMark(String id);
 
 	// �ֱٰ˻� ���
-	public List<SearchVO> getHistory(String id);
+	public String getHistory(String id);
 	
 	public boolean addHistory(String id, SearchVO search);
 

@@ -39,7 +39,7 @@ String id = (String)session.getAttribute("id");
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand  navbar-brand-centered" href="#">BRANDING</a>
+				<a class="navbar-brand  navbar-brand-centered" href="index.jsp">BRANDING</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
@@ -52,11 +52,8 @@ String id = (String)session.getAttribute("id");
 					</c:if>
 					
 					<c:if test="${not empty sessionScope.id}">
-<<<<<<< HEAD
+
 						<li><a href="http://localhost:8087/SpringProject/mypage?id=${sessionScope.id }"><button type="button" class="btn btn-info">${sessionScope.id}님
-=======
-						<li><a href="customer.jsp"><button type="button" class="btn btn-info">${sessionScope.id}님
->>>>>>> branch 'master' of https://github.com/sooyeonleeee/SpringProject.git
 									&nbsp;환영합니다</button></a></li>
 						<li><a href="http://localhost:8087/SpringProject/logout.do"><button type="button" class="btn btn-info">LOGOUT</button></a></li>
 					</c:if>

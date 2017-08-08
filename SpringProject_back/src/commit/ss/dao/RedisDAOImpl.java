@@ -1,5 +1,6 @@
 package commit.ss.dao;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
@@ -18,14 +19,19 @@ public class RedisDAOImpl implements RedisDAO {
 
 	@Override
 	public <T> void setObject(String key, T value) {
-		// TODO Auto-generated method stub
+		removeAllObject(key);
 		redisTemplate.opsForList().rightPush(key, value);
+		System.out.println("----------------------------------------총 " + redisTemplate.opsForList().size(key) + "건");
+		System.out.println("---------------------------------------------key + value");
+		System.out.println("key: " + key);
+		System.out.println("value: " + value);
 	}
 
 	@Override
 	public void removeAllObject(String key) {
 		// TODO Auto-generated method stub
-		redisTemplate.opsForList().trim(key, 0, 0);
+		//Long size = redisTemplate.opsForList().size(key);
+		redisTemplate.opsForList().trim(key,0,99);
 	}
 
 	@Override

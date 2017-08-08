@@ -72,21 +72,33 @@ tr:nth-child(even) {
 									<th>도착지</th>
 									<th>출발일</th>
 									<th>도착일</th>
-									<th>가격</th>
+									<th>편도/왕복</th>
+									<th>성인 수</th>
+									<th>소아미만 수</th>
 									<th>삭제</th>
 								</tr>
 								<tr style="background-color: white">
-									<td>서울</td>
+									<!-- <td>서울</td>
 									<td>제주</td>
 									<td>2017년 8월 1일</td>
 									<td>2017년 8월 5일</td>
 									<td>100,000원</td>
-									<td>  <!--  삭제버튼 -->
+									<td>   삭제버튼
 									  <button type="button" class="btn btn-default btn-sm">
     							      <span class="glyphicon glyphicon-trash"></span>삭제
        								  </button> 
-       								</td>
-
+       								</td> -->
+       								<c:forEach var="history" items="${history }"></c:forEach>
+       								<td>${history.departure }</td>
+       								<td>${history.arrival }</td>
+       								<td>${history.depDate }</td>
+       								<td>${history.arrDate }</td>
+       								<td>${history.isOneWay }</td>
+       								<td>${history.adultCount }</td>
+       								<td>${history.childCount }</td>
+									<td><button type="button" class="btn btn-default btn-sm">
+    							      <span class="glyphicon glyphicon-trash"></span>삭제
+       								  </button></td>
 								</tr>
 
 							</table>
