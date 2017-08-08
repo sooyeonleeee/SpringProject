@@ -110,7 +110,6 @@ tr:nth-child(even) {
 		<hr>
 
 	</div>
-	<!-- /.container -->
 
 	<!-- jQuery -->
 	<script src="resource/js/jquery.js"></script>
