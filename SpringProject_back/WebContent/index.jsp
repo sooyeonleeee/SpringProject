@@ -37,7 +37,7 @@
 											<button type="button" class="btn btn-default" data-dir="dwn" >
 												<span class="glyphicon glyphicon-minus"></span>
 											</button>
-										</span> <input type="text" class="form-control text-center" value="1" name="adultCount" > <span class="input-group-btn">
+										</span> <input type="text" class="form-control text-center" value="2" name="adultCount" > <span class="input-group-btn">
 											<button type="button" class="btn btn-default" data-dir="up">
 												<span class="glyphicon glyphicon-plus"></span>
 											</button>
@@ -50,7 +50,7 @@
 											<button type="button" class="btn btn-default" data-dir="dwn">
 												<span class="glyphicon glyphicon-minus"></span>
 											</button>
-										</span> <input type="text" class="form-control text-center" value="1" name="childCount"> <span class="input-group-btn">
+										</span> <input type="text" class="form-control text-center" value="0" name="childCount"> <span class="input-group-btn">
 											<button type="button" class="btn btn-default" data-dir="up">
 												<span class="glyphicon glyphicon-plus"></span>
 											</button>
@@ -59,7 +59,7 @@
 								</td>
 								<td colspan="2">
 									<span class="col-sm-3">
-										<label for="path1"><input type="radio" class="form-control text-center" name="isOneWay"  value="1" id="path1">왕복</label>
+										<label for="path1"><input type="radio" class="form-control text-center" name="isOneWay"  value="1" id="path1" checked="TRUE">왕복</label>
 									</span>
 									<span class="col-sm-3">
 										<label for="path2"><input type="radio" class="form-control text-center" name="isOneWay"value="0" id="path2">편도</label>
