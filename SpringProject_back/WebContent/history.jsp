@@ -68,6 +68,7 @@ tr:nth-child(even) {
 
 							<table class="table table-bordered">
 								<tr>
+									<th>번호</th>
 									<th>출발지</th>
 									<th>도착지</th>
 									<th>출발일</th>
@@ -77,18 +78,9 @@ tr:nth-child(even) {
 									<th>소아미만 수</th>
 									<th>삭제</th>
 								</tr>
+									<c:forEach var="history" items="${history}" varStatus="status">
 								<tr style="background-color: white">
-									<!-- <td>서울</td>
-									<td>제주</td>
-									<td>2017년 8월 1일</td>
-									<td>2017년 8월 5일</td>
-									<td>100,000원</td>
-									<td>   삭제버튼
-									  <button type="button" class="btn btn-default btn-sm">
-    							      <span class="glyphicon glyphicon-trash"></span>삭제
-       								  </button> 
-       								</td> -->
-       								<c:forEach var="history" items="${history }"></c:forEach>
+									<td>${status.count }</td>
        								<td>${history.departure }</td>
        								<td>${history.arrival }</td>
        								<td>${history.depDate }</td>
@@ -96,11 +88,11 @@ tr:nth-child(even) {
        								<td>${history.isOneWay }</td>
        								<td>${history.adultCount }</td>
        								<td>${history.childCount }</td>
-									<td><button type="button" class="btn btn-default btn-sm">
+									<td><a href="<%=request.getContextPath()%>/deleteHistory?num=${status.count }"><button type="button" class="btn btn-default btn-sm">
     							      <span class="glyphicon glyphicon-trash"></span>삭제
-       								  </button></td>
+       								  </button></a></td>
 								</tr>
-
+								</c:forEach>
 							</table>
 
 						</div>

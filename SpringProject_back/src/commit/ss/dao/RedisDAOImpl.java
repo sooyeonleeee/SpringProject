@@ -19,7 +19,6 @@ public class RedisDAOImpl implements RedisDAO {
 
 	@Override
 	public <T> void setObject(String key, T value) {
-		removeAllObject(key);
 		redisTemplate.opsForList().rightPush(key, value);
 		System.out.println("----------------------------------------총 " + redisTemplate.opsForList().size(key) + "건");
 		System.out.println("---------------------------------------------key + value");
@@ -30,8 +29,8 @@ public class RedisDAOImpl implements RedisDAO {
 	@Override
 	public void removeAllObject(String key) {
 		// TODO Auto-generated method stub
-		//Long size = redisTemplate.opsForList().size(key);
-		redisTemplate.opsForList().trim(key,0,99);
+		Long size = redisTemplate.opsForList().size(key);
+		redisTemplate.opsForList().trim(key,size+1,size+1);
 	}
 
 	@Override

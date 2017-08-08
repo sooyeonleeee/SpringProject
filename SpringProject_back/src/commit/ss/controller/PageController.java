@@ -136,8 +136,9 @@ public class PageController {
 	// 검색 기록 리스트
 	@RequestMapping("/history")
 	public ModelAndView gotoHistory(@RequestParam String id) {
-		String list = dao.getHistory(id);
-		System.out.println("controller");		
+		List<SearchVO> list = dao.getHistory(id);
+		System.out.println("controller");
+		System.out.println(list);
 		return new ModelAndView("history", "history", list);
 	}
 
@@ -145,14 +146,14 @@ public class PageController {
 	@RequestMapping("/deleteHistory")
 	public String deleteHistory(@RequestParam String id, SearchVO search) {
 		dao.deleteHistory(id, search);
-		return "redirect:/bookmark";
+		return "redirect:/history";
 	}
 
 	// 검색 기록 모두 삭제
 	@RequestMapping("/deleteAllHistory")
 	public String deleteAllHistory(@RequestParam String id) {
 		dao.deleteAllHistory(id);
-		return "redirect:/bookmark";
+		return "redirect:/history";
 	}
 
 }

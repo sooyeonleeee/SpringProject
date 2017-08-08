@@ -1,5 +1,6 @@
 package commit.ss.dao;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -101,13 +102,16 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	// �ֱٰ˻� ���
-	public String getHistory(String id) {
+	public List<SearchVO> getHistory(String id) {
 		List<String> list = redisDAO.getObject(historyKey + id, List.class);
-		System.out.println("------------------------------------------history(userdaoimpl");
+		ArrayList<SearchVO> result = new ArrayList<>();
 		for (String string : list) {
 			System.out.println(string);
+			Gson gson = new Gson();
+			System.out.println(list.size());
+			result.add(gson.fromJson(string, SearchVO.class));
 		}
-		return list.toString();
+		return result;
 	}
 
 	// �ֱٰ˻� ����
