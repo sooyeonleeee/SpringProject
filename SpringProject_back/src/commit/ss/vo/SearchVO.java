@@ -7,13 +7,13 @@ public class SearchVO {
 	private String arrival;
 	private String depDate;
 	private String arrDate;
-	private boolean isOneWay;
+	private String isOneWay;
 	private int adultCount;
 	private int childCount;
 
 	public SearchVO() {}
 
-	public SearchVO(String departure, String arrival, String depDate, String arrDate, boolean isOneWay, int adultCount,
+	public SearchVO(String departure, String arrival, String depDate, String arrDate, String isOneWay, int adultCount,
 			int childCount) {
 		this.departure = departure;
 		this.arrival = arrival;
@@ -56,11 +56,11 @@ public class SearchVO {
 		this.arrDate = arrDate;
 	}
 
-	public boolean getIsOneWay() {
+	public String getIsOneWay() {
 		return isOneWay;
 	}
 
-	public void setIsOneWay(boolean isOneWay) {
+	public void setIsOneWay(String isOneWay) {
 		this.isOneWay = isOneWay;
 	}
 
