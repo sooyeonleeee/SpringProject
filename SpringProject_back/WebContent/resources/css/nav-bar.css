@@ -2,13 +2,18 @@
 .nav-tabs-primary {
   border-bottom: 1px solid #00b2d6;
   margin-left:200px;
+  margin-top:-75px;
 }
 .nav-tabs-primary > li {
   /*float: left;
   margin-bottom: -1px;*/
   float: left;
-  margin-bottom: -1px;
-  margin-right: 4px;
+  margin-bottom: 0px;
+  margin-right: 10px;
+  margin-top:53px;
+  z-index:1500;
+  height:45px;
+  
   line-height: 1.42857143;
   border: 1px solid #00b2d6;
   border-radius: 4px 4px 0 0;
@@ -30,6 +35,7 @@
   cursor: default;
   background-color: #00b2d6;
   margin-left:0px;
+  height:45px;
   /*border: 1px solid #3071a9;
   /*border-bottom-color: transparent;*/
   /*border-color: #3071a9 #3071a9 #3071a9 #3071a9;*/
@@ -82,10 +88,30 @@
 }
 
 .breadcrumb-primary {
-  padding: 25px 70px;
+	height: 60px;
+  padding: 10px 10px;
   margin-bottom: 10px;
   margin-right: 200px;
   margin-left: 200px;
   list-style: none;
   background-color: #008ca8;
+  color: WHITE;
+
+}
+
+.breadcrumb-primary .duration{
+    font-size: 0.7em;
+}
+
+.breadcrumb-primary .searchTop{
+	
+   float: left;
+    text-align: center;
+}
+
+.breadcrumb-primary .top_Line{
+	float:left;
+   width: 20px;
+    border-top: 1.5px solid white;
+    margin: 10px 0;
 }
