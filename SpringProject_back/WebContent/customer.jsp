@@ -14,12 +14,12 @@
 <title>Shop Item - Start Bootstrap Template</title>
 
 <!-- Bootstrap Core CSS -->
-<!-- <link href="Resource/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- <link href="resource/css/bootstrap.min.css" rel="stylesheet"> -->
 
 
 <!-- Custom CSS -->
-<link href="Resource/css/shop-item.css" rel="stylesheet">
-<link href="Resource/css/table-item.css" rel="stylesheet">
+<link href="resource/css/shop-item.css" rel="stylesheet">
+<link href="resource/css/table-item.css" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -157,10 +157,10 @@
 	<!-- /.container -->
 
 	<!-- jQuery -->
-	<script src="Resource/js/jquery.js"></script>
+	<script src="resource/js/jquery.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
-	<script src="Resource/js/bootstrap.min.js"></script>
+	<script src="resource/js/bootstrap.min.js"></script>
 
 </body>
 

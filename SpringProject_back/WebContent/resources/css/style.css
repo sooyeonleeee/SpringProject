@@ -1,0 +1,140 @@
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #f8f8f8;
+    
+}
+
+
+/* whole body */
+.day-list-item .card {
+    width: 70%;
+    height: 90%;
+   /*  margin:0 auto; */
+    margin-left:-60px;
+}
+
+/* left side */
+.card-body{
+	height:230px;
+    width: calc(70% - 2px);
+    background-color: white;
+    float: left;
+    border-radius: 8px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.1);
+    padding: 40px 0;
+    border-right: 2px dotted grey;
+}
+
+.card-body .airline {
+    display: none;
+}
+
+.card-body .card-main {
+    width: 80%;
+    margin: 0 auto;
+    height: 100px;
+}
+
+.card-body .card-main:last-child {
+    width: 80%;
+    margin: 0 auto;
+    height:0px;
+}
+
+
+.card-body .big-airline{
+    width: 150px;
+    float: left;
+
+}
+
+.card-body .depart{
+    width: 15%;
+    text-align: right;
+    float: left;
+    line-height: 2;
+    margin-right: 20px;
+    margin-bottom: 
+}
+
+.card-body .arrive{
+    width: 15%;
+    text-align: left;
+    float: left;
+    line-height: 2;
+    margin-left: 20px;
+}
+
+.card-body .duration{
+    font-size: 0.8em;
+}
+
+.card-body .times{
+    font-weight: bold;
+}
+
+
+.card-body .stops {
+   float: left;
+    text-align: center;
+}
+
+.card-body .stop-line li{
+    width: 120px;
+    border-top: 1.5px solid grey;
+    margin: 10px 0;
+}
+
+.card-body .stop-station {
+    opacity: 0.6;
+}
+
+.card-body .leg-stops-green {
+    color: green;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+/* notch line */
+.notch-holder {
+    float: left;
+    height: 100%;
+    
+}
+
+/* right side */
+.mainquote-cba {
+    padding: 78px 0;
+    width: 30%;
+    height: 230px;
+    float: left;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+}
+
+.mainquote-cba .mq-container{
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 2;
+    
+}
+
+.mainquote-cba .mainquote-price{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.7em;
+}
+
+.mainquote-cba .fss-bpk-button{
+    width: 200px;
+    color: white;
+    font-size: 1.1em;
+    background-color: yellowgreen;
+    border-radius: 30px;
+    text-decoration: none;
+    padding: 10px 20px;
+}
