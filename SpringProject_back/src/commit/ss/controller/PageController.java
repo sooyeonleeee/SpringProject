@@ -86,7 +86,7 @@ public class PageController {
 		return new ModelAndView("book", "result", result);
 	}
 
-	
+	// 검색을 통해 나온 결과의 상세 페이지(비행기편 하나)
 	@RequestMapping("/listinfo")
 	public String listinfo(HttpSession session) {
 		session.removeAttribute("id");
@@ -95,13 +95,11 @@ public class PageController {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-
 	public String home(Locale locale, Model model) {
-
 		return "index";
 	}
 
-	// 마이페이지
+	// 마이페이지(첫부분 - 회원정보를 보여주고 비밀번호를 변경할 수 있는 페이지)
 	@RequestMapping("/mypage")
 	public String gotoMyPage() {
 		return "customer";
