@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>		
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +12,8 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>즐겨찾기</title>
+<title>검색 내역e</title>
+
 
 
 <style>
@@ -27,6 +28,7 @@ td, th {
 	text-align: left;
 	padding: 8px;
 }
+
 
 tr:nth-child(even) {
 	background-color: #dddddd;
@@ -53,20 +55,20 @@ tr:nth-child(even) {
 					<a href="book.jsp" class="list-group-item">
 						<span class="glyphicon glyphicon-list-alt"></span>     즐겨찾기</a>
 					<a href="history.jsp" class="list-group-item">
-						<span class="glyphicon glyphicon-list-alt"></span>     검색 내역</a>	
+						<span class="glyphicon glyphicon-list-alt"></span>     검색 내역</a>
 				</div>
 			</div>
 
 
 			<div class="col-md-9">
-
+		
 				<div class="cont">
 					<div class="well" style="background-color: white">
-						즐겨찾기
+						검색내용
 						<hr>
 						<div class="row" style="background-color: white">
 
-							<table class="table">
+							<table class="table table-bordered">
 								<tr>
 									<th>출발지</th>
 									<th>도착지</th>
@@ -74,6 +76,7 @@ tr:nth-child(even) {
 									<th>도착일</th>
 									<th>가격</th>
 									<th>기타</th>
+								</tr>
 								<tr style="background-color: white">
 									<td>서울</td>
 									<td>제주</td>
@@ -93,6 +96,7 @@ tr:nth-child(even) {
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
@@ -106,7 +110,6 @@ tr:nth-child(even) {
 		<hr>
 
 	</div>
-	<!-- /.container -->
 
 	<!-- jQuery -->
 	<script src="resource/js/jquery.js"></script>
