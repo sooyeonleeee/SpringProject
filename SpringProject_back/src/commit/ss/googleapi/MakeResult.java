@@ -16,7 +16,9 @@ public class MakeResult {
 		ResultVO rvo;
 		
 		for(FlightVO fvo : oneWay) {
-			rvo = new ResultVO(svo.getDeparture(), svo.getArrival(), svo.getDepDate(), svo.getArrDate(), fvo);
+			
+			rvo = new ResultVO(svo.getDeparture(), svo.getArrival(), svo.getDepDate(), svo.getArrDate(),
+										fvo.getFlightCarrier(), fvo.getDuration(), fvo.getDepTime(), fvo.getArrTime(), fvo.getPrice());
 			reList.add(rvo);
 		}
 		
@@ -33,11 +35,15 @@ public class MakeResult {
 				if(svo.getDepDate().equals(svo.getArrDate())) {
 				
 					if(dateCompare(g.getArrTime(), b.getDepTime())) {
-						r = new ResultVO(svo.getDeparture(), svo.getArrival(), svo.getDepDate(), svo.getArrDate(), g, b);
+						r = new ResultVO(svo.getDeparture(), svo.getArrival(), svo.getDepDate(), svo.getArrDate(),
+								g.getFlightCarrier(), g.getDuration(), g.getDepTime(), g.getArrTime(), g.getPrice(),
+								b.getFlightCarrier(), b.getDuration(), b.getDepTime(), b.getArrTime(), b.getPrice());
 					}else continue;
 
 				}else {
-					r = new ResultVO(svo.getDeparture(), svo.getArrival(), svo.getDepDate(), svo.getArrDate(), g, b);
+					r = new ResultVO(svo.getDeparture(), svo.getArrival(), svo.getDepDate(), svo.getArrDate(),
+							g.getFlightCarrier(), g.getDuration(), g.getDepTime(), g.getArrTime(), g.getPrice(),
+							b.getFlightCarrier(), b.getDuration(), b.getDepTime(), b.getArrTime(), b.getPrice());
 				}
 				reList.add(r);
 				r = new ResultVO();

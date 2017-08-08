@@ -7,27 +7,49 @@ public class ResultVO {
 	private String destination;
 	private String depDate;
 	private String arrDate;
-	private FlightVO goFlightVO;
-	private FlightVO backFlightVO;
+	private String goFlightCarrier;
+	private int goDuration;
+	private String goDepTime;
+	private String goArrTime;
+	private int goPrice;
+	private String backFlightCarrier;
+	private int backDuration;
+	private String backDepTime;
+	private String backArrTime;
+	private int backPrice;
 	
 	public ResultVO(){}
-	
-	public ResultVO(String origin, String destination, String depDate, String arrDate, FlightVO goFlightVO) {
+
+	public ResultVO(String origin, String destination, String depDate, String arrDate, String goFlightCarrier,
+			int goDuration, String goDepTime, String goArrTime, int goPrice) {
 		this.origin = origin;
 		this.destination = destination;
 		this.depDate = depDate;
 		this.arrDate = arrDate;
-		this.goFlightVO = goFlightVO;
+		this.goFlightCarrier = goFlightCarrier;
+		this.goDuration = goDuration;
+		this.goDepTime = goDepTime;
+		this.goArrTime = goArrTime;
+		this.goPrice = goPrice;
 	}
 
-	public ResultVO(String origin, String destination, String depDate, String arrDate, FlightVO goFlightVO,
-			FlightVO backFlightVO) {
+	public ResultVO(String origin, String destination, String depDate, String arrDate, String goFlightCarrier,
+			int goDuration, String goDepTime, String goArrTime, int goPrice, String backFlightCarrier, int backDuration,
+			String backDepTime, String backArrTime, int backPrice) {
 		this.origin = origin;
 		this.destination = destination;
 		this.depDate = depDate;
 		this.arrDate = arrDate;
-		this.goFlightVO = goFlightVO;
-		this.backFlightVO = backFlightVO;
+		this.goFlightCarrier = goFlightCarrier;
+		this.goDuration = goDuration;
+		this.goDepTime = goDepTime;
+		this.goArrTime = goArrTime;
+		this.goPrice = goPrice;
+		this.backFlightCarrier = backFlightCarrier;
+		this.backDuration = backDuration;
+		this.backDepTime = backDepTime;
+		this.backArrTime = backArrTime;
+		this.backPrice = backPrice;
 	}
 
 	public String getOrigin() {
@@ -46,14 +68,6 @@ public class ResultVO {
 		this.destination = destination;
 	}
 
-	public String getArrDate() {
-		return arrDate;
-	}
-
-	public void setArrDate(String arrDate) {
-		this.arrDate = arrDate;
-	}
-
 	public String getDepDate() {
 		return depDate;
 	}
@@ -62,69 +76,93 @@ public class ResultVO {
 		this.depDate = depDate;
 	}
 
-	public FlightVO getGoFlightVO() {
-		return goFlightVO;
+	public String getArrDate() {
+		return arrDate;
 	}
 
-	public void setGoFlightVO(FlightVO goFlightVO) {
-		this.goFlightVO = goFlightVO;
+	public void setArrDate(String arrDate) {
+		this.arrDate = arrDate;
 	}
 
-	public FlightVO getBackFlightVO() {
-		return backFlightVO;
+	public String getGoFlightCarrier() {
+		return goFlightCarrier;
 	}
 
-	public void setBackFlightVO(FlightVO backFlightVO) {
-		this.backFlightVO = backFlightVO;
+	public void setGoFlightCarrier(String goFlightCarrier) {
+		this.goFlightCarrier = goFlightCarrier;
 	}
 
-	public void print() {
-		System.out.println("===================================================================");
-		System.out.println("출발지 : " + origin +
-									" 도착지 : " + destination +
-									" 출국일 : " + depDate +
-									" 귀국일 : " + arrDate +"\n"+
-									"가는 편 : [ 출발시간 : " + goFlightVO.getDepTime() +", "+
-									"도착 시간 : "+goFlightVO.getArrTime()+", "+
-									"걸리는 시간 : "+goFlightVO.getDuration()+"분, "+
-									"항공사 : "+goFlightVO.getFlightCarrier()+", "+
-									"가격 : "+goFlightVO.getPrice()+"원 ]" + " \n" +
-									"오는 편 : [ 출발시간 : " + backFlightVO.getDepTime() +", "+
-									"도착 시간 : "+backFlightVO.getArrTime()+", "+
-									"걸리는 시간 : "+backFlightVO.getDuration()+"분, "+
-									"항공사 : "+backFlightVO.getFlightCarrier()+", "+
-									"가격 : "+backFlightVO.getPrice()+"원 ]");
-		System.out.println("===================================================================");
+	public int getGoDuration() {
+		return goDuration;
+	}
+
+	public void setGoDuration(int goDuration) {
+		this.goDuration = goDuration;
+	}
+
+	public String getGoDepTime() {
+		return goDepTime;
+	}
+
+	public void setGoDepTime(String goDepTime) {
+		this.goDepTime = goDepTime;
+	}
+
+	public String getGoArrTime() {
+		return goArrTime;
+	}
+
+	public void setGoArrTime(String goArrTime) {
+		this.goArrTime = goArrTime;
+	}
+
+	public int getGoPrice() {
+		return goPrice;
+	}
+
+	public void setGoPrice(int goPrice) {
+		this.goPrice = goPrice;
+	}
+
+	public String getBackFlightCarrier() {
+		return backFlightCarrier;
+	}
+
+	public void setBackFlightCarrier(String backFlightCarrier) {
+		this.backFlightCarrier = backFlightCarrier;
+	}
+
+	public int getBackDuration() {
+		return backDuration;
+	}
+
+	public void setBackDuration(int backDuration) {
+		this.backDuration = backDuration;
+	}
+
+	public String getBackDepTime() {
+		return backDepTime;
+	}
+
+	public void setBackDepTime(String backDepTime) {
+		this.backDepTime = backDepTime;
+	}
+
+	public String getBackArrTime() {
+		return backArrTime;
+	}
+
+	public void setBackArrTime(String backArrTime) {
+		this.backArrTime = backArrTime;
+	}
+
+	public int getBackPrice() {
+		return backPrice;
+	}
+
+	public void setBackPrice(int backPrice) {
+		this.backPrice = backPrice;
 	}
 	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
