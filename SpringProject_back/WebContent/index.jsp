@@ -4,7 +4,7 @@
 <div class="container">
 		<div id="row" style="margin-top: 250px">
 			<div class="well">
-				<form class="form-inline" action="http://localhost:8087/SpringProject/search.do">
+				<form class="form-inline" action="http://localhost:8087/SpringProject/search" method="post">
 					<table class="table table-bordered">
 						<thead>
 							<th>출발지</th>
@@ -57,7 +57,7 @@
 										</span>
 									</div>
 								</td>
-								<td colspan="2"><span class="col-sm-3"> <label for="path1"><input type="radio" class="form-control text-center" name="isOneWay" id="path1">왕복</label></span> <span class="col-sm-3"> <label for="path2"><input type="radio" class="form-control text-center" name="isOneWay" id="path2">편도</label>
+								<td colspan="2"><span class="col-sm-3"> <label for="path1"><input type="radio" class="form-control text-center" name="isOneWay"  value="왕복" id="path1">왕복</label></span> <span class="col-sm-3"> <label for="path2"><input type="radio" class="form-control text-center" name="isOneWay"value="편도" id="path2">편도</label>
 								</span></td>
 							</tr>
 						</tbody>
@@ -155,7 +155,7 @@
 				if (btn.attr('data-dir') == 'up') {
 					newVal = parseInt(oldValue) + 1;
 				} else {
-					if (oldValue > 1) {
+					if (oldValue >= 1) {
 						newVal = parseInt(oldValue) - 1;
 					} else {
 						newVal = 1;
