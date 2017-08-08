@@ -36,7 +36,7 @@ public interface UserDAO {
 	public List<SearchVO> getHistory(String id);
 
 	// 최근검색 삭제
-	public boolean deleteHistory(SearchVO search);
+	public boolean deleteHistory(String id, SearchVO search);
 
 	// 최근검색 모두 삭제
 	public boolean deleteAllHistory(String id);

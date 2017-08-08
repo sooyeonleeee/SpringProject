@@ -1,3 +1,4 @@
+
 package commit.ss.controller;
 
 
@@ -49,7 +50,7 @@ public class UserController {
 		return new ModelAndView("main", "result", result);
 	}
 	
-	// ��й�ȣ ����
+	// ��й��? ����
 	@RequestMapping(value="/changePwd", method=RequestMethod.POST) 
 	public ModelAndView changePwd(@RequestParam String id, @RequestParam String pwd) {
 		UserVO user = new UserVO(id, pwd);
@@ -65,7 +66,7 @@ public class UserController {
 		return new ModelAndView("mypage", "result", result);
 	}
 
-	// ���ã��
+	// ���ã��?
 	@RequestMapping("/bookmark")
 	public ModelAndView getBookMark(@RequestParam String id) {
 		return null;
