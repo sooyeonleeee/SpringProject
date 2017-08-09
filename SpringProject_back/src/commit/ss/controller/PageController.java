@@ -110,6 +110,7 @@ public class PageController {
 	@RequestMapping("/bookmark")
 	public ModelAndView gotoBookMark(@RequestParam String id) {
 		List<FlightVO> list = dao.getBookMark(id);
+	
 		return new ModelAndView("book", "bookmark", list);
 	}
 
