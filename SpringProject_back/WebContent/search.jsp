@@ -101,6 +101,7 @@
 				<article data-cid="model_79942" data-deeplink="details" class="card result clearfix no-details   " ontouchstart="">
 				
 					<c:forEach var="item" items="${reList }">
+					 <c:set var="item" value="${item}" scope="request"/>
 						<li class="day-list-item clearfix " style="list-style:none">
 					    
 					         <div class="card-body clearfix">
@@ -209,8 +210,11 @@
 												        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 												      </div>
 												      <div class="modal-body">
-		   											      <c:set var="item" value="${item}" scope="request"/>
+		   											      
+													     
 													      <c:import url="listinfo.jsp"/>
+													     
+													      
 												      </div>
 												      <div class="modal-footer">
 												        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -235,7 +239,7 @@
 				          
 				          </div>
 				   </li>
-						
+						 <c:remove var="item"/>
 					</c:forEach>
 					
 			   
