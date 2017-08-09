@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -57,6 +58,7 @@
 				</div>
 			</div>
 <!-- 			가는날시작 -->
+			<c:if test="${not empty item.backFlightCarrier}" >
 			<div class="panel-body" style="margin-left: 20px">
 				<section>
 					<h4>
@@ -101,6 +103,7 @@
 					</ul>
 				</div>
 			</div>
+			</c:if>
 <!-- 			 가는날끝 -->
 			<div class="panel-body" style="margin-left: 20px">
 				<section>
@@ -130,17 +133,30 @@
 										</ul>
 									</div>
 								</div>
-								<div class="panel-body">
-									<div class="col-sm-6 text-left">${item.goFlightCarrier} & ${item.backFlightCarrier}</div>
-									<div class="col-sm-3 bt">
-										<h4>
-											<b>${item.goPrice + item.backPrice}</b>
-										</h4>
-									</div>
-									<div class="col-sm-3 text-center">
-										<button type="button" class="btn btn-info btn-lg">선택</button>
-									</div>
-								</div>
+										<div class="panel-body">
+								<c:choose>
+									<c:when test="${not empty item.backFlightCarrier}">
+											<div class="col-sm-6 text-left">${item.goFlightCarrier} & ${item.backFlightCarrier}</div>
+											<div class="col-sm-3 bt">
+												<h4>
+													<b>${item.goPrice + item.backPrice}</b>
+												</h4>
+											</div>
+									</c:when>
+									<c:when test="${empty item.backFlightCarrier}">
+											<div class="col-sm-6 text-left">${item.goFlightCarrier}</div>
+											<div class="col-sm-3 bt">
+												<h4>
+													<b>${item.goPrice}</b>
+												</h4>
+											</div>
+									</c:when>
+								</c:choose>
+											<div class="col-sm-3 text-center">
+												<button type="button" class="btn btn-info btn-lg">선택</button>
+											</div>
+										</div>
+								
 							</div>
 						</ul>
 					</div>
