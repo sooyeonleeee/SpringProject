@@ -30,6 +30,11 @@ body{
     display: none;
 }
 
+.card-body .big-airline{
+	width : 60px;
+	height: 30px;
+}
+
 .card-body .card-main {
     width: 80%;
     margin: 0 auto;
@@ -45,6 +50,7 @@ body{
 
 .card-body .big-airline{
     width: 150px;
+    height: 40px;
     float: left;
 
 }
