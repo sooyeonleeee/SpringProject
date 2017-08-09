@@ -1,10 +1,10 @@
 package commit.ss.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import commit.ss.dao.UserDAO;
 import commit.ss.vo.FlightVO;
+import commit.ss.vo.ResultVO;
 import commit.ss.vo.SearchVO;
 import commit.ss.vo.UserVO;
 
@@ -33,9 +34,7 @@ public class PageController {
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, Boolean> home1(UserVO user, HttpSession session) {
-		System.out.println(user.toString());
 		boolean login = dao.signIn(user);
-		System.out.println(login);
 		if (login == true) {
 			result.put("result", login);
 			session.setAttribute("id", user.getId());
@@ -56,7 +55,6 @@ public class PageController {
 	@RequestMapping(value = "/duplicate.do", method = RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, Boolean> duplicate(@RequestParam("id") String id) {
-		System.out.println(id + "----------------------------------------------");
 		boolean id_result = dao.signDuplicate_id(id);
 
 		result.put("result", id_result);
@@ -109,8 +107,31 @@ public class PageController {
 	// 즐겨찾기 리스트
 	@RequestMapping("/bookmark")
 	public ModelAndView gotoBookMark(@RequestParam String id) {
-		List<FlightVO> list = dao.getBookMark(id);
-	
+		// List<FlightVO> list = dao.getBookMark(id);
+		List<ResultVO> list = new ArrayList<>();
+
+		list.add(new ResultVO("origin1", "destination1", "depDate1", "arrDate1", "goFlightCarrier1", 10, "goDepTime1",
+				"goArrTime1", 100000));
+		list.add(new ResultVO("origin2", "destination2", "depDate2", "arrDate2", "goFlightCarrier2", 20, "goDepTime2",
+				"goArrTime2", 200000));
+		list.add(new ResultVO("origin3", "destination3", "depDate3", "arrDate3", "goFlightCarrier3", 30, "goDepTime3",
+				"goArrTime3", 300000));
+		list.add(new ResultVO("origin4", "destination4", "depDate4", "arrDate4", "goFlightCarrier4", 40, "goDepTime4",
+				"goArrTime4", 400000));
+		list.add(new ResultVO("origin5", "destination5", "depDate5", "arrDate5", "goFlightCarrier5", 50, "goDepTime5",
+				"goArrTime5", 500000));
+		list.add(new ResultVO("origin6", "destination6", "depDate6", "arrDate6", "goFlightCarrier6", 60, "goDepTime6",
+				"goArrTime6", 600000));
+		list.add(new ResultVO("origin7", "destination7", "depDate7", "arrDate7", "goFlightCarrier7", 70, "goDepTime7",
+				"goArrTime7", 700000));
+		list.add(new ResultVO("origin8", "destination8", "depDate8", "arrDate8", "goFlightCarrier8", 80, "goDepTime8",
+				"goArrTime8", 800000));
+		list.add(new ResultVO("origin9", "destination9", "depDate9", "arrDate9", "goFlightCarrier9", 90, "goDepTime9",
+				"goArrTime9", 900000));
+		list.add(new ResultVO("origin10", "destination10", "depDate10", "arrDate10", "goFlightCarrier10", 100,
+				"goDepTime10", "goArrTime10", 1000000));
+
+
 		return new ModelAndView("book", "bookmark", list);
 	}
 
@@ -118,36 +139,36 @@ public class PageController {
 	@RequestMapping("/addBookMark")
 	public String addBookMark(@RequestParam String id, FlightVO flight) {
 		dao.addBookMark(id, flight);
-		return "redirect:/listinfo";
+		return "book";
 	}
 
 	// 즐겨찾기 삭제
 	@RequestMapping("/deleteBookMark")
-	public String deleteBookMark(@RequestParam String id, FlightVO flight) {
-		dao.deleteBookMark(id, flight);
-		return "redirect:/bookmark";
+	public String deleteBookMark(@RequestParam String id, @RequestParam int index) {
+		/*dao.deleteBookMark(id, index);
+		list.remove(index);
+		return new ModelAndView("bookmark", "bookmark", list);*/
+		System.out.println("index-----------------------------------------------"+index);
+		return "redirect:/bookmark?id="+id;
 	}
 
 	// 즐겨찾기 모두 삭제
 	@RequestMapping("/deleteAllBookMark")
 	public String deleteAllBookMark(@RequestParam String id) {
 		dao.deleteAllBookMark(id);
-		return "redirect:/bookmark";
+		return "book";
 	}
 
 	// 검색 기록 리스트
 	@RequestMapping("/history")
 	public ModelAndView gotoHistory(@RequestParam String id) {
 		List<SearchVO> list = dao.getHistory(id);
-		System.out.println("controller");
-		System.out.println(list);
 		return new ModelAndView("history", "history", list);
 	}
 
 	// 검색 기록 모두 삭제
 	@RequestMapping("/deleteAllHistory")
 	public String deleteAllHistory(@RequestParam String id) {
-		System.out.println(id);
 		dao.deleteAllHistory(id);
 		return "history";
 	}

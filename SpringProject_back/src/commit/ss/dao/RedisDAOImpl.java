@@ -1,6 +1,5 @@
 package commit.ss.dao;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
@@ -30,7 +29,7 @@ public class RedisDAOImpl implements RedisDAO {
 	public void removeAllObject(String key) {
 		// TODO Auto-generated method stub
 		Long size = redisTemplate.opsForList().size(key);
-		redisTemplate.opsForList().trim(key,size+1,size+1);
+		redisTemplate.opsForList().trim(key, size + 1, size + 1);
 	}
 
 	@Override
