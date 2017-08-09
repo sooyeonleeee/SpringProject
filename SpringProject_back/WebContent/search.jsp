@@ -147,6 +147,7 @@
 			               </div>
 			            </section>
 			            
+			            <c:if test="${not empty item.backFlightCarrier}" >
 			            <section data-id="1" class="card-main leg clearfix retn">
 			               <div class="big-airline">
 			                 <!--  <img class="big"
@@ -180,6 +181,8 @@
 			                  <div class="clearfix"></div>
 			               </div>
 			            </section>
+			            
+			            </c:if>
 			         </div>
 			         
 			         <aside class="notch-holder"></aside>
@@ -206,10 +209,8 @@
 												        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 												      </div>
 												      <div class="modal-body">
-												      
-												     	  <c:set var="item" value="${item}" scope="request"/>
+		   											      <c:set var="item" value="${item}" scope="request"/>
 													      <c:import url="listinfo.jsp"/>
-												     
 												      </div>
 												      <div class="modal-footer">
 												        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
