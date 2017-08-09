@@ -36,6 +36,13 @@
 	<!-- Header -->
 	<jsp:include page = "include/header.jsp"></jsp:include>
 	
+	<ul class="nav nav-tabs-primary">	
+	
+		    <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-plane"></span> 항공권</a></li>
+		
+	</ul>
+	
+	
 		<ol class="breadcrumb-primary">
 	 <li> 
 		<div class="searchTop">
@@ -72,7 +79,7 @@
 			<div class = "row" id="detCon">
 				<div class="col-sm-2">
 					  <div class="list-group panel">
-					    <a class="list-group-item list-group-item strong text-center" style="background: #009ce0; color: white;" data-toggle="collapse"> 정렬 </a>
+					    <a class="list-group-item list-group-item strong text-center" style="background: #008ca8; color: white;" data-toggle="collapse"> 정렬 </a>
 					    <a href="#demo1" class="list-group-item list-group-item-success strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-clock-o" aria-hidden="true"></i> 시간 설정 <i class="fa fa-caret-down"></i></a>
 					    <div class="collapse list-group-submenu" id="demo1">
 					      <a href="#" class="list-group-item"><input type="checkbox">  Audio Content</a>
@@ -92,32 +99,48 @@
 					      <a href="#" class="list-group-item"><input type="checkbox">  최고가</a>
 					      <a href="#" class="list-group-item"><input type="checkbox">  최저가</a>
 					    </div>
-					      <a class="list-group-item list-group-item strong text-center" style="background: #009ce0; color: white;" data-toggle="collapse"><button type="button" class="btn btn-success btn-sm">SEARCH</button> </a>
+					      <a class="list-group-item list-group-item strong text-center" style="background: #008ca8; color: white;" data-toggle="collapse"><button type="button" class="btn btn-success btn-sm">SEARCH</button> </a>
 					  </div>
 				</div>
 			<div class="col-sm-10">		
 				
 				<article data-cid="model_79942" data-deeplink="details" class="card result clearfix no-details   " ontouchstart="">
 				
-					<c:forEach var="item" items="${reList }">
+					<c:forEach var="item" items="${reList }" varStatus="stat">
+						<c:set var="obj" value="${item}" scope="request"/>
 						<li class="day-list-item clearfix " style="list-style:none">
 					    
 					         <div class="card-body clearfix">
 					            <div class="clearfix carrier">
 						               <div class="airline">
-						                  <img src="//logos.sky  scnr.com/images/airlines/favicon/E1.png"
-						                     alt="이스타항공" onerror="__imgErrRemove__(this)"><span>${item.goFlightCarrier}</span>
+						                  <img class="korean_air" src="resources/img/korean_air.png"
+			                     alt="대한항공" data-name="대한항공" onerror="__imgErrRemove__(this)"><span>${item.goFlightCarrier}</span>
 						               </div>
 					            </div>
 					            
 			            <section data-id="0" class="card-main leg clearfix dept">
-			               <div class="big-airline">
-<!-- 			                  <img class="big" -->
-<!-- 			                     src="//logos.skyscnr.com/images/airlines/small/E1.png" -->
-<!-- 			                     alt="이스타항공" data-name="이스타항공" onerror="__logoReplace__(this)"> -->
-			                     <span>${item.goFlightCarrier}</span>
-			               </div>
-			               
+			            
+			            <c:choose>
+			            	<c:when test="${item.goFlightCarrier eq 'KE'}">
+			            		<div class="big-airline">
+				                  <img class="korean_air"
+				                     src="resources/img/korean_air.png"
+				                     alt="대한항공" data-name="대한항공" onerror="__logoReplace__(this)">
+			                     <%-- <span>${item.goFlightCarrier}</span> --%>
+			             	  	</div>
+			             	  </c:when>
+			             	  
+			             	  <c:when test="${item.goFlightCarrier eq 'OZ'}">
+			            		<div class="big-airline">
+				                  <img class="korean_air"
+				                     src="resources/img/asiana_air.png"
+				                     alt="아시아나항공" data-name="아시아나항공" onerror="__logoReplace__(this)">
+			                     <%-- <span>${item.goFlightCarrier}</span> --%>
+			             	  	</div>
+			             	  </c:when>
+			            	
+			            </c:choose>
+			            
 			               <div class="leg-details long-date-format">
 			                  <div class="depart">
 			                     <span class="station-tooltip" data-id="11876"> <span
@@ -149,9 +172,10 @@
 			            <c:if test="${not empty item.backFlightCarrier}" >
 			            <section data-id="1" class="card-main leg clearfix retn">
 			               <div class="big-airline">
-			                 <!--  <img class="big"
-			                     src="//logos.skyscnr.com/images/airlines/small/E1.png"
-			                     alt="이스타항공" data-name="이스타항공" onerror="__logoReplace__(this)"> --><span>${item.backFlightCarrier}</span>
+			                  <img class="korean_air"
+			                     src="resources/img/korean_air.png"
+			                     alt="대한항공" data-name="대한항공" onerror="__logoReplace__(this)">
+			                     <%-- <span>${item.backFlightCarrier}</span> --%>
 			               </div>
 			               
 			               <div class="leg-details long-date-format">
@@ -197,19 +221,22 @@
 							                           </a>
 							                        </div>
 							                     </div>
-							                     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+							                     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal${stat.index }">
 							                     	선택
 							                     </button>
 
-												<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+												<div class="modal fade" id="myModal${stat.index }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 												  <div class="modal-dialog modal-lg">
 												    <div class="modal-content">
 												      <div class="modal-header">
 												        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 												      </div>
 												      <div class="modal-body">
-		   											      <c:set var="item" value="${item}" scope="request"/>
+		   											      
+													      <c:set var="stat" value="${stat}" scope="request"/>
 													      <c:import url="listinfo.jsp"/>
+  														  <c:remove var="obj" scope="request"/>
+													      
 												      </div>
 												      <div class="modal-footer">
 												        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -221,20 +248,7 @@
 					               </div>
 				            </div>
 				          </div>
-				          
-				          <div class="modal" id="detailModal" tabindex="-1" role="dialog">
-				          
-				          	<div class="modal-content">
-				          		<h1>asdfa</h1>
-				          	</div>
-				          	
-				          	<div class="modal-footer">
-				          		<button type="button" class="btn" data-dismiss="modal">닫기</button>
-				          	</div>
-				          
-				          </div>
 				   </li>
-						
 					</c:forEach>
 					
 			   

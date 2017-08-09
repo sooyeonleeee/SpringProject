@@ -12,6 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
+
 <title>즐겨찾기</title>
 
 
@@ -31,6 +32,11 @@ td, th {
 tr:nth-child(even) {
 	background-color: #dddddd;
 }
+
+.bookmark_btn{
+	float:right;
+}
+
 </style>
 </head>
 
@@ -69,11 +75,13 @@ tr:nth-child(even) {
 				<div class="cont">
 					<div class="well" style="background-color: white">
 						즐겨찾기 
+						
+						<div class="bookmark_btn">
 						<a href="<%=request.getContextPath()%>/deleteAllBookMark?id=${sessionScope.id}">
 							<button type="button" class="btn btn-default btn-sm">
 								<span class="glyphicon glyphicon-trash"></span>즐겨찾기 전체삭제
 							</button>
-						</a>
+						</a></div>
 						<hr>
 						<div class="row" style="background-color: white">
 								<table class="table">
@@ -85,7 +93,6 @@ tr:nth-child(even) {
 										<th>도착일시</th>
 										<th>소요시간</th>
 										<th>가격</th>
-										<!-- <th>삭제</th> -->
 										<c:forEach var="bm" items="${bookmark}" varStatus="status">
 											<tr style="background-color: white">
 												<td>${status.count }</td>
@@ -95,15 +102,6 @@ tr:nth-child(even) {
 												<td>${bm.arrDate}&nbsp;${bm.goArrTime }</td>
 												<td>${bm.goDuration }</td>
 												<td>${bm.goPrice }</td>
-												<!--  삭제버튼 -->
-												<%--<td>
-												 <form method="POST" action="<%=request.getContextPath() %>/deleteBookMark">
-													<input type="hidden" name="id" value="${sessionScope.id }">
-													<input type="hidden" name="index" value="${status.count}">
-													<button type="submit" class="btn btn-default btn-sm">
-														<span class="glyphicon glyphicon-trash"></span>삭제
-													</button></form> 
-												</td>--%>
 											</tr>
 										</c:forEach>
 								</table>
