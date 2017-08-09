@@ -136,4 +136,31 @@ html {
 	margin-left:-10px;
 	padding: 10px;
 }
+
+
+.searchTop{
+	float:left;
+	font-size:135%;
+	margin-left"WebContent/index.jsp":15px;
+	margin-top: 10px;
+}
+.icon {
+	float:left;
+	margin-left : 15px;
+
+}
+.searchStart {
+	float:left;
+	margin-left: 10px; 
+	margin-top: -5px;
+}
+.searchArr {
+	float:left;
+	margin-top: -5px;
+}
+.line {
+	float:left;
+	margin-left:15px;
+	margin-right:15px;
+}
   

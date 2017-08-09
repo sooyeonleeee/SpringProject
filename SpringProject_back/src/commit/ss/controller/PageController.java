@@ -76,16 +76,79 @@ public class PageController {
 	}
 
 	// 비밀번호 변경
+//	@RequestMapping(value = "/changePwd", method = RequestMethod.POST)
+//	public ModelAndView changePwd(HttpSession session, @RequestParam String pwd,
+//						@RequestParam String nowPwd) {
+//		
+//		String id1 = ""; 
+//		String result = "" ;
+//		
+//		id1 = (String) session.getAttribute("id");
+//		
+//		 //session.selectOne("userMapper.selectUser", id1);
+//
+//		System.out.println("====Test=====");
+//		System.out.println("id : " + id1);
+//		System.out.println("now pwd : " + nowPwd);
+//		System.out.println("pwd : " + pwd);
+//		
+//		UserVO user = new UserVO(id1, nowPwd);
+//		
+//		if(dao.signIn(user)) {
+//			
+//			
+//			UserVO new_user = new UserVO(id1,pwd);
+//			
+//				if (dao.changePwd(new_user)) {
+//					result = "success";
+//				} else {
+//					result = "fail";
+//				}
+//		}else {
+//			result = "fail";
+//		}
+//		
+//		System.out.println("==Result== " + result);
+//		
+//		return new ModelAndView("customer", "up_result", result);
+//	}
+	
 	@RequestMapping(value = "/changePwd", method = RequestMethod.POST)
-	public ModelAndView changePwd(@RequestParam String id, @RequestParam String pwd) {
-		UserVO user = new UserVO(id, pwd);
-		String result = "";
-		if (dao.signUp(user)) {
-			result = "success";
-		} else {
+	@ResponseBody
+	public String changePwd(@RequestParam String pwd,
+						@RequestParam String nowPwd,HttpSession session) {
+		System.out.println("++++++++++++++++++++++++++++++++++");
+		String id1 = ""; 
+		String result = "" ;
+		
+		id1 = (String) session.getAttribute("id");
+		
+		 //session.selectOne("userMapper.selectUser", id1);
+
+		System.out.println("====Test=====");
+		System.out.println("id : " + id1);
+		System.out.println("now pwd : " + nowPwd);
+		System.out.println("pwd : " + pwd);
+		
+		UserVO user = new UserVO(id1, nowPwd);
+		
+		if(dao.signIn(user)) {
+			
+			
+			UserVO new_user = new UserVO(id1,pwd);
+			
+				if (dao.changePwd(new_user)) {
+					result = "success";
+				} else {
+					result = "fail";
+				}
+		}else {
 			result = "fail";
 		}
-		return new ModelAndView("book", "result", result);
+		
+		System.out.println("==Result== " + result);
+		
+		return result;
 	}
 
 	// 상세 페이지
@@ -102,8 +165,10 @@ public class PageController {
 
 	// 마이페이지
 	@RequestMapping("/mypage")
-	public String gotoMyPage() {
-		return "customer";
+	public ModelAndView gotoMyPage(@RequestParam String id) {
+		
+		
+		return new ModelAndView("customer", "result", result);
 	}
 
 	// 즐겨찾기 리스트

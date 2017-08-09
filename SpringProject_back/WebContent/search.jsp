@@ -36,29 +36,28 @@
 	<!-- Header -->
 	<jsp:include page = "include/header.jsp"></jsp:include>
 	
-	<!-- Nav bar -->
-	<ul class="nav nav-tabs-primary">	
-	
-    <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-plane"></span> 항공권</a></li>
-	</ul>
-	
-	<ol class="breadcrumb-primary">
-		<li> <i class="fa fa-search" style="font-size:20px;color:white;"></i>
-		                  
-		         <div class="searchTop">
-		         	<span class="start"> 서울 </span>
-		         	<ul class="top_Line">
-		         		<li class="top_line"></li>
-		         	</ul>
-		         	
-		         	<div class ="info">
-		         		<span class="info_dep">
-		         			성인석
-		         		</span>
-		         	</div>
-		         	
-		         </div>         
-		
+		<ol class="breadcrumb-primary">
+	 <li> 
+		<div class="searchTop">
+			<div class="icon">
+				<i class="fa fa-search" style="font-size:15px;color:white;"></i>
+			</div>
+			
+			<div class="searchStart">
+				<span class="start"> 서울</span>
+			</div>
+			
+			<div class="line">
+			<ul class="top_Line">
+		         			<li class="top_line"></li>
+		        </ul>
+			</div>
+			
+			<div class="searchArr">
+				<span class="arr"> 김포</span>
+			</div>
+
+			 </div>         
 		 </li>
 	</ol>
 	
