@@ -131,6 +131,7 @@ public class PageController {
 		list.add(new ResultVO("origin10", "destination10", "depDate10", "arrDate10", "goFlightCarrier10", 100,
 				"goDepTime10", "goArrTime10", 1000000));
 
+
 		return new ModelAndView("book", "bookmark", list);
 	}
 
