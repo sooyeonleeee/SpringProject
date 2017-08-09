@@ -1,149 +1,144 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="include/header.jsp" />
-<!-- ¸Þ´º -->
-<div class="container">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 	<div class="row">
-		<div class="panel panel-default" style="margin-left: 20px">
+		<div class="panel panel-default">
 			<div class="panel-heading">
 				<div class="row">
 					<div class="col-sm-11">
-						<b><h2>¿©Çà ÀÏÁ¤È®ÀÎ</h2></b>
+						<b><h2>ì—¬í–‰ ì¼ì •í™•ì¸</h2></b>
 					</div>
 					<div class="col-sm-1">
 						<br> &nbsp;<img alt="" src="http://localhost:8087/SpringProject/resources/img/staon.png">
 					</div>
 				</div>
 			</div>
-			<div class="panel-body" style="margin-left: 20px">
+			<div class="panel-body" style="margin-left: 10px">
 				<section>
 					<h4>
-						<b>¿À´Â³¯ Ãâ¹ß½Ã°£<Á÷Ç× ¿Õº¹ À¯¹Â></b>
+						<b>ê°€ëŠ”ë‚ </b>
 					</h4>
 				</section>
 				<div class="row">
-					<div type="button" style="padding: 10px 175px" class="btn btn-default" data-toggle="collapse" data-target="#demo1">
+					<div type="button" style="padding: 10px 175px" class="btn btn-default" data-toggle="collapse" data-target="#go1">
 						<div class="col-sm-12 ">
 							<div class="row listbox" >
-								<span >INC</span>
+								<span >${item.origin}</span>
 								<span><img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow.png" width="50"> </span>
 								<span><img alt="" src="http://localhost:8087/SpringProject/resources/img/airplane.png"> </span>
-								<span>INC</span> 
+								<span>${item.destination }</span> 
 								<span id="down"><img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png"></span>
 							</div>
 						</div>
 						<!-- 						<img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png"> -->
 					</div>
 				</div>
-				<div id="demo1" class="collapse well row col-sm-7">
+				<div id="go1" class="collapse well row col-sm-7 col-sm-offset-2">
 					<ul class="list-group">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<b>Æ¼¿þÀÌ Ç×°ø TW719</b>
+								<b>${item.goFlightCarrier}</b>
 							</div>
 							<div class="panel-body">
-								<div class="col-sm-4">ÃÑ½Ã°£</div>
 								<div class="col-sm-4">
-									<p>¿ÀÈÄ 6:10</p>
-									<p>¿ÀÈÄ 7:15</p>
+									<p>ì´ì‹œê°„</p>
+									<p>${item.goDuration}ë¶„</p>
 								</div>
 								<div class="col-sm-4">
-									<p>GMP ¼­¿ï ±èÆ÷</p>
-									<p>CJU Á¦ÁÖ°øÇ×</p>
+									<p>${item.goDepTime }</p>
+									<p>${item.goArrTime }</p>
 								</div>
-							</div>
-							<div class="panel-body">
-								<div class="col-sm-6 text-center">½Ã°£</div>
-								<div class="col-sm-6 text-center">dd</div>
+								<div class="col-sm-4">
+									<p>${item.origin}</p>
+									<p>${item.destination}</p>
+								</div>
 							</div>
 						</div>
 					</ul>
 				</div>
 			</div>
-<!-- 			°¡´Â³¯½ÃÀÛ -->
+<!-- 			ê°€ëŠ”ë‚ ì‹œìž‘ -->
 			<div class="panel-body" style="margin-left: 20px">
 				<section>
 					<h4>
-						<b>°¡´Â³¯ Ãâ¹ß½Ã°£<Á÷Ç× ¿Õº¹ À¯¹Â></b>
+						<b>ì˜¤ëŠ”ë‚ </b>
 					</h4>
 				</section>
 				<div class="row">
-					<div type="button" style="padding: 10px 175px" class="btn btn-default" data-toggle="collapse" data-target="#demo2">
+					<div type="button" style="padding: 10px 175px" class="btn btn-default" data-toggle="collapse" data-target="#back2">
 						<div class="col-sm-12 ">
 							<div class="row listbox" >
-								<span >INC</span>
+								<span >${item.destination }</span>
 								<span><img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow.png" width="50"> </span>
 								<span><img alt="" src="http://localhost:8087/SpringProject/resources/img/airplane.png"> </span>
-								<span>INC</span> 
+								<span>${item.origin }</span> 
 								<span id="down"><img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png"></span>
 							</div>
 						</div>
 						<!-- 						<img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png"> -->
 					</div>
 				</div>
-				<div id="demo2" class="collapse well row col-sm-7">
+				<div id="back2" class="collapse well row col-sm-7 col-sm-offset-2">
 					<ul class="list-group">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<b>Æ¼¿þÀÌ Ç×°ø TW719</b>
+								<b>${item.backFlightCarrier }</b>
 							</div>
 							<div class="panel-body">
-								<div class="col-sm-4">ÃÑ½Ã°£</div>
 								<div class="col-sm-4">
-									<p>¿ÀÈÄ 6:10</p>
-									<p>¿ÀÈÄ 7:15</p>
+									<p>ì´ì‹œê°„</p>
+									<p>${item.backDuration}ë¶„</p>
 								</div>
 								<div class="col-sm-4">
-									<p>GMP ¼­¿ï ±èÆ÷</p>
-									<p>CJU Á¦ÁÖ°øÇ×</p>
+									<p>${item.backDepTime }</p>
+									<p>${item.backArrTime }</p>
 								</div>
-							</div>
-							<div class="panel-body">
-								<div class="col-sm-6 text-center">½Ã°£</div>
-								<div class="col-sm-6 text-center">dd</div>
+								<div class="col-sm-4">
+									<p>${item.destination}</p>
+									<p>${item.origin}</p>
+								</div>
 							</div>
 						</div>
 					</ul>
 				</div>
 			</div>
-<!-- 			 °¡´Â³¯³¡ -->
+<!-- 			 ê°€ëŠ”ë‚ ë -->
 			<div class="panel-body" style="margin-left: 20px">
 				<section>
 					<h4>
-						<b>Æ¼ÄÏÀ» ¿¹¾àÇÏ½Ê½Ã¿À</b>
+						<b>í‹°ì¼“ì„ ì˜ˆì•½í•˜ì‹­ì‹œì˜¤</b>
 					</h4>
 				</section>
 				<div class="row">
-					<div class="col-sm-7">
+					<div class="col-sm-7 col-sm-offset-2">
 						<ul class="list-group">
 							<div class="panel panel-default">
 								<div class="panel-heading ">
 									<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#y_btn">
-										<b>¿¹¾àÀü¿¡ ÀÐ¾îº¸¼¼¿ä</b>
+										<b>ì˜ˆì•½ì „ì— ì½ì–´ë³´ì„¸ìš”</b>
 									</button>
 									<div id="y_btn" class="collapse well">
 										<p>
-											Ç¥½ÃµÈ ¿ä±Ý¿¡´Â ¸ðµç ¼¼±Ý ¹× ¼ö¼ö·á°¡ Æ÷ÇÔµÇ¾î ÀÖÀ¸³ª, ¿¹¾à Àü¿¡ À¥»çÀÌÆ®¿¡¼­ <em>Æ¼ÄÏÀÇ ¼¼ºÎÁ¤º¸, ÃÖÁ¾ °¡°Ý, ¾à°ü</em>À» ¹Ýµå½Ã È®ÀÎÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.
+											í‘œì‹œëœ ìš”ê¸ˆì—ëŠ” ëª¨ë“  ì„¸ê¸ˆ ë° ìˆ˜ìˆ˜ë£Œê°€ í¬í•¨ë˜ì–´ ìžˆìœ¼ë‚˜, ì˜ˆì•½ ì „ì— ì›¹ì‚¬ì´íŠ¸ì—ì„œ <em>í‹°ì¼“ì˜ ì„¸ë¶€ì •ë³´, ìµœì¢… ê°€ê²©, ì•½ê´€</em>ì„ ë°˜ë“œì‹œ í™•ì¸í•˜ì‹œê¸° ë°”ëžë‹ˆë‹¤.
 										</p>
 										<ul>
-											<li><p class="fss-bold">Ãß°¡ ¿ä±Ý È®ÀÎ</p>
+											<li><p class="fss-bold">ì¶”ê°€ ìš”ê¸ˆ í™•ì¸</p>
 												<p>
-													ÀÏºÎ Ç×°ø»ç/¿©Çà»çÀÇ °æ¿ì <em>¼öÇÏ¹°</em>, <em>º¸Çè</em> ¶Ç´Â <em>½Å¿ë Ä«µå</em> »ç¿ë¿¡ ´ëÇÑ Ãß°¡ ¿ä±ÝÀ» ºÎ°úÇÕ´Ï´Ù.<a href="/airlinefees" title="»õ Ã¢¿¡¼­ ¿­±â" target="_blank" class="airline-fees-link">Ç×°ø»ç ¼ö¼ö·á</a> º¸±â.
+													ì¼ë¶€ í•­ê³µì‚¬/ì—¬í–‰ì‚¬ì˜ ê²½ìš° <em>ìˆ˜í•˜ë¬¼</em>, <em>ë³´í—˜</em> ë˜ëŠ” <em>ì‹ ìš© ì¹´ë“œ</em> ì‚¬ìš©ì— ëŒ€í•œ ì¶”ê°€ ìš”ê¸ˆì„ ë¶€ê³¼í•©ë‹ˆë‹¤.<a href="/airlinefees" title="ìƒˆ ì°½ì—ì„œ ì—´ê¸°" target="_blank" class="airline-fees-link">í•­ê³µì‚¬ ìˆ˜ìˆ˜ë£Œ</a> ë³´ê¸°.
 												</p></li>
-											<li><p class="fss-bold">12~16¼¼ ½Â°´¿¡ ´ëÇÑ ÀÌ¿ë ¾à°üÀ» È®ÀÎÇÏ½Ê½Ã¿À.</p>
-												<p>º¸È£ÀÚ¸¦ µ¿¹ÝÇÏÁö ¾Ê°í È¥ÀÚ ¿©ÇàÇÏ´Â ¾î¸° ½Â°´¿¡°Ô´Â Á¦ÇÑ »çÇ×ÀÌ Àû¿ëµÉ ¼ö ÀÖ½À´Ï´Ù.</p></li>
+											<li><p class="fss-bold">12~16ì„¸ ìŠ¹ê°ì— ëŒ€í•œ ì´ìš© ì•½ê´€ì„ í™•ì¸í•˜ì‹­ì‹œì˜¤.</p>
+												<p>ë³´í˜¸ìžë¥¼ ë™ë°˜í•˜ì§€ ì•Šê³  í˜¼ìž ì—¬í–‰í•˜ëŠ” ì–´ë¦° ìŠ¹ê°ì—ê²ŒëŠ” ì œí•œ ì‚¬í•­ì´ ì ìš©ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</p></li>
 										</ul>
 									</div>
 								</div>
 								<div class="panel-body">
-									<div class="col-sm-6 text-left">Ç×°øÀÌ¸§</div>
+									<div class="col-sm-6 text-left">${item.goFlightCarrier} & ${item.backFlightCarrier}</div>
 									<div class="col-sm-3 bt">
 										<h4>
-											<b>°¡°Ý</b>
+											<b>${item.goPrice + item.backPrice}</b>
 										</h4>
 									</div>
 									<div class="col-sm-3 text-center">
-										<button type="button" class="btn btn-info btn-lg">¼±ÅÃ</button>
+										<button type="button" class="btn btn-info btn-lg">ì„ íƒ</button>
 									</div>
 								</div>
 							</div>
@@ -153,15 +148,3 @@
 			</div>
 		</div>
 	</div>
-</div>
-</div>
-<!-- 	<footer class="container-fluid text-center"> -->
-<!-- 	<p>Footer Text</p> -->
-<!-- 	</footer> -->
-<jsp:include page="/main/login.jsp" />
-<jsp:include page="/main/join.jsp" />
-</body>
-</html>
-<script>
-	
-</script>

@@ -189,20 +189,50 @@
 						                  <div class="mq-container">
 							                     <div class="cba-price">
 							                        <div class="mainquote-group-price">
-							                           <a href="#" data-deeplink="details" target="_blank"
+							                           <a href="#" target="_blank"
 							                              class="mainquote-price expand-cba select-action"> <span
 							                              class="" aria-hidden="true"></span>${item.goPrice + item.backPrice}
 							                           </a>
 							                        </div>
 							                     </div>
-							                     <a class="fss-bpk-button expand-cba select-action" href="#"
-							                        title="선택" data-deeplink="details" target="_blank"> <span
-							                        class="bpk-text">선택 >&nbsp;</span> <span
-							                        class="bpk-icon-sm bpk-icon-pointer bpk-icon-sm--align-to-button"></span></a>
+							                     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+							                     	선택
+							                     </button>
+
+												<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+												  <div class="modal-dialog modal-lg">
+												    <div class="modal-content">
+												      <div class="modal-header">
+												        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												      </div>
+												      <div class="modal-body">
+												      
+												     	  <c:set var="item" value="${item}" scope="request"/>
+													      <c:import url="listinfo.jsp"/>
+												     
+												      </div>
+												      <div class="modal-footer">
+												        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+												      </div>
+												    </div>
+												  </div>
+												</div>
 						                  </div>
 					               </div>
 				            </div>
-				          </div>		    
+				          </div>
+				          
+				          <div class="modal" id="detailModal" tabindex="-1" role="dialog">
+				          
+				          	<div class="modal-content">
+				          		<h1>asdfa</h1>
+				          	</div>
+				          	
+				          	<div class="modal-footer">
+				          		<button type="button" class="btn" data-dismiss="modal">닫기</button>
+				          	</div>
+				          
+				          </div>
 				   </li>
 						
 					</c:forEach>
