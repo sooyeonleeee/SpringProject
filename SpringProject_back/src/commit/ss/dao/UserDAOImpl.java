@@ -38,7 +38,6 @@ public class UserDAOImpl implements UserDAO {
 			return false;
 	}
 
-	// �α���
 	@Override
 	public boolean signIn(UserVO user) {
 
@@ -56,7 +55,6 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
-	// ȸ������
 	public boolean signUp(UserVO user) {
 		int cnt = session.insert("userMapper.insertUser", user);
 		if (cnt == 1) {
@@ -65,7 +63,6 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
-	// ��й�ȣ ����
 	public boolean changePwd(UserVO user) {
 		int cnt = session.update("userMapper.updateUser", user);
 		if (cnt == 1) {
@@ -74,13 +71,11 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
-	// ���ã�� ���
 	public List<FlightVO> getBookMark(String id) {
 		List<FlightVO> list = redisDAO.getObject(bookmarkKey + id, List.class);
 		return list;
 	}
 
-	// ���ã�� �߰�
 	public boolean addBookMark(String id, FlightVO flight) {
 		JSONObject obj = new JSONObject();
 		obj.put("date", getDate());
@@ -90,36 +85,29 @@ public class UserDAOImpl implements UserDAO {
 		return true;
 	}
 
-	// ���ã�� ����
 	public boolean deleteBookMark(String id, FlightVO flight) {
 		return true;
 	}
 
-	// ���ã�� ��� ����
 	public boolean deleteAllBookMark(String id) {
 		redisDAO.removeAllObject(bookmarkKey + id);
 		return true;
 	}
 
-	// �ֱٰ˻� ���
 	public List<SearchVO> getHistory(String id) {
 		List<String> list = redisDAO.getObject(historyKey + id, List.class);
 		ArrayList<SearchVO> result = new ArrayList<>();
 		for (String string : list) {
-			System.out.println(string);
 			Gson gson = new Gson();
-			System.out.println(list.size());
 			result.add(gson.fromJson(string, SearchVO.class));
 		}
 		return result;
 	}
 
-	// �ֱٰ˻� ����
 	public boolean deleteHistory(String id, SearchVO search) {
 		return true;
 	}
 
-	// �ֱٰ˻� ��� ����
 	public boolean deleteAllHistory(String id) {
 		redisDAO.removeAllObject(historyKey + id);
 		return true;
