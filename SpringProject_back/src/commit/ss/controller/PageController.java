@@ -131,7 +131,6 @@ public class PageController {
 		list.add(new ResultVO("origin10", "destination10", "depDate10", "arrDate10", "goFlightCarrier10", 100,
 				"goDepTime10", "goArrTime10", 1000000));
 
-
 		return new ModelAndView("book", "bookmark", list);
 	}
 
@@ -172,5 +171,14 @@ public class PageController {
 		dao.deleteAllHistory(id);
 		return "history";
 	}
-
+	
+	@RequestMapping(value="/checkBookmark", method=RequestMethod.POST)
+	@ResponseBody
+	public String checkBookmark(@RequestParam String id, @RequestParam String item) {
+		System.out.println("bookmark체크하는 함수 호출");
+		System.out.println("id--------------------"+id);
+		System.out.println("item--------------------"+item);
+		return "listinfo";
+	}
+	
 }
