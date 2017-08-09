@@ -12,6 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
+
 <title>즐겨찾기</title>
 
 
@@ -31,6 +32,11 @@ td, th {
 tr:nth-child(even) {
 	background-color: #dddddd;
 }
+
+.bookmark_btn{
+	float:right;
+}
+
 </style>
 </head>
 
@@ -68,12 +74,14 @@ tr:nth-child(even) {
 
 				<div class="cont">
 					<div class="well" style="background-color: white">
-						즐겨찾기 <a
-							href="<%=request.getContextPath()%>/deleteAllBookMark?id=${sessionScope.id}">
+						즐겨찾기 
+						
+						<div class="bookmark_btn">
+						<a href="<%=request.getContextPath()%>/deleteAllBookMark?id=${sessionScope.id}">
 							<button type="button" class="btn btn-default btn-sm">
 								<span class="glyphicon glyphicon-trash"></span>즐겨찾기 전체삭제
 							</button>
-						</a>
+						</a></div>
 						<hr>
 						<div class="row" style="background-color: white">
 								<table class="table">
