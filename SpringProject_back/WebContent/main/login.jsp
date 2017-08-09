@@ -64,8 +64,7 @@
 				success : function(data) {
 					if (data.result == false) {
 						alert("로그인을 실패했습니다\n 다시 입력해주세요");
-						test_id.val("");
-						test_pw.val("");
+					
 					} else {
 						location.href = "http://localhost:8087/SpringProject/";
 

@@ -5,6 +5,7 @@ import java.util.Calendar;
 
 import org.apache.ibatis.session.SqlSession;
 import org.json.simple.JSONObject;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +27,31 @@ public class DAOTest {
 	UserDAO userDAO;
 	
 	
-	@Test
-	public void dao() {
-		Gson gson = new Gson();
-		UserVO user = new UserVO("testid", "testpwd");
-		String str = gson.toJson(user);
-		System.out.println(str);
 
+	
+	@Test 
+	public void changePwd() {
+		String id="test";
+		String Nowpwd="1234";
+		String Newpwd="12345";
+		UserVO vo = session.selectOne("userMapper.selectUser", id);
+		System.out.println(vo.getPwd());
+		UserVO newvo = new UserVO(id,Newpwd);
+		if(vo.getPwd().equals(Nowpwd)){
+			int cnt = session.update("userMapper.updateUser", newvo);
+			if(cnt==1){
+			System.out.println("결과값:"+true);
+			}else{
+				System.out.println("결과값:"+false);
+			}
+		}else{
+			System.out.println("틀림");
+		}
+		
+	
+	
 	}
+	
+	
 	
 }

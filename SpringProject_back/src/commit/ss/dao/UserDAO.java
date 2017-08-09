@@ -18,7 +18,7 @@ public interface UserDAO {
 	public boolean signDuplicate_id(String id);
 
 	// ��й�ȣ ����
-	public boolean changePwd(UserVO user);
+	public boolean changePwd(String id,String Nowpwd,String Newpwd);
 
 	// ���ã�� ���
 	public List<FlightVO> getBookMark(String id);
