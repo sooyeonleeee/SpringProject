@@ -39,7 +39,7 @@ String id = (String)session.getAttribute("id");
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand  navbar-brand-centered" href="index.jsp">BRANDING</a>
+				<a class="navbar-brand  navbar-brand-centered" href="index.jsp"> SKY SCANNER</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">

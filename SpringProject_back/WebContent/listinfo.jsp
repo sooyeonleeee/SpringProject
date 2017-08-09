@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -20,37 +21,37 @@
 					</h4>
 				</section>
 				<div class="row">
-					<div type="button" style="padding: 10px 175px" class="btn btn-default" data-toggle="collapse" data-target="#go1">
+					<div type="button" style="padding: 10px 175px" class="btn btn-default" data-toggle="collapse" data-target="#go${requestScope.stat.index}">
 						<div class="col-sm-12 ">
 							<div class="row listbox" >
-								<span >${item.origin}</span>
+								<span >${requestScope.obj.origin}</span>
 								<span><img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow.png" width="50"> </span>
 								<span><img alt="" src="http://localhost:8087/SpringProject/resources/img/airplane.png"> </span>
-								<span>${item.destination }</span> 
+								<span>${requestScope.obj.destination }</span> 
 								<span id="down"><img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png"></span>
 							</div>
 						</div>
 						<!-- 						<img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png"> -->
 					</div>
 				</div>
-				<div id="go1" class="collapse well row col-sm-7 col-sm-offset-2">
+				<div id="go${requestScope.stat.index}" class="collapse well row col-sm-7 col-sm-offset-2">
 					<ul class="list-group">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<b>${item.goFlightCarrier}</b>
+								<b>${requestScope.obj.goFlightCarrier}</b>
 							</div>
 							<div class="panel-body">
 								<div class="col-sm-4">
 									<p>총시간</p>
-									<p>${item.goDuration}분</p>
+									<p>${requestScope.obj.goDuration}분</p>
 								</div>
 								<div class="col-sm-4">
-									<p>${item.goDepTime }</p>
-									<p>${item.goArrTime }</p>
+									<p>${requestScope.obj.goDepTime }</p>
+									<p>${requestScope.obj.goArrTime }</p>
 								</div>
 								<div class="col-sm-4">
-									<p>${item.origin}</p>
-									<p>${item.destination}</p>
+									<p>${requestScope.obj.origin}</p>
+									<p>${requestScope.obj.destination}</p>
 								</div>
 							</div>
 						</div>
@@ -58,7 +59,7 @@
 				</div>
 			</div>
 <!-- 			가는날시작 -->
-			<c:if test="${not empty item.backFlightCarrier}" >
+			<c:if test="${not empty requestScope.obj.backFlightCarrier}" >
 			<div class="panel-body" style="margin-left: 20px">
 				<section>
 					<h4>
@@ -66,37 +67,37 @@
 					</h4>
 				</section>
 				<div class="row">
-					<div type="button" style="padding: 10px 175px" class="btn btn-default" data-toggle="collapse" data-target="#back2">
+					<div type="button" style="padding: 10px 175px" class="btn btn-default" data-toggle="collapse" data-target="#back${requestScope.stat.index}">
 						<div class="col-sm-12 ">
 							<div class="row listbox" >
-								<span >${item.destination }</span>
+								<span >${requestScope.obj.destination }</span>
 								<span><img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow.png" width="50"> </span>
 								<span><img alt="" src="http://localhost:8087/SpringProject/resources/img/airplane.png"> </span>
-								<span>${item.origin }</span> 
+								<span>${requestScope.obj.origin }</span> 
 								<span id="down"><img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png"></span>
 							</div>
 						</div>
 						<!-- 						<img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png"> -->
 					</div>
 				</div>
-				<div id="back2" class="collapse well row col-sm-7 col-sm-offset-2">
+				<div id="back${requestScope.stat.index}" class="collapse well row col-sm-7 col-sm-offset-2">
 					<ul class="list-group">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<b>${item.backFlightCarrier }</b>
+								<b>${requestScope.obj.backFlightCarrier }</b>
 							</div>
 							<div class="panel-body">
 								<div class="col-sm-4">
 									<p>총시간</p>
-									<p>${item.backDuration}분</p>
+									<p>${requestScope.obj.backDuration}분</p>
 								</div>
 								<div class="col-sm-4">
-									<p>${item.backDepTime }</p>
-									<p>${item.backArrTime }</p>
+									<p>${requestScope.obj.backDepTime }</p>
+									<p>${requestScope.obj.backArrTime }</p>
 								</div>
 								<div class="col-sm-4">
-									<p>${item.destination}</p>
-									<p>${item.origin}</p>
+									<p>${requestScope.obj.destination}</p>
+									<p>${requestScope.obj.origin}</p>
 								</div>
 							</div>
 						</div>
@@ -116,10 +117,10 @@
 						<ul class="list-group">
 							<div class="panel panel-default">
 								<div class="panel-heading ">
-									<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#y_btn">
+									<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#y_btn${requestScope.stat.index}">
 										<b>예약전에 읽어보세요</b>
 									</button>
-									<div id="y_btn" class="collapse well">
+									<div id="y_btn${requestScope.stat.index}" class="collapse well">
 										<p>
 											표시된 요금에는 모든 세금 및 수수료가 포함되어 있으나, 예약 전에 웹사이트에서 <em>티켓의 세부정보, 최종 가격, 약관</em>을 반드시 확인하시기 바랍니다.
 										</p>
@@ -135,19 +136,19 @@
 								</div>
 										<div class="panel-body">
 								<c:choose>
-									<c:when test="${not empty item.backFlightCarrier}">
-											<div class="col-sm-6 text-left">${item.goFlightCarrier} & ${item.backFlightCarrier}</div>
+									<c:when test="${not empty requestScope.obj.backFlightCarrier}">
+											<div class="col-sm-6 text-left">${requestScope.obj.goFlightCarrier} & ${requestScope.obj.backFlightCarrier}</div>
 											<div class="col-sm-3 bt">
 												<h4>
-													<b>${item.goPrice + item.backPrice}</b>
+													<b>${requestScope.obj.goPrice + requestScope.obj.backPrice}</b>
 												</h4>
 											</div>
 									</c:when>
-									<c:when test="${empty item.backFlightCarrier}">
-											<div class="col-sm-6 text-left">${item.goFlightCarrier}</div>
+									<c:when test="${empty requestScope.obj.backFlightCarrier}">
+											<div class="col-sm-6 text-left">${requestScope.obj.goFlightCarrier}</div>
 											<div class="col-sm-3 bt">
 												<h4>
-													<b>${item.goPrice}</b>
+													<b>${requestScope.obj.goPrice}</b>
 												</h4>
 											</div>
 									</c:when>
@@ -164,3 +165,4 @@
 			</div>
 		</div>
 	</div>
+</div>
