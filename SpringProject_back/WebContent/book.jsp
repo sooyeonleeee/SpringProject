@@ -66,9 +66,8 @@ tr:nth-child(even) {
 						즐겨찾기
 						<hr>
 						<div class="row" style="background-color: white">
-
+							<form method="post" action="<%=request.getContextPath()%>/deleteBookMark">
 							<table class="table">
-								<!-- dddd -->
 								<tr>
 									<th>출발지</th>
 									<th>도착지</th>
@@ -91,7 +90,7 @@ tr:nth-child(even) {
 								</tr>
 
 							</table>
-
+							</form>
 						</div>
 					</div>
 				</div>
