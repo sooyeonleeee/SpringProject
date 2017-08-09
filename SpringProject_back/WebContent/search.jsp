@@ -99,8 +99,8 @@
 				
 				<article data-cid="model_79942" data-deeplink="details" class="card result clearfix no-details   " ontouchstart="">
 				
-					<c:forEach var="item" items="${reList }">
-					 <c:set var="item" value="${item}" scope="request"/>
+					<c:forEach var="item" items="${reList }" varStatus="stat">
+						<c:set var="obj" value="${item}" scope="request"/>
 						<li class="day-list-item clearfix " style="list-style:none">
 					    
 					         <div class="card-body clearfix">
@@ -198,11 +198,11 @@
 							                           </a>
 							                        </div>
 							                     </div>
-							                     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+							                     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal${stat.index }">
 							                     	선택
 							                     </button>
 
-												<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+												<div class="modal fade" id="myModal${stat.index }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 												  <div class="modal-dialog modal-lg">
 												    <div class="modal-content">
 												      <div class="modal-header">
@@ -210,9 +210,9 @@
 												      </div>
 												      <div class="modal-body">
 		   											      
-													     
+													      <c:set var="stat" value="${stat}" scope="request"/>
 													      <c:import url="listinfo.jsp"/>
-													     
+  														  <c:remove var="obj" scope="request"/>
 													      
 												      </div>
 												      <div class="modal-footer">
@@ -225,20 +225,7 @@
 					               </div>
 				            </div>
 				          </div>
-				          
-				          <div class="modal" id="detailModal" tabindex="-1" role="dialog">
-				          
-				          	<div class="modal-content">
-				          		<h1>asdfa</h1>
-				          	</div>
-				          	
-				          	<div class="modal-footer">
-				          		<button type="button" class="btn" data-dismiss="modal">닫기</button>
-				          	</div>
-				          
-				          </div>
 				   </li>
-						 <c:remove var="item"/>
 					</c:forEach>
 					
 			   
