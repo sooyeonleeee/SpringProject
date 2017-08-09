@@ -16,14 +16,14 @@
 							<tr>
 								<td>
 									<div class="ui-widget">
-										<input type="text" id="search1"  class="form-control"> <input type="hidden" class="search1_code" name="departure" >
+										<input type="text" id="search1"  class="form-control" required="required"> <input type="hidden" class="search1_code" name="departure"  >
 									</div>
 								</td>
 								<td><div class="ui-widget">
-										<input type="text" id="search2" class="form-control"> <input type="hidden" name="arrival" class="search2_code">
+										<input type="text" id="search2" class="form-control" required="required"> <input type="hidden" name="arrival" class="search2_code">
 									</div></td>
-								<td><input type="text" name="depDate" class="form-control" id="datepicker1"></td>
-								<td><input type="text" name="arrDate" class="form-control" id="datepicker2"></td>
+								<td><input type="text" name="depDate" class="form-control" id="datepicker1" required="required"></td>
+								<td><input type="text" name="arrDate" class="form-control" id="datepicker2" required="required"></td>
 							</tr>
 							<tr>
 								<td><b>성인석</b></td>

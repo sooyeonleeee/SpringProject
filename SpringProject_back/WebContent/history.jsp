@@ -112,12 +112,9 @@ tr:nth-child(even) {
 
 	</div>
 
-	<!-- jQuery -->
-	<script src="resource/js/jquery.js"></script>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="resource/js/bootstrap.min.js"></script>
-
+<jsp:include page="/main/login.jsp" />
+<jsp:include page="/main/join.jsp" />
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,14 +32,12 @@ tr:nth-child(even) {
 	background-color: #dddddd;
 }
 </style>
-
-
 </head>
 
 <body>
 
 
-	<jsp:include page = "include/header.jsp"></jsp:include>
+	<jsp:include page="include/header.jsp"></jsp:include>
 
 	<!-- 기본 정보 -->
 	<div class="container">
@@ -48,13 +46,20 @@ tr:nth-child(even) {
 
 			<div class="col-md-3">
 				<div class="list-group">
-					
-					<a href="<%=request.getContextPath() %>/mypage?id=${sessionScope.id}" class="list-group-item"> 
-						<span class="glyphicon glyphicon-user"></span>      회원정보</a> 
-					<a href="<%=request.getContextPath() %>/bookmark?id=${sessionScope.id}" class="list-group-item">
-						<span class="glyphicon glyphicon-list-alt"></span>     즐겨찾기</a>
-					<a href="<%=request.getContextPath() %>/history?id=${sessionScope.id}" class="list-group-item">
-						<span class="glyphicon glyphicon-list-alt"></span>     검색 내역</a>	
+
+					<a
+						href="<%=request.getContextPath() %>/mypage?id=${sessionScope.id}"
+						class="list-group-item"> <span
+						class="glyphicon glyphicon-user"></span> 회원정보
+					</a> <a
+						href="<%=request.getContextPath() %>/bookmark?id=${sessionScope.id}"
+						class="list-group-item"> <span
+						class="glyphicon glyphicon-list-alt"></span> 즐겨찾기
+					</a> <a
+						href="<%=request.getContextPath() %>/history?id=${sessionScope.id}"
+						class="list-group-item"> <span
+						class="glyphicon glyphicon-list-alt"></span> 검색 내역
+					</a>
 				</div>
 			</div>
 
@@ -63,34 +68,45 @@ tr:nth-child(even) {
 
 				<div class="cont">
 					<div class="well" style="background-color: white">
-						즐겨찾기
+						즐겨찾기 <a
+							href="<%=request.getContextPath()%>/deleteAllBookMark?id=${sessionScope.id}">
+							<button type="button" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-trash"></span>즐겨찾기 전체삭제
+							</button>
+						</a>
 						<hr>
 						<div class="row" style="background-color: white">
-							<form method="post" action="<%=request.getContextPath()%>/deleteBookMark">
-							<table class="table">
-								<tr>
-									<th>출발지</th>
-									<th>도착지</th>
-									<th>출발일</th>
-									<th>도착일</th>
-									<th>가격</th>
-									<th>삭제</th>
-								<tr style="background-color: white">
-									<td>서울</td>
-									<td>제주</td>
-									<td>2017년 8월 1일</td>
-									<td>2017년 8월 5일</td>
-									<td>100,000원</td>
-									<td>  <!--  삭제버튼 -->
-									  <button type="button" class="btn btn-default btn-sm">
-    							      <span class="glyphicon glyphicon-trash"></span> 삭제
-       								  </button> 
-       								</td>
-
-								</tr>
-
-							</table>
-							</form>
+								<table class="table">
+									<tr>
+										<th>번호</th>
+										<th>출발지</th>
+										<th>출발일시</th>
+										<th>도착지</th>
+										<th>도착일시</th>
+										<th>소요시간</th>
+										<th>가격</th>
+										<th>삭제</th>
+										<c:forEach var="bm" items="${bookmark}" varStatus="status">
+											<tr style="background-color: white">
+												<td>${status.count }</td>
+												<td>${bm.origin }</td>
+												<td>${bm.depDate }&nbsp;${bm.goDepTime}</td>
+												<td>${bm.destination }</td>
+												<td>${bm.arrDate}&nbsp;${bm.goArrTime }</td>
+												<td>${bm.goDuration }</td>
+												<td>${bm.goPrice }</td>
+												<!--  삭제버튼 -->
+												<td>
+												<form method="POST" action="<%=request.getContextPath() %>/deleteBookMark">
+													<input type="hidden" name="id" value="${sessionScope.id }">
+													<input type="hidden" name="index" value="${status.count}">
+													<button type="submit" class="btn btn-default btn-sm">
+														<span class="glyphicon glyphicon-trash"></span>삭제
+													</button></form>
+												</td>
+											</tr>
+										</c:forEach>
+								</table>
 						</div>
 					</div>
 				</div>
@@ -109,12 +125,8 @@ tr:nth-child(even) {
 	</div>
 	<!-- /.container -->
 
-	<!-- jQuery -->
-	<script src="resource/js/jquery.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="resource/js/bootstrap.min.js"></script>
-
+	<jsp:include page="/main/login.jsp" />
+	<jsp:include page="/main/join.jsp" />
 </body>
 
 </html>
