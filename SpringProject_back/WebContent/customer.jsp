@@ -30,16 +30,48 @@
 
 <!-- 비밀번호 창 숨기기 보여주기 -->
 <script>
-	$(document).ready(function() {
+
+	$(function(){
+		
 		
 		$("#changePW").click(function() {
 			$("#PasswordContainer").fadeIn();
+			
+			if($("#PasswordContainer").fadeIn()){
+				$("#PasswordContainer").hide();
+			}
+
 		});
-		$("#cancel").click(function(){
-	        $("#PasswordContainer").hide();
-	    });
 		
+		
+		$("#btn_submit").click(function(){
+			pwd = $('input:password[name="pwd"]').val();
+			nowPwd = $('input:password[name="nowPwd"]').val();
+			
+			alert(pwd + " : " + nowPwd);
+			
+			 $.ajax({
+                    url:'http://localhost:8087/SpringProject/changePwd',
+                    type:'POST',
+                    data : {
+                    	
+                        "pwd" : pwd,
+                        "nowPwd" : nowPwd 
+                        
+                    },
+                    contentType:'application/json;charset=utf-8',
+                    dataType: 'json',
+                    error:function(xhr,status,msg){
+                        alert("상태값 :" + status + " Http에러메시지 :"+msg);
+                    },
+                    success:function(data){
+                    	alert(data);
+                    }
+                });
+		});
 	});
+	
+	
 </script>
 </head>
 
@@ -78,7 +110,10 @@
 						<div class="col-md-9">
 							<table>
 								<tr>
-									<td>${sessionScope.id }</td> 
+									<td>${sessionScope.id}
+									
+									</td>
+									 
 								</tr>
 							</table>
 						</div>
@@ -95,6 +130,7 @@
 	</div>
 
 
+
 	<div class="container" >
 		<div class="row">
 			<div class="col-md-3"></div>
@@ -102,13 +138,13 @@
 			<div id="PasswordContainer" class="col-md-9" style="display:none">
 				<div class="well" style="background-color: white">
 				<div class="row">
-					<form method="post" id="passwordForm">
-
+<%-- 					<form action="<%= request.getContextPath()%>/changePwd" method="post" name="myForm"> --%>
+				
 						<!--  현재 비밀번호 -->
 						<label class="col-md-3 control-label" for="piCurrPass">현재 비밀번호</label>
 						<div class="col-md-9">
-							<input type="nowPassword" class="input-md form-control"
-								name="nowPassword" id="nowPassword" placeholder="Now Password"
+							<input type="password" class="input-md form-control"
+								name="nowPwd" id="nowPassword" placeholder="Now Password"
 								autocomplete="off">
 						</div>
 
@@ -118,8 +154,8 @@
 						<div class="col-md-3">새 비밀번호</div>
 
 						<div class="col-md-9">
-							<input type="newPassword" class="input-md form-control"
-								name="newPassword" id="newPassword" placeholder="New Password"
+							<input type="password" class="input-md form-control"
+								name="pwd" id="pwd" placeholder="New Password"
 								autocomplete="off">
 						</div>
 
@@ -129,7 +165,7 @@
 						<div class="col-md-3">새 비밀번호</div>
 
 						<div class="col-md-9">
-							<input type="new1Password" class="input-md form-control"
+							<input type="password" class="input-md form-control"
 								name="new1Password" id="new1Password" placeholder="Repeat Password"
 								autocomplete="off">
 						</div>
@@ -137,17 +173,16 @@
 						<br> <br>
 						
 						<div class="container">
-							<button id="submit" class="btn btn-primary btn-sm center"> Submit </button>
-							<button type="button" id="cancel" class="btn btn-danger btn-sm center"> Cancel </button>
+						
+							<button id="btn_submit" class="btn btn-primary btn-sm center"> Submit </button>
+							<button type="reset" id="cancel" class="btn btn-danger btn-sm center"> Cancel </button>
 						</div>
 						
-					</form>
+<!-- 					</form> -->
+					</div>
 				</div>
-				</div>
-
 			</div>
 		</div>
-
 	</div>
 
 
