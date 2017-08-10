@@ -229,17 +229,8 @@
 
 												<c:if test="${not empty id}">
     												<c:set var="login" value="t" scope="request"/>
-    												<c:set var="bookmarklist" value="${sessionScope.bmlist }" scope="request" />
 												</c:if>
-
-												<div id="bmtest">
 												
-											
-												
-												
-												
-												</div>
-
 												<div class="modal fade" id="myModal${stat.index }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 												  <div class="modal-dialog modal-lg">
 												    <div class="modal-content">

@@ -62,6 +62,9 @@ public class PageController {
 					"goDepTime10", "goArrTime10", 1000000));
 			//////////////////////////////////////////////
 			session.setAttribute("bmlist", list);
+			for (ResultVO resultVO : list) {
+				System.out.println(resultVO);
+			}
 		} else
 			result.put("result", login);
 		return result;
@@ -71,7 +74,7 @@ public class PageController {
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		session.removeAttribute("id");
-		return "index";
+		return "/";
 	}
 
 	// 중복체크

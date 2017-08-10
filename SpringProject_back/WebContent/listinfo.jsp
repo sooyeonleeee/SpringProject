@@ -14,30 +14,23 @@
 					<button class="btn_like" id="btn_like${requestScope.stat.index}" type="button"
 						style="border: none; background-color: white">
 						<c:set var="logincheck" value="${sessionScope.id }" />
+				<!-- 로그인 되어 있을 때에는 노란별, 안되어 있을 때에는 하얀별 -->		
 						<c:if test="${not empty logincheck }">
+						<!-- 이 비행기편이 즐겨찾기에 등록되어 있으면 노란별로 
+					
+						 -->
 							<img alt=""
 								src="http://localhost:8087/SpringProject/resources/img/staron.png"> 
-						<!-- 즐겨찾기에 이 비행기편이 있는지 확인
-							1 있으면 staron
-							2 없으면 staroff
-						 -->
-						<!-- 일단 즐겨찾기에 등록 -->
-						<!--  -->
-						
-						
-						
 						</c:if>
 						<c:if test="${empty logincheck }">
 							<img alt=""
 								src="http://localhost:8087/SpringProject/resources/img/staroff.png">
 						</c:if>
 				</button>
+				
+				<!-- 로그인 되어 있는 상태에서 버튼 눌렀을 때 -->
 						<c:if test="${empty logincheck }">
-							<script>
-								document.getElementById("btn_like"+${requestScope.stat.index}).onclick=function() {
-									alert("로그인이 필요한 서비스입니다.");
-								};
-							</script>
+							
 						</c:if>
 						
 						
