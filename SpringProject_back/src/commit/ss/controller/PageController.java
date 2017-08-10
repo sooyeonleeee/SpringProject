@@ -115,8 +115,6 @@ public class PageController {
 	@RequestMapping(value = "/changePwd", method = RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, Boolean> changePwd(@RequestParam("newPwd") String newPwd, @RequestParam("nowPwd") String nowPwd, @RequestParam("id") String id) {
-		System.out.println(newPwd+" "+nowPwd+" "+id);
-
 		result = new HashMap<String, Boolean>();
 		result.put("result", dao.changePwd(id, nowPwd, newPwd)); 
 		return result;

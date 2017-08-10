@@ -36,11 +36,11 @@
 	<!-- Header -->
 	<jsp:include page = "include/header.jsp"></jsp:include>
 	
-	<ul class="nav nav-tabs-primary">	
+<!-- 	<ul class="nav nav-tabs-primary">	
 	
 		    <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-plane"></span> 항공권</a></li>
 		
-	</ul>
+	</ul> -->
 	
 	
 		<ol class="breadcrumb-primary">

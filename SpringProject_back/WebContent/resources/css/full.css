@@ -3,6 +3,16 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+ 
+ .navbar-brand{
+	margin-left:-600px;
+	margin-top:-6px;
+ }
+ 
+  .navbar-default {
+ 	background-color:white;
+ }
+ 
 .navbar-brand-centered {
 	position: absolute;
 	left: 50%;
@@ -18,7 +28,8 @@
 
 .navbar>.container .navbar-brand-centered, .navbar>.container-fluid .navbar-brand-centered
 	{
-	margin-left: -80px;
+	margin-left:-570px;
+	margin-top:-6px;
 }
 
 #container {
