@@ -8,7 +8,31 @@ $(document).ready(function() {
 		JSON.stringify(modalJson);
 
 		console.log(modalJson);
-
+		
+		$.ajax({
+		    type: "POST",
+		    url: "getModalJson",
+		    data: JSON.stringify({data:"test"}),
+		    contentType: "application/json; charset=utf-8",
+		    dataType: "json",
+		    success: function (data) {
+		    	alert(data);
+		    }
+		});
+//		$.ajax({
+//            type: "post",
+//            url: "/getModalJson",
+//            dataType: "json",
+//            data: JSON.stringify(modalJson),
+//            contentType: 'application/json',
+//            success: function (data) {
+//            	alert(data);
+//            },
+//            failure: function (errMsg) {
+//                alert(errMsg);
+//            }
+//        });
+		
 	});
 
 	function getModalInfo(modalIdx) {

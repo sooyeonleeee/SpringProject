@@ -198,4 +198,14 @@ public class PageController {
 		return "listinfo";
 	}
 	
+	@RequestMapping(value="/getModalJson", method=RequestMethod.POST)
+	@ResponseBody
+	public void getModalJson(List<String> modal) {
+		System.out.println("Controller");
+		for(String str : modal) {
+			System.out.println(str);
+		}
+	}
+	
+	
 }
