@@ -47,8 +47,9 @@
 			<!-- 	<a class="navbar-brand  navbar-brand-centered" href="#">BRANDING</a> -->
 				
 				<div class="navbar-brand  navbar-brand-centered" >
+				<a href="<%=request.getContextPath()%>">
 					<img class="sky_log" src="resources/img/sky_log.png">
-					
+					</a>
 				</div>
 				
 				

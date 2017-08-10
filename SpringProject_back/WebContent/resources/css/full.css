@@ -6,7 +6,7 @@
  
  .navbar-brand{
 	margin-left:-600px;
-	margin-top:-14px;
+	margin-top:-6px;
  }
  
   .navbar-default {
@@ -29,7 +29,7 @@
 .navbar>.container .navbar-brand-centered, .navbar>.container-fluid .navbar-brand-centered
 	{
 	margin-left:-570px;
-	margin-top:-14px;
+	margin-top:-6px;
 }
 
 #container {
