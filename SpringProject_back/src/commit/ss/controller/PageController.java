@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import commit.ss.dao.UserDAO;
-import commit.ss.vo.FlightVO;
 import commit.ss.vo.ResultVO;
 import commit.ss.vo.SearchVO;
 import commit.ss.vo.UserVO;
@@ -38,9 +37,9 @@ public class PageController {
 		if (login == true) {
 			result.put("result", login);
 			session.setAttribute("id", user.getId());
+			session.setAttribute("bmlist", dao.getBookMark(user.getId()));
 		} else
 			result.put("result", login);
-
 		return result;
 	}
 
@@ -123,6 +122,7 @@ public class PageController {
 	// 상세 페이지
 	@RequestMapping("/listinfo")
 	public String listinfo(HttpSession session) {
+		System.out.println(session.getAttribute("id"));
 		session.removeAttribute("id");
 		return "listinfo";
 	}
@@ -165,26 +165,7 @@ public class PageController {
 				"goArrTime9", 900000));
 		list.add(new ResultVO("origin10", "destination10", "depDate10", "arrDate10", "goFlightCarrier10", 100,
 				"goDepTime10", "goArrTime10", 1000000));
-
 		return new ModelAndView("book", "bookmark", list);
-	}
-
-	// 즐겨찾기에 추가(details)
-	@RequestMapping("/addBookMark")
-	public String addBookMark(@RequestParam String id, FlightVO flight) {
-		dao.addBookMark(id, flight);
-		return "book";
-	}
-
-	// 즐겨찾기 삭제
-	@RequestMapping("/deleteBookMark")
-	public String deleteBookMark(@RequestParam String id, @RequestParam int index) {
-		/*
-		 * dao.deleteBookMark(id, index); list.remove(index); return new
-		 * ModelAndView("bookmark", "bookmark", list);
-		 */
-		System.out.println("index-----------------------------------------------" + index);
-		return "redirect:/bookmark?id=" + id;
 	}
 
 	// 즐겨찾기 모두 삭제
@@ -207,5 +188,24 @@ public class PageController {
 		dao.deleteAllHistory(id);
 		return "history";
 	}
-
+	
+	@RequestMapping(value="/checkBookmark")
+	@ResponseBody
+	public String checkBookmark(@RequestParam String id) {
+		
+		System.out.println("bookmark체크하는 함수 호출");
+		System.out.println("id--------------------"+id);
+		return "listinfo";
+	}
+	
+	@RequestMapping(value="/getModalJson", method=RequestMethod.POST)
+	@ResponseBody
+	public void getModalJson(List<String> modal) {
+		System.out.println("Controller");
+		for(String str : modal) {
+			System.out.println(str);
+		}
+	}
+	
+	
 }

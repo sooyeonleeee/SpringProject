@@ -89,7 +89,6 @@
 
 
 </body>
-</html>
 <script>
 	$(function() {
 		
@@ -139,24 +138,70 @@
 				value : "울릉공항",
 				data : "VDH"
 			} ];
+		$.datepicker.regional['ko'] = {
+			closeText : '닫기',
+			prevText : '이전달',
+			nextText : '다음달',
+			currentText : '오늘',
+			monthNames : [ '1월(JAN)', '2월(FEB)', '3월(MAR)', '4월(APR)', '5월(MAY)', '6월(JUN)',
+				'7월(JUL)', '8월(AUG)', '9월(SEP)', '10월(OCT)', '11월(NOV)', '12월(DEC)' ],
+			monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+				'7월', '8월', '9월', '10월', '11월', '12월' ],
+			dayNames : [ '일', '월', '화', '수', '목', '금', '토' ],
+			dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
+			dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
+			weekHeader : 'Wk',
+			dateFormat : 'yy-mm-dd',
+			firstDay : 0,
+			isRTL : false,
+			showMonthAfterYear : true,
+			yearSuffix : '',
+			changeMonth : true,
+			changeYear : true,
+
+			yearRange : 'c-99:c+99',
+		};
+
 
 		$("#search1").autocomplete({
 			source : availableTags,
+			minLength : 0,
 			select : function(event, ui) {
 				$(".search1_code").val(ui.item.data);
 			}
-		});
+		}).focus(function() {
+			$(this).autocomplete('search', $(this).val());
 
+		});
 		$("#search2").autocomplete({
 			source : availableTags,
+			minLength : 0,
 			select : function(event, ui) {
 				$(".search2_code").val(ui.item.data);
+
 			}
+		}).focus(function() {
+			$(this).autocomplete('search', $(this).val());
+
 		});
 
-		$("#datepicker1,#datepicker2").datepicker({
-			dateFormat : "yy-mm-dd"
+
+
+
+		$.datepicker.setDefaults($.datepicker.regional['ko']);
+
+		$('#datepicker1').datepicker();
+		$('#datepicker1').datepicker("option", "maxDate", $("#datepicker2").val());
+		$('#datepicker1').datepicker("option", "onClose", function(selectedDate) {
+			$("#datepicker2").datepicker("option", "minDate", selectedDate);
 		});
+
+		$('#datepicker2').datepicker();
+		$('#datepicker2').datepicker("option", "minDate", $("#datepicker1").val());
+		$('#datepicker2').datepicker("option", "onClose", function(selectedDate) {
+			$("#datepicker1").datepicker("option", "maxDate", selectedDate);
+		});
+
 
 		$(document).on('click', '.number-spinner button',
 			function() {
@@ -177,19 +222,29 @@
 				}
 				btn.closest('.number-spinner').find('input').val(newVal);
 			});
+
+
+		$('#path2').click(function() {
+			$('#datepicker2').val($('#datepicker1').val());
+		});
+
+		$('#datepicker1').on("change paste keyup", function() {
+			if ($('#path2').is(':checked')) {
+				$('#datepicker2').val($('#datepicker1').val());
+			}
+		});
+		var result = '';
+		$("#search").click(function(index) {
+			if ($(".search1_code").val() == $(".search2_code").val()) {
+				alert("같은장소");
+				$("#search1,#search2").val('');
+				$(".search1_code,.search2_code").val('');
+			}else{
+				$("#formsearch").submit();
+			}
+		});
+
 		
-		 $(document).ready(function () {
-			 $('#path2').click(function(){
-				 $('#datepicker2').val($('#datepicker1').val());
-			 });
-			 
-			 $('#datepicker1').on("change paste keyup", function(){
-				 if($('#path2').is(':checked')){
-					$('#datepicker2').val($('#datepicker1').val());
-				 }
-			 });
-			 
-	     });
-		
+
 	});
 </script>

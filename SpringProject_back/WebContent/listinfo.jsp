@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -9,9 +11,48 @@
 					<b><h2>여행 일정확인</h2></b>
 				</div>
 				<div class="col-sm-1">
-					<button class="btn" id="btn_like" type="button" style="border: none; background-color: white">
-						<img alt="" src="http://localhost:8087/SpringProject/resources/img/staon.png">
-					</button>
+					<button class="btn_like" id="btn_like${requestScope.stat.index}" type="button"
+						style="border: none; background-color: white">
+						<c:set var="logincheck" value="${sessionScope.id }" />
+						<c:if test="${not empty logincheck }">
+							<img alt=""
+								src="http://localhost:8087/SpringProject/resources/img/staron.png"> 
+						<!-- 즐겨찾기에 이 비행기편이 있는지 확인
+							1 있으면 staron
+							2 없으면 staroff
+						 -->
+						<!-- 일단 즐겨찾기에 등록 -->
+						
+					
+						
+						
+						</c:if>
+						<c:if test="${empty logincheck }">
+							<img alt=""
+								src="http://localhost:8087/SpringProject/resources/img/staroff.png">
+						</c:if>
+				</button>
+						
+						<c:if test="${empty logincheck }">
+							<script>
+								document.getElementById("btn_like"+${requestScope.stat.index}).onclick=function() {
+									alert("로그인이 필요한 서비스입니다.");
+								};
+							</script>
+						</c:if>
+						
+						<c:if test="${not empty logincheck }">
+							<script>
+								document.getElementById("btn_like"+${requestScope.stat.index}).onclick=function() {
+									
+									
+									
+									
+								};
+							</script>
+						</c:if>
+						
+						
 				</div>
 			</div>
 			<div class="panel-body" style="margin-left: 10px">
@@ -24,10 +65,12 @@
 					<div type="button" style="padding: 10px 175px" class="btn btn-default" data-toggle="collapse" data-target="#go${requestScope.stat.index}">
 						<div class="col-sm-12 ">
 							<div class="row listbox" >
-								<span >${requestScope.obj.origin}</span>
+								<input type="hidden" id="inputDepDate${requestScope.stat.index}" value="${requestScope.obj.depDate}">
+								<input type="hidden" id="inputArrDate${requestScope.stat.index}" value="${requestScope.obj.arrDate}">
+								<span id="spanOrigin${requestScope.stat.index}">${requestScope.obj.origin}</span>
 								<span><img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow.png" width="50"> </span>
 								<span><img alt="" src="http://localhost:8087/SpringProject/resources/img/airplane.png"> </span>
-								<span>${requestScope.obj.destination }</span> 
+								<span id="spanDestination${requestScope.stat.index}">${requestScope.obj.destination }</span> 
 								<span id="down"><img alt="" src="http://localhost:8087/SpringProject/resources/img/arrow-down.png"></span>
 							</div>
 						</div>
@@ -38,16 +81,16 @@
 					<ul class="list-group">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<b>${requestScope.obj.goFlightCarrier}</b>
+								<b id="bGoFlightCarrier${requestScope.stat.index}">${requestScope.obj.goFlightCarrier}</b>
 							</div>
 							<div class="panel-body">
 								<div class="col-sm-4">
 									<p>총시간</p>
-									<p>${requestScope.obj.goDuration}분</p>
+									<p id="pGoDuration${requestScope.stat.index}">${requestScope.obj.goDuration}분</p>
 								</div>
 								<div class="col-sm-4">
-									<p>${requestScope.obj.goDepTime }</p>
-									<p>${requestScope.obj.goArrTime }</p>
+									<p id="pGoDepTime${requestScope.stat.index}">${requestScope.obj.goDepTime }</p>
+									<p id="pGoArrTime${requestScope.stat.index}">${requestScope.obj.goArrTime }</p>
 								</div>
 								<div class="col-sm-4">
 									<p>${requestScope.obj.origin}</p>
@@ -84,16 +127,16 @@
 					<ul class="list-group">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<b>${requestScope.obj.backFlightCarrier }</b>
+								<b id="bBackFlightCarrier${requestScope.stat.index}">${requestScope.obj.backFlightCarrier }</b>
 							</div>
 							<div class="panel-body">
 								<div class="col-sm-4">
 									<p>총시간</p>
-									<p>${requestScope.obj.backDuration}분</p>
+									<p id="pBackDuration${requestScope.stat.index}">${requestScope.obj.backDuration}분</p>
 								</div>
 								<div class="col-sm-4">
-									<p>${requestScope.obj.backDepTime }</p>
-									<p>${requestScope.obj.backArrTime }</p>
+									<p id="pBackDepTime${requestScope.stat.index}">${requestScope.obj.backDepTime }</p>
+									<p id="pBackArrTime${requestScope.stat.index}">${requestScope.obj.backArrTime }</p>
 								</div>
 								<div class="col-sm-4">
 									<p>${requestScope.obj.destination}</p>
@@ -140,6 +183,8 @@
 											<div class="col-sm-6 text-left">${requestScope.obj.goFlightCarrier} & ${requestScope.obj.backFlightCarrier}</div>
 											<div class="col-sm-3 bt">
 												<h4>
+													<input type="hidden" id="inputGoPrice${requestScope.stat.index}" value="${requestScope.obj.goPrice}">
+													<input type="hidden" id="inputBackPrice${requestScope.stat.index}" value="${requestScope.obj.backPrice}">
 													<b>${requestScope.obj.goPrice + requestScope.obj.backPrice}</b>
 												</h4>
 											</div>

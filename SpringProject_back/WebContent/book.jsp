@@ -93,25 +93,15 @@ tr:nth-child(even) {
 										<th>도착일시</th>
 										<th>소요시간</th>
 										<th>가격</th>
-										<th>삭제</th>
 										<c:forEach var="bm" items="${bookmark}" varStatus="status">
 											<tr style="background-color: white">
-												<td>${status.count }</td>
-												<td>${bm.origin }</td>
-												<td>${bm.depDate }&nbsp;${bm.goDepTime}</td>
+												<td>${status.count}</td>
+												<td>${bm.origin}</td>
+												<td>${bm.depDate}&nbsp;${bm.goDepTime}</td>
 												<td>${bm.destination }</td>
-												<td>${bm.arrDate}&nbsp;${bm.goArrTime }</td>
-												<td>${bm.goDuration }</td>
-												<td>${bm.goPrice }</td>
-												<!--  삭제버튼 -->
-												<td>
-												<form method="POST" action="<%=request.getContextPath() %>/deleteBookMark">
-													<input type="hidden" name="id" value="${sessionScope.id }">
-													<input type="hidden" name="index" value="${status.count}">
-													<button type="submit" class="btn btn-default btn-sm">
-														<span class="glyphicon glyphicon-trash"></span>삭제
-													</button></form>
-												</td>
+												<td>${bm.arrDate}&nbsp;${bm.goArrTime}</td>
+												<td>${bm.goDuration}</td>
+												<td>${bm.goPrice}</td>
 											</tr>
 										</c:forEach>
 								</table>

@@ -74,6 +74,8 @@
 					</c:if>
 					
 					<c:if test="${not empty sessionScope.id}">
+
+						<li><a href="http://localhost:8087/SpringProject/mypage?id=${sessionScope.id}"><button type="button" class="btn btn-info">${sessionScope.id}님
 						<li><a href="<%=request.getContextPath()%>/mypage?id=${sessionScope.id}"><button type="button" class="btn btn-info">${sessionScope.id}님
 									&nbsp;환영합니다</button></a></li>
 						<li><a href="http://localhost:8087/SpringProject/logout.do"><button type="button" class="btn btn-info">LOGOUT</button></a></li>

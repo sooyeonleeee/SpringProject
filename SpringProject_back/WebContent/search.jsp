@@ -28,7 +28,8 @@
 <link
    href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
    rel="stylesheet" type="text/css">
-   
+
+<script type="text/javascript" src="resources/js/searchJS.js" charset="utf-8"></script>
 
 </head>
 <body>
@@ -224,6 +225,18 @@
 							                     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal${stat.index }">
 							                     	선택
 							                     </button>
+							                    <%-- <c:set var="id" value="${sessionScope.id }" />
+
+												<c:if test="${not empty id}">
+    												<c:set var="login" value="t" scope="request"/>
+    												
+    												
+    												<c:set var="bookmarklist" value="${sessionScope.bmlist }" scope="request" />
+												
+												
+												
+												</c:if> --%>
+
 
 												<div class="modal fade" id="myModal${stat.index }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 												  <div class="modal-dialog modal-lg">
