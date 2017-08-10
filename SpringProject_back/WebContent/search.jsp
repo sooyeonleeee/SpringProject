@@ -234,9 +234,7 @@
 
 												<div id="bmtest">
 												
-												<c:forEach var="bm" items="bookmarklist">
-												목적지: ${bm.destination }
-												</c:forEach>
+											
 												
 												
 												
