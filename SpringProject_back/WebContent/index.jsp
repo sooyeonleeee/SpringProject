@@ -78,8 +78,7 @@
 		</div>
 	</div>
 
-<jsp:include page="/main/login.jsp" />
-<jsp:include page="/main/join.jsp" />
+
 </body>
 </html>
 <script>
