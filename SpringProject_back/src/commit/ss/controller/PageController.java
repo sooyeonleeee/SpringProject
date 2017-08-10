@@ -41,7 +41,31 @@ public class PageController {
 		if (login == true) {
 			result.put("result", login);
 			session.setAttribute("id", user.getId());
-			session.setAttribute("bmlist", dao.getBookMark(user.getId()));
+
+			//////////////////////////////////
+			List<ResultVO> list = new ArrayList<>();
+			list.add(new ResultVO("origin1", "destination1", "depDate1", "arrDate1", "goFlightCarrier1", 10, "goDepTime1",
+					"goArrTime1", 100000));
+			list.add(new ResultVO("origin2", "destination2", "depDate2", "arrDate2", "goFlightCarrier2", 20, "goDepTime2",
+					"goArrTime2", 200000));
+			list.add(new ResultVO("origin3", "destination3", "depDate3", "arrDate3", "goFlightCarrier3", 30, "goDepTime3",
+					"goArrTime3", 300000));
+			list.add(new ResultVO("origin4", "destination4", "depDate4", "arrDate4", "goFlightCarrier4", 40, "goDepTime4",
+					"goArrTime4", 400000));
+			list.add(new ResultVO("origin5", "destination5", "depDate5", "arrDate5", "goFlightCarrier5", 50, "goDepTime5",
+					"goArrTime5", 500000));
+			list.add(new ResultVO("origin6", "destination6", "depDate6", "arrDate6", "goFlightCarrier6", 60, "goDepTime6",
+					"goArrTime6", 600000));
+			list.add(new ResultVO("origin7", "destination7", "depDate7", "arrDate7", "goFlightCarrier7", 70, "goDepTime7",
+					"goArrTime7", 700000));
+			list.add(new ResultVO("origin8", "destination8", "depDate8", "arrDate8", "goFlightCarrier8", 80, "goDepTime8",
+					"goArrTime8", 800000));
+			list.add(new ResultVO("origin9", "destination9", "depDate9", "arrDate9", "goFlightCarrier9", 90, "goDepTime9",
+					"goArrTime9", 900000));
+			list.add(new ResultVO("origin10", "destination10", "depDate10", "arrDate10", "goFlightCarrier10", 100,
+					"goDepTime10", "goArrTime10", 1000000));
+			//////////////////////////////////////////////
+			session.setAttribute("bmlist", list);
 		} else
 			result.put("result", login);
 		return result;
@@ -146,7 +170,6 @@ public class PageController {
 	// 즐겨찾기 리스트
 	@RequestMapping("/bookmark")
 	public ModelAndView gotoBookMark(@RequestParam String id) {
-		// List<FlightVO> list = dao.getBookMark(id);
 		List<ResultVO> list = new ArrayList<>();
 
 		list.add(new ResultVO("origin1", "destination1", "depDate1", "arrDate1", "goFlightCarrier1", 10, "goDepTime1",

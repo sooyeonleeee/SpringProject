@@ -69,7 +69,7 @@ body {
 	z-index: -1;
 	content: "";
 	width: 100%;
-	height: 100%;
+	height: 70%;
 }
 
 .listbox span :not(img){
@@ -80,6 +80,7 @@ body {
 	border: 1px solid #e3e3e3;
 	border-radius: 4px;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+	
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
 }
  .listbox span {
@@ -90,3 +91,33 @@ margin-left: 40px;
 	top:20px;
 	left:340px;
 }
+
+.well{
+	
+      background-color: rgba( 255, 255, 255, 0 ); 
+      border-style: none;
+      border-collapse: collapse;
+}
+
+.table.table-bordered{
+    border-style: none;
+    border-width:0;
+	
+}
+
+td,tr,th,thead,tbody{
+	border-style: hidden;
+	border-width:0;
+}
+
+
+
+.top_info{
+	margin-bottom:15px;
+}
+
+.search_fly{
+	width:200px;
+}
+
+

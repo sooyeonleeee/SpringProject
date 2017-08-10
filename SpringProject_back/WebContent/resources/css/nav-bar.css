@@ -88,11 +88,12 @@
 }
 
 .breadcrumb-primary {
+	
   width: 1200px;
   height: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
   margin-right: 200px;
-  margin-top:-34px;
+  margin-top:-35px;
   margin-left: 290px;
   list-style: none;
   background-color: #008ca8;
@@ -102,16 +103,20 @@
 
 .breadcrumb-primary .duration{
     font-size: 0.7em;
+    margin-top:13px;
 }
 
 .breadcrumb-primary .searchTop{
 	
    float: left;
     text-align: center;
+    margin-top:13px;
 }
 
 .breadcrumb-primary .top_Line{
 	float:left;
     width: 20px;
     border-top: 1.5px solid white;
+    margin-top:13px;
 }
+
