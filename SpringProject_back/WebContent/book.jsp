@@ -95,13 +95,13 @@ tr:nth-child(even) {
 										<th>가격</th>
 										<c:forEach var="bm" items="${bookmark}" varStatus="status">
 											<tr style="background-color: white">
-												<td>${status.count }</td>
-												<td>${bm.origin }</td>
-												<td>${bm.depDate }&nbsp;${bm.goDepTime}</td>
+												<td>${status.count}</td>
+												<td>${bm.origin}</td>
+												<td>${bm.depDate}&nbsp;${bm.goDepTime}</td>
 												<td>${bm.destination }</td>
-												<td>${bm.arrDate}&nbsp;${bm.goArrTime }</td>
-												<td>${bm.goDuration }</td>
-												<td>${bm.goPrice }</td>
+												<td>${bm.arrDate}&nbsp;${bm.goArrTime}</td>
+												<td>${bm.goDuration}</td>
+												<td>${bm.goPrice}</td>
 											</tr>
 										</c:forEach>
 								</table>

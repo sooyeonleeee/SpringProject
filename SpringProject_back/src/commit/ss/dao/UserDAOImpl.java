@@ -63,12 +63,22 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
-	public boolean changePwd(UserVO user) {
-		int cnt = session.update("userMapper.updateUser", user);
-		if (cnt == 1) {
-			return true;
+	public boolean changePwd(String id,String Nowpwd,String Newpwd) {
+		boolean result=false;
+		UserVO vo = session.selectOne("userMapper.selectUser", id);
+		System.out.println(vo.getPwd());
+		UserVO newvo = new UserVO(id,Newpwd);
+		if(vo.getPwd().equals(Nowpwd)){
+			int cnt = session.update("userMapper.updateUser", newvo);
+			if(cnt==1){
+				return result=true;
+			}else{
+				return result=false;
+			}
+		}else{
+			result=false;
 		}
-		return false;
+		return result;
 	}
 
 	public List<FlightVO> getBookMark(String id) {

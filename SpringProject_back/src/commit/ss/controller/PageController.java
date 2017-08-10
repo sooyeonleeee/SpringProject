@@ -38,9 +38,9 @@ public class PageController {
 		if (login == true) {
 			result.put("result", login);
 			session.setAttribute("id", user.getId());
+			session.setAttribute("bmlist", dao.getBookMark(user.getId()));
 		} else
 			result.put("result", login);
-
 		return result;
 	}
 
@@ -74,84 +74,58 @@ public class PageController {
 	}
 
 	// 비밀번호 변경
-//	@RequestMapping(value = "/changePwd", method = RequestMethod.POST)
-//	public ModelAndView changePwd(HttpSession session, @RequestParam String pwd,
-//						@RequestParam String nowPwd) {
-//		
-//		String id1 = ""; 
-//		String result = "" ;
-//		
-//		id1 = (String) session.getAttribute("id");
-//		
-//		 //session.selectOne("userMapper.selectUser", id1);
-//
-//		System.out.println("====Test=====");
-//		System.out.println("id : " + id1);
-//		System.out.println("now pwd : " + nowPwd);
-//		System.out.println("pwd : " + pwd);
-//		
-//		UserVO user = new UserVO(id1, nowPwd);
-//		
-//		if(dao.signIn(user)) {
-//			
-//			
-//			UserVO new_user = new UserVO(id1,pwd);
-//			
-//				if (dao.changePwd(new_user)) {
-//					result = "success";
-//				} else {
-//					result = "fail";
-//				}
-//		}else {
-//			result = "fail";
-//		}
-//		
-//		System.out.println("==Result== " + result);
-//		
-//		return new ModelAndView("customer", "up_result", result);
-//	}
-	
+	// @RequestMapping(value = "/changePwd", method = RequestMethod.POST)
+	// public ModelAndView changePwd(HttpSession session, @RequestParam String
+	// pwd,
+	// @RequestParam String nowPwd) {
+	//
+	// String id1 = "";
+	// String result = "" ;
+	//
+	// id1 = (String) session.getAttribute("id");
+	//
+	// //session.selectOne("userMapper.selectUser", id1);
+	//
+	// System.out.println("====Test=====");
+	// System.out.println("id : " + id1);
+	// System.out.println("now pwd : " + nowPwd);
+	// System.out.println("pwd : " + pwd);
+	//
+	// UserVO user = new UserVO(id1, nowPwd);
+	//
+	// if(dao.signIn(user)) {
+	//
+	//
+	// UserVO new_user = new UserVO(id1,pwd);
+	//
+	// if (dao.changePwd(new_user)) {
+	// result = "success";
+	// } else {
+	// result = "fail";
+	// }
+	// }else {
+	// result = "fail";
+	// }
+	//
+	// System.out.println("==Result== " + result);
+	//
+	// return new ModelAndView("customer", "up_result", result);
+	// }
+
 	@RequestMapping(value = "/changePwd", method = RequestMethod.POST)
 	@ResponseBody
-	public String changePwd(@RequestParam String pwd,
-						@RequestParam String nowPwd,HttpSession session) {
-		System.out.println("++++++++++++++++++++++++++++++++++");
-		String id1 = ""; 
-		String result = "" ;
-		
-		id1 = (String) session.getAttribute("id");
-		
-		 //session.selectOne("userMapper.selectUser", id1);
+	public HashMap<String, Boolean> changePwd(@RequestParam("newPwd") String newPwd, @RequestParam("nowPwd") String nowPwd, @RequestParam("id") String id) {
+		System.out.println(newPwd+" "+nowPwd+" "+id);
 
-		System.out.println("====Test=====");
-		System.out.println("id : " + id1);
-		System.out.println("now pwd : " + nowPwd);
-		System.out.println("pwd : " + pwd);
-		
-		UserVO user = new UserVO(id1, nowPwd);
-		
-		if(dao.signIn(user)) {
-			
-			
-			UserVO new_user = new UserVO(id1,pwd);
-			
-				if (dao.changePwd(new_user)) {
-					result = "success";
-				} else {
-					result = "fail";
-				}
-		}else {
-			result = "fail";
-		}
-		
-		System.out.println("==Result== " + result);
-		
+		result = new HashMap<String, Boolean>();
+		result.put("result", dao.changePwd(id, nowPwd, newPwd)); 
 		return result;
 	}
 
 	// 상세 페이지
 	@RequestMapping("/listinfo")
 	public String listinfo(HttpSession session) {
+		System.out.println(session.getAttribute("id"));
 		session.removeAttribute("id");
 		return "listinfo";
 	}
@@ -164,8 +138,7 @@ public class PageController {
 	// 마이페이지
 	@RequestMapping("/mypage")
 	public ModelAndView gotoMyPage(@RequestParam String id) {
-		
-		
+
 		return new ModelAndView("customer", "result", result);
 	}
 
@@ -195,25 +168,7 @@ public class PageController {
 				"goArrTime9", 900000));
 		list.add(new ResultVO("origin10", "destination10", "depDate10", "arrDate10", "goFlightCarrier10", 100,
 				"goDepTime10", "goArrTime10", 1000000));
-
 		return new ModelAndView("book", "bookmark", list);
-	}
-
-	// 즐겨찾기에 추가(details)
-	@RequestMapping("/addBookMark")
-	public String addBookMark(@RequestParam String id, FlightVO flight) {
-		dao.addBookMark(id, flight);
-		return "book";
-	}
-
-	// 즐겨찾기 삭제
-	@RequestMapping("/deleteBookMark")
-	public String deleteBookMark(@RequestParam String id, @RequestParam int index) {
-		/*dao.deleteBookMark(id, index);
-		list.remove(index);
-		return new ModelAndView("bookmark", "bookmark", list);*/
-		System.out.println("index-----------------------------------------------"+index);
-		return "redirect:/bookmark?id="+id;
 	}
 
 	// 즐겨찾기 모두 삭제
@@ -237,12 +192,12 @@ public class PageController {
 		return "history";
 	}
 	
-	@RequestMapping(value="/checkBookmark", method=RequestMethod.POST)
+	@RequestMapping(value="/checkBookmark")
 	@ResponseBody
-	public String checkBookmark(@RequestParam String id, @RequestParam String item) {
+	public String checkBookmark(@RequestParam String id) {
+		
 		System.out.println("bookmark체크하는 함수 호출");
 		System.out.println("id--------------------"+id);
-		System.out.println("item--------------------"+item);
 		return "listinfo";
 	}
 	
