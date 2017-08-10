@@ -21,6 +21,11 @@
 							1 있으면 staron
 							2 없으면 staroff
 						 -->
+							<!-- 일단 즐겨찾기에 등록 -->
+
+
+
+
 						<!-- 일단 즐겨찾기에 등록 -->
 						<!--  -->
 						
@@ -31,6 +36,10 @@
 							<img alt=""
 								src="http://localhost:8087/SpringProject/resources/img/staroff.png">
 						</c:if>
+					</button>
+
+					<c:if test="${empty logincheck }">
+
 				</button>
 						<c:if test="${empty logincheck }">
 							<script>
@@ -38,6 +47,12 @@
 									alert("로그인이 필요한 서비스입니다.");
 								};
 							</script>
+					</c:if>
+
+					<c:if test="${not empty logincheck }">
+					
+					</c:if>
+
 						</c:if>
 						
 						
@@ -199,3 +214,4 @@
 		</div>
 	</div>
 </div>
+

@@ -10,11 +10,15 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.google.api.client.json.Json;
+import com.google.gson.JsonObject;
 
 import commit.ss.dao.UserDAO;
 import commit.ss.vo.ResultVO;
@@ -223,12 +227,8 @@ public class PageController {
 	
 	@RequestMapping(value="/getModalJson", method=RequestMethod.POST)
 	@ResponseBody
-	public void getModalJson(List<String> modal) {
-		System.out.println("Controller");
-		for(String str : modal) {
-			System.out.println(str);
-		}
+	public void getModalJson(@RequestBody String modal) {
+		
+		System.out.println(modal);
 	}
-	
-	
 }
