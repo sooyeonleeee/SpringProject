@@ -4654,7 +4654,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 }
 
 .navbar-brand>img {
-	display: block
+	display: block;
 }
 
 @media ( min-width :768px) {

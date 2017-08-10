@@ -28,7 +28,8 @@
 <link
    href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
    rel="stylesheet" type="text/css">
-   
+
+<script type="text/javascript" src="resources/js/searchJS.js" charset="utf-8"></script>
 
 </head>
 <body>
@@ -36,11 +37,11 @@
 	<!-- Header -->
 	<jsp:include page = "include/header.jsp"></jsp:include>
 	
-	<ul class="nav nav-tabs-primary">	
+<!-- 	<ul class="nav nav-tabs-primary">	
 	
 		    <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-plane"></span> 항공권</a></li>
 		
-	</ul>
+	</ul> -->
 	
 	
 		<ol class="breadcrumb-primary">
@@ -224,7 +225,7 @@
 							                     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal${stat.index }">
 							                     	선택
 							                     </button>
-							                    <c:set var="id" value="${sessionScope.id }" />
+							                    <%-- <c:set var="id" value="${sessionScope.id }" />
 
 												<c:if test="${not empty id}">
     												<c:set var="login" value="t" scope="request"/>
@@ -234,7 +235,7 @@
 												
 												
 												
-												</c:if>
+												</c:if> --%>
 
 
 												<div class="modal fade" id="myModal${stat.index }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

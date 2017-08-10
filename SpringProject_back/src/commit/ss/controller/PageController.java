@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import commit.ss.dao.UserDAO;
-import commit.ss.vo.FlightVO;
 import commit.ss.vo.ResultVO;
 import commit.ss.vo.SearchVO;
 import commit.ss.vo.UserVO;
@@ -115,8 +114,6 @@ public class PageController {
 	@RequestMapping(value = "/changePwd", method = RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, Boolean> changePwd(@RequestParam("newPwd") String newPwd, @RequestParam("nowPwd") String nowPwd, @RequestParam("id") String id) {
-		System.out.println(newPwd+" "+nowPwd+" "+id);
-
 		result = new HashMap<String, Boolean>();
 		result.put("result", dao.changePwd(id, nowPwd, newPwd)); 
 		return result;

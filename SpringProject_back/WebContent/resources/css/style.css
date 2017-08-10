@@ -2,9 +2,14 @@ body{
     width: 100%;
     height: 100%;
     background-color: #f8f8f8;
+    margin-left:10px;
     
 }
 
+
+.card{
+	margin-left:130px;
+}
 
 /* whole body */
 .day-list-item .card {
@@ -14,8 +19,13 @@ body{
     margin-left:-60px;
 }
 
+.day-list-item.clearfix{
+	margin-bottom:10px;
+}
+
 /* left side */
 .card-body{
+	margin-left:-100px;
 	height:230px;
     width: calc(70% - 2px);
     background-color: white;
@@ -36,13 +46,13 @@ body{
 }
 
 .card-body .card-main {
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
     height: 100px;
 }
 
 .card-body .card-main:last-child {
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
     height:0px;
 }
