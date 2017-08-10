@@ -225,18 +225,22 @@
 							                     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal${stat.index }">
 							                     	선택
 							                     </button>
-							                    <%-- <c:set var="id" value="${sessionScope.id }" />
+							                    <c:set var="id" value="${sessionScope.id }" />
 
 												<c:if test="${not empty id}">
     												<c:set var="login" value="t" scope="request"/>
-    												
-    												
     												<c:set var="bookmarklist" value="${sessionScope.bmlist }" scope="request" />
-												
-												
-												
-												</c:if> --%>
+												</c:if>
 
+												<div id="bmtest">
+												
+												<c:forEach var="bm" items="bookmarklist">
+												목적지: ${bm.destination }
+												</c:forEach>
+												
+												
+												
+												</div>
 
 												<div class="modal fade" id="myModal${stat.index }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 												  <div class="modal-dialog modal-lg">
