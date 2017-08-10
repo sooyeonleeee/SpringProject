@@ -50,10 +50,13 @@
 						"newPwd" : newPwd1.val()
 					},
 					success : function(data) {
-						if(data.result==false)
+						if(data.result==false){
 							alert("기존 비밀번호 틀림니다");
-						else
+						}
+						else{
 							alert("변경성공");
+							 location.reload();
+						}
 					},
 					error : function(request, status, error) {
 						alert("code:" + request.status + "\n" + "error:" + error);
@@ -98,7 +101,7 @@
 						</div>
 						<hr>
 						<div class="col-md-3">
-							<button id="changePW">비밀번호 변경</button>
+							<button id="changePW" class="btn btn-info">비밀번호 변경</button>
 						</div>
 					</div>
 				</div>
