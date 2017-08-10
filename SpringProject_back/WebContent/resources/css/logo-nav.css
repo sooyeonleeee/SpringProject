@@ -25,3 +25,10 @@ body {
         padding: 15px 0;
     }
 }
+
+.navbar-sky-log{
+	margin-left:100px;
+	float:left;
+	height:20px;
+	width:100px;
+}

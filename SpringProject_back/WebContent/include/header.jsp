@@ -28,6 +28,8 @@
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<link href="resources/css/nav-bar.css" rel="stylesheet">
 </head>
 
 <body>
@@ -35,13 +37,30 @@
 	<div>
 		<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
+		
 			<div class="navbar-header" style="padding: 15px">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#myNavbar">
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand  navbar-brand-centered" href="#">BRANDING</a>
+			<!-- 	<a class="navbar-brand  navbar-brand-centered" href="#">BRANDING</a> -->
+				
+				<div class="navbar-brand  navbar-brand-centered" >
+					<img class="sky_log" src="resources/img/sky_log.png">
+					
+				</div>
+				
+				
+			<%-- 	 <div class="card-body clearfix">
+					            <div class="clearfix carrier">
+						               <div class="airline">
+						                  <img class="korean_air" src="resources/img/korean_air.png"
+			                     alt="대한항공" data-name="대한항공" onerror="__imgErrRemove__(this)"><span>${item.goFlightCarrier}</span>
+						               </div>
+					            </div> --%>
+				
+				
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
@@ -60,6 +79,13 @@
 					</c:if>
 				</ul>
 			</div>
+			
+			<ul class="nav nav-tabs-primary">	
+	
+		    	<li role="presentation" class="active"><a href=""><span class="glyphicon glyphicon-plane"></span> 항공권</a></li>
+		
+	</ul>
+			
 		</div>
 		</nav>
 	</div>
