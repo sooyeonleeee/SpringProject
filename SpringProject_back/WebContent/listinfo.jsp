@@ -22,8 +22,8 @@
 							2 없으면 staroff
 						 -->
 						<!-- 일단 즐겨찾기에 등록 -->
+						<!--  -->
 						
-					
 						
 						
 						</c:if>
@@ -32,22 +32,10 @@
 								src="http://localhost:8087/SpringProject/resources/img/staroff.png">
 						</c:if>
 				</button>
-						
 						<c:if test="${empty logincheck }">
 							<script>
 								document.getElementById("btn_like"+${requestScope.stat.index}).onclick=function() {
 									alert("로그인이 필요한 서비스입니다.");
-								};
-							</script>
-						</c:if>
-						
-						<c:if test="${not empty logincheck }">
-							<script>
-								document.getElementById("btn_like"+${requestScope.stat.index}).onclick=function() {
-									
-									
-									
-									
 								};
 							</script>
 						</c:if>
