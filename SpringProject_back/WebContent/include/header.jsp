@@ -62,3 +62,6 @@ String id = (String)session.getAttribute("id");
 		</div>
 		</nav>
 	</div>
+	<jsp:include page="/main/login.jsp" />
+<jsp:include page="/main/join.jsp" />
+	
