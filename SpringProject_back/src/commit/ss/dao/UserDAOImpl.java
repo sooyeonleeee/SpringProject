@@ -5,13 +5,13 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.google.gson.Gson;
 
 import commit.ss.vo.FlightVO;
+import commit.ss.vo.ResultVO;
 import commit.ss.vo.SearchVO;
 import commit.ss.vo.UserVO;
 
@@ -81,17 +81,13 @@ public class UserDAOImpl implements UserDAO {
 		return result;
 	}
 
-	public List<FlightVO> getBookMark(String id) {
-		List<FlightVO> list = redisDAO.getObject(bookmarkKey + id, List.class);
+	public List<ResultVO> getBookMark(String id) {
+		List<ResultVO> list = redisDAO.getObject(bookmarkKey + id, List.class);
 		return list;
 	}
 
-	public boolean addBookMark(String id, FlightVO flight) {
-		JSONObject obj = new JSONObject();
-		obj.put("date", getDate());
-		redisDAO.setObject(bookmarkKey + id, obj.toJSONString());
-		String bookmark = new Gson().toJson(flight);
-		redisDAO.setObject("bookmark", bookmark);
+	public boolean addBookMark(String id, String bookmark) {
+		redisDAO.setObject(bookmarkKey+id, bookmark);
 		return true;
 	}
 

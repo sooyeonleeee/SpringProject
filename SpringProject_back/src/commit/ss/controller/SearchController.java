@@ -4,12 +4,15 @@ package commit.ss.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import commit.ss.dao.UserDAO;
@@ -27,7 +30,7 @@ public class SearchController {
 	
 	
 	@RequestMapping(value="/search", method=RequestMethod.POST)
-	public ModelAndView getFlightList(@ModelAttribute SearchVO svo, @RequestParam String id) {
+	public ModelAndView getFlightList(@ModelAttribute SearchVO svo, @RequestParam String id, HttpSession session) {
 		
 		//검색 기록에 추가
 		if (!id.isEmpty()) {
@@ -66,6 +69,10 @@ public class SearchController {
 			
 			reList = gr.getResult(svo, go, back);
 		}
+		
+		session.setAttribute("dep", svo.getDeparture());
+		session.setAttribute("arr", svo.getArrival());
+		
 		return new ModelAndView("search", "reList", reList);
 	}
 

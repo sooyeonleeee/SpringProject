@@ -10,28 +10,20 @@ $(document).ready(function() {
 		console.log(modalJson);
 		
 		$.ajax({
-		    type: "POST",
-		    url: "getModalJson",
-		    data: JSON.stringify({data:"test"}),
-		    contentType: "application/json; charset=utf-8",
-		    dataType: "json",
-		    success: function (data) {
-		    	alert(data);
-		    }
+			type: 'post',
+			url: 'getModalJson',
+			dataType: 'json',
+			data: JSON.stringify(modalJson),
+			contentType: 'application/json; charset=utf-8',
+			success: function (data) {
+				alert(data);
+				console.log(data);
+			},
+			failure: function (errMsg) {
+				alert(errMsg);
+				console.log(errMsg);
+			}
 		});
-//		$.ajax({
-//            type: "post",
-//            url: "/getModalJson",
-//            dataType: "json",
-//            data: JSON.stringify(modalJson),
-//            contentType: 'application/json',
-//            success: function (data) {
-//            	alert(data);
-//            },
-//            failure: function (errMsg) {
-//                alert(errMsg);
-//            }
-//        });
 		
 	});
 

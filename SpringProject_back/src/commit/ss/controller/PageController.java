@@ -10,11 +10,15 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.google.api.client.json.Json;
+import com.google.gson.JsonObject;
 
 import commit.ss.dao.UserDAO;
 import commit.ss.vo.ResultVO;
@@ -169,7 +173,7 @@ public class PageController {
 	// 즐겨찾기 리스트
 	@RequestMapping("/bookmark")
 	public ModelAndView gotoBookMark(@RequestParam String id) {
-		List<ResultVO> list = new ArrayList<>();
+/*		List<ResultVO> list = new ArrayList<>();
 
 		list.add(new ResultVO("origin1", "destination1", "depDate1", "arrDate1", "goFlightCarrier1", 10, "goDepTime1",
 				"goArrTime1", 100000));
@@ -190,7 +194,10 @@ public class PageController {
 		list.add(new ResultVO("origin9", "destination9", "depDate9", "arrDate9", "goFlightCarrier9", 90, "goDepTime9",
 				"goArrTime9", 900000));
 		list.add(new ResultVO("origin10", "destination10", "depDate10", "arrDate10", "goFlightCarrier10", 100,
-				"goDepTime10", "goArrTime10", 1000000));
+				"goDepTime10", "goArrTime10", 1000000));*/
+		List<ResultVO> list = dao.getBookMark(id);
+		System.out.println("모든 북마크");
+		System.out.println(list);
 		return new ModelAndView("book", "bookmark", list);
 	}
 
@@ -226,12 +233,10 @@ public class PageController {
 	
 	@RequestMapping(value="/getModalJson", method=RequestMethod.POST)
 	@ResponseBody
-	public void getModalJson(List<String> modal) {
-		System.out.println("Controller");
-		for(String str : modal) {
-			System.out.println(str);
-		}
+	public void getModalJson(@RequestBody String modal, HttpSession session) {
+		System.out.println("-----------선택한 비행기편");
+		System.out.println(modal);
+		String id = (String) session.getAttribute("id");
+		dao.addBookMark(id, modal);
 	}
-	
-	
 }
