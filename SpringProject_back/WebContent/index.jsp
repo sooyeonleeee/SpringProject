@@ -1,12 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!DOCTYPE body PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<body>
 <jsp:include page="include/header.jsp" />
 <div class="container">
-		<div id="row" style="margin-top: 250px">
+		<div id="row" style="margin-top: 75px">
 			<div class="well">
 				<form class="form-inline" action="http://localhost:8087/SpringProject/search?id=${sessionScope.id }" method="post">
-					<table class="table table-bordered">
+					<table class="table no-border" border="0">
 						<thead>
+					
+						
 							<th>출발지</th>
 							<th>도착지</th>
 							<th>가는시간</th>
@@ -16,11 +22,11 @@
 							<tr>
 								<td>
 									<div class="ui-widget">
-										<input type="text" id="search1"  class="form-control" required="required"> <input type="hidden" class="search1_code" name="departure"  >
+										<input type="text" id="search1"  class="form-control" required="required" size="28"> <input type="hidden" class="search1_code" name="departure"  >
 									</div>
 								</td>
 								<td><div class="ui-widget">
-										<input type="text" id="search2" class="form-control" required="required"> <input type="hidden" name="arrival" class="search2_code">
+										<input type="text" id="search2" class="form-control" required="required" size="28"> <input type="hidden" name="arrival" class="search2_code">
 									</div></td>
 								<td><input type="text" name="depDate" class="form-control" id="datepicker1" required="required"></td>
 								<td><input type="text" name="arrDate" class="form-control" id="datepicker2" required="required"></td>
@@ -57,6 +63,9 @@
 										</span>
 									</div>
 								</td>
+						
+								
+								
 								<td colspan="2">
 									<span class="col-sm-3">
 										<label for="path1"><input type="radio" class="form-control text-center" name="isOneWay"  value="1" id="path1" checked="TRUE">왕복</label>

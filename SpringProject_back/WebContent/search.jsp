@@ -47,11 +47,11 @@
 	 <li> 
 		<div class="searchTop">
 			<div class="icon">
-				<i class="fa fa-search" style="font-size:15px;color:white;"></i>
+				<i class="fa fa-search" style="font-size:16px;color:white;"></i>
 			</div>
 			
 			<div class="searchStart">
-				<span class="start"> 서울</span>
+				<span class="start"> ####</span>
 			</div>
 			
 			<div class="line">
@@ -61,7 +61,7 @@
 			</div>
 			
 			<div class="searchArr">
-				<span class="arr"> 김포</span>
+				<span class="arr"> #### </span>
 			</div>
 
 			 </div>         
