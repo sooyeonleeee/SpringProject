@@ -69,7 +69,8 @@
                </div>
                <a href="#demo3" class="list-group-item list-group-item strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-credit-card" aria-hidden="true"></i> 가격 <i class="fa fa-caret-down"></i></a>
                <div class="collapse list-group-submenu" id="demo3">
-                  <a href="#" class="list-group-item"><input type="checkbox">  최고가</a> <a href="#" class="list-group-item"><input type="checkbox">  최저가</a>
+                  <a href="#" class="list-group-item"><input class="cb" name="priceRadio" type="radio" id="desc">최저가</a>
+                  <a href="#" class="list-group-item"><input class="cb" name="priceRadio" type="radio" id="asc">최고가</a>
                </div>
                <a class="list-group-item list-group-item strong text-center" style="background: #008ca8; color: white;" data-toggle="collapse"><button type="button" class="btn btn-success btn-sm">SEARCH</button> </a>
             </div>
