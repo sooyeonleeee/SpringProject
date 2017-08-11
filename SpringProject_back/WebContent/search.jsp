@@ -64,103 +64,104 @@
 			</div>
 			<div class="col-sm-9 ">
 				<article data-cid="model_79942" data-deeplink="details" class="" ontouchstart=""> 
-				<c:if test="${empty result}">
-					<div class="col-sm-12 well">
-						<!--검색리스트페이지 -->
-						<c:forEach var="item" items="${reList }" varStatus="stat">
+				<c:if test="${tf==false}">
+					<!--검색리스트페이지 -->
+					<c:forEach var="item" items="${reList}" varStatus="stat">
 						<c:set var="obj" value="${item}" scope="request" />
-						<li class="day-list-item clearfix " style="list-style: none">
-							<div class="card-body clearfix">
-								<div class="clearfix carrier">
-									<div class="airline">
-										<img class="korean_air" src="resources/img/korean_air.png" alt="대한항공" data-name="대한항공" onerror="__imgErrRemove__(this)"><span>${item.goFlightCarrier}</span>
-									</div>
-								</div>
-								<section data-id="0" class="card-main leg clearfix dept"> <c:choose>
-									<c:when test="${item.goFlightCarrier eq 'KE'}">
-										<div class="big-airline">
-											<img class="korean_air" src="resources/img/korean_air.png" alt="대한항공" data-name="대한항공" onerror="__logoReplace__(this)">
-											<%-- <span>${item.goFlightCarrier}</span> --%>
-										</div>
-									</c:when>
-									<c:when test="${item.goFlightCarrier eq 'OZ'}">
-										<div class="big-airline">
-											<img class="korean_air" src="resources/img/asiana_air.png" alt="아시아나항공" data-name="아시아나항공" onerror="__logoReplace__(this)">
-											<%-- <span>${item.goFlightCarrier}</span> --%>
-										</div>
-									</c:when>
-								</c:choose>
-								<div class="leg-details long-date-format">
-									<div class="depart">
-										<span class="station-tooltip" data-id="11876"> <span class="times">${item.goDepTime}</span><br> <span class="stop-station" data-id="11876">${item.origin}</span></span>
-									</div>
-									<div class="stops">
-										<span class="duration">${item.goDuration}분 소요</span>
-										<ul class="stop-line">
-											<li class="stop-line"></li>
-										</ul>
-										<div class="leg-stops no-stops">
-											<span class="leg-stops-green leg-stops-label">직항 </span><span class="leg-stops-station"></span>
+						<div class="col-sm-12">
+							<li class="day-list-item clearfix " style="list-style: none">
+								<div class="card-body clearfix">
+									<div class="clearfix carrier">
+										<div class="airline">
+											<img class="korean_air" src="resources/img/korean_air.png" alt="대한항공" data-name="대한항공" onerror="__imgErrRemove__(this)"><span>${item.goFlightCarrier}</span>
 										</div>
 									</div>
-									<div class="arrive">
-										<span class="station-tooltip" data-id="10562"> <span class="times">${item.goArrTime}</span><br> <span class="stop-station" data-id="10562">${item.destination}</span></span>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								</section>
-								<c:if test="${not empty item.backFlightCarrier}">
-									<section data-id="1" class="card-main leg clearfix retn">
-									<div class="big-airline">
-										<img class="korean_air" src="resources/img/korean_air.png" alt="대한항공" data-name="대한항공" onerror="__logoReplace__(this)">
-										<%-- <span>${item.backFlightCarrier}</span> --%>
-									</div>
+									<section data-id="0" class="card-main leg clearfix dept"> <c:choose>
+										<c:when test="${item.goFlightCarrier eq 'KE'}">
+											<div class="big-airline">
+												<img class="korean_air" src="resources/img/korean_air.png" alt="대한항공" data-name="대한항공" onerror="__logoReplace__(this)">
+												<%-- <span>${item.goFlightCarrier}</span> --%>
+											</div>
+										</c:when>
+										<c:when test="${item.goFlightCarrier eq 'OZ'}">
+											<div class="big-airline">
+												<img class="korean_air" src="resources/img/asiana_air.png" alt="아시아나항공" data-name="아시아나항공" onerror="__logoReplace__(this)">
+												<%-- <span>${item.goFlightCarrier}</span> --%>
+											</div>
+										</c:when>
+									</c:choose>
 									<div class="leg-details long-date-format">
 										<div class="depart">
-											<span class="station-tooltip" data-id="10562"> <span class="times">${item.backDepTime}</span> <br> <span class="stop-station" data-id="10562">${item.destination}</span></span>
+											<span class="station-tooltip" data-id="11876"> <span class="times">${item.goDepTime}</span><br> <span class="stop-station" data-id="11876">${item.origin}</span></span>
 										</div>
 										<div class="stops">
-											<span class="duration">${item.backDuration}분 소요</span>
+											<span class="duration">${item.goDuration}분 소요</span>
 											<ul class="stop-line">
 												<li class="stop-line"></li>
 											</ul>
 											<div class="leg-stops no-stops">
-												<span class="leg-stops-green leg-stops-label">직항 </span> <span class="leg-stops-station"></span>
+												<span class="leg-stops-green leg-stops-label">직항 </span><span class="leg-stops-station"></span>
 											</div>
 										</div>
 										<div class="arrive">
-											<span class="station-tooltip" data-id="11876"> <span class="times">${item.backArrTime}</span> <br> <span class="stop-station" data-id="11876">${item.origin}</span></span>
+											<span class="station-tooltip" data-id="10562"> <span class="times">${item.goArrTime}</span><br> <span class="stop-station" data-id="10562">${item.destination}</span></span>
 										</div>
 										<div class="clearfix"></div>
 									</div>
 									</section>
-							</div> <aside class="notch-holder"></aside>
-							<div class="mainquote-cba clearfix">
-								<div class="mainquote-wrapper-cba">
-									<div class="mq-container-wrapper">
-										<div class="mq-container">
-											<div class="cba-price">
-												<div class="mainquote-group-price">
-													<a href="#" target="_blank" class="mainquote-price expand-cba select-action"> <span class="" aria-hidden="true"></span>${item.goPrice + item.backPrice}
-													</a>
+									<c:if test="${not empty item.backFlightCarrier}">
+										<section data-id="1" class="card-main leg clearfix retn">
+										<div class="big-airline">
+											<img class="korean_air" src="resources/img/korean_air.png" alt="대한항공" data-name="대한항공" onerror="__logoReplace__(this)">
+											<%-- <span>${item.backFlightCarrier}</span> --%>
+										</div>
+										<div class="leg-details long-date-format">
+											<div class="depart">
+												<span class="station-tooltip" data-id="10562"> <span class="times">${item.backDepTime}</span> <br> <span class="stop-station" data-id="10562">${item.destination}</span></span>
+											</div>
+											<div class="stops">
+												<span class="duration">${item.backDuration}분 소요</span>
+												<ul class="stop-line">
+													<li class="stop-line"></li>
+												</ul>
+												<div class="leg-stops no-stops">
+													<span class="leg-stops-green leg-stops-label">직항 </span> <span class="leg-stops-station"></span>
 												</div>
 											</div>
-											<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal${stat.index }">선택</button>
-											<div class="modal fade" id="myModal${stat.index }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-												<div class="modal-dialog modal-lg">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-																<span aria-hidden="true">&times;</span>
-															</button>
-														</div>
-														<div class="modal-body">
-															<c:set var="stat" value="${stat}" scope="request" />
-															<c:import url="listinfo.jsp" />
-															<c:remove var="obj" scope="request" />
-														</div>
-														<div class="modal-footer">
-															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											<div class="arrive">
+												<span class="station-tooltip" data-id="11876"> <span class="times">${item.backArrTime}</span> <br> <span class="stop-station" data-id="11876">${item.origin}</span></span>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+										</section>
+								</div> <aside class="notch-holder"></aside>
+								<div class="mainquote-cba clearfix">
+									<div class="mainquote-wrapper-cba">
+										<div class="mq-container-wrapper">
+											<div class="mq-container">
+												<div class="cba-price">
+													<div class="mainquote-group-price">
+														<a href="#" target="_blank" class="mainquote-price expand-cba select-action"> <span class="" aria-hidden="true"></span>${item.goPrice + item.backPrice}
+														</a>
+													</div>
+												</div>
+												<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal${stat.index }">선택</button>
+												<div class="modal fade" id="myModal${stat.index }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+													<div class="modal-dialog modal-lg">
+														<div class="modal-content">
+															<div class="modal-header">
+																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																	<span aria-hidden="true">&times;</span>
+																</button>
+															</div>
+															<div class="modal-body">
+																<c:set var="stat" value="${stat}" scope="request" />
+																<c:import url="listinfo.jsp" />
+																<c:remove var="obj" scope="request" />
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+															</div>
 														</div>
 													</div>
 												</div>
@@ -168,19 +169,17 @@
 										</div>
 									</div>
 								</div>
-							</div>
-						</li>
-						${result}
-				</c:if> </c:forEach> 
-						<!--검색리스트페이지 -->
+							</li>
+						</div>
+			</c:if> </c:forEach> <!--검색리스트페이지 --> 
+			</c:if> <c:if test="${tf==true}">
+					<div class="col-sm-12">
+						<div class="well">
+						검색된 결과가 없습니다
+						</div>
 					</div>
-				</c:if> <c:if test="${not empty result}">
-					<div class="col-sm-12 well" style="background-color:white;">
-						검색된 페이지가 없습니다${result}<br>
-					</div>
-				</c:if> 
-				
-				</article>
+				</c:if>
+</article> 
 			</div>
 		</div>
 </body>
