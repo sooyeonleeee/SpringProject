@@ -30,7 +30,7 @@ public class SearchController {
 	
 	
 	@RequestMapping(value="/search", method=RequestMethod.POST)
-	public ModelAndView getFlightList(@ModelAttribute SearchVO svo, @RequestParam String id, HttpSession session) {
+	public ModelAndView getFlightList(@ModelAttribute SearchVO svo, @RequestParam String id, HttpSession session, ModelAndView mv) {
 
 		
 		//검색 기록에 추가

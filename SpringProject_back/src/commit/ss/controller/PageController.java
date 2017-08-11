@@ -116,7 +116,7 @@ public class PageController {
 	@RequestMapping("/bookmark")
 	public ModelAndView gotoBookMark(@RequestParam String id) {
 		List<ResultVO> list = dao.getBookMark(id);
-		for (ResultVO resultVO : list) {
+		/*for (ResultVO resultVO : list) {
 			Date now = Calendar.getInstance().getTime();
 			try {
 				Date depDate = new SimpleDateFormat("yyyy-mm-dd").parse(resultVO.getDepDate());
@@ -143,7 +143,7 @@ public class PageController {
 				e.printStackTrace();
 			}
 			resultVO.getGoDepTime();
-		}		
+		}		*/
 		return new ModelAndView("book", "bookmark", list);
 	}
 
@@ -178,6 +178,8 @@ public class PageController {
 	@ResponseBody
 	public void getModalJson(@RequestBody String modal, HttpSession session) {
 		String id = (String) session.getAttribute("id");
+		System.out.println("modal--------------------------------------------------------");
+		System.out.println(modal);
 		dao.addBookMark(id, modal);
 	}
 }
