@@ -52,7 +52,7 @@
 			</div>
 			
 			<div class="searchStart">
-				<span class="start"> ####</span>
+				<span class="start"> ${sessionScope.dep }</span>
 			</div>
 			
 			<div class="line">
@@ -62,7 +62,7 @@
 			</div>
 			
 			<div class="searchArr">
-				<span class="arr"> #### </span>
+				<span class="arr"> ${sessionScope.arr } </span>
 			</div>
 
 			 </div>         

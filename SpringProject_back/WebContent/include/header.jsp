@@ -30,6 +30,9 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <link href="resources/css/nav-bar.css" rel="stylesheet">
+
+<link href="resources/css/shop_item.css" rel="stylesheet">
+
 </head>
 
 <body>

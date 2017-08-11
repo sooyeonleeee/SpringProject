@@ -31,6 +31,7 @@ public class SearchController {
 	
 	@RequestMapping(value="/search", method=RequestMethod.POST)
 	public ModelAndView getFlightList(@ModelAttribute SearchVO svo, @RequestParam String id, HttpSession session) {
+
 		
 		//검색 기록에 추가
 		if (!id.isEmpty()) {
@@ -69,6 +70,8 @@ public class SearchController {
 			
 			reList = gr.getResult(svo, go, back);
 		}
+		
+
 		
 		session.setAttribute("dep", svo.getDeparture());
 		session.setAttribute("arr", svo.getArrival());
