@@ -29,11 +29,10 @@
    href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
    rel="stylesheet" type="text/css">
 
-<script type="text/javascript" src="resources/js/searchJS.js" charset="utf-8"></script>
+<script type="text/javascript" src="resources/js/searchJS.js?ver=4" charset="utf-8"></script>
 
 </head>
 <body>
-
 	<!-- Header -->
 	<jsp:include page = "include/header.jsp"></jsp:include>
 	
@@ -83,22 +82,22 @@
 					    <a class="list-group-item list-group-item strong text-center" style="background: #008ca8; color: white;" data-toggle="collapse"> 정렬 </a>
 					    <a href="#demo1" class="list-group-item list-group-item-success strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-clock-o" aria-hidden="true"></i> 시간 설정 <i class="fa fa-caret-down"></i></a>
 					    <div class="collapse list-group-submenu" id="demo1">
-					      <a href="#" class="list-group-item"><input type="checkbox">  Audio Content</a>
-					      <a href="#" class="list-group-item"><input type="checkbox">  Interactive Media</a>
-					      <a href="#" class="list-group-item"><input type="checkbox">  Learning Game</a>
-					      <a href="#" class="list-group-item"><input type="checkbox">  Video</a>
+					      <a href="#" class="list-group-item"><input class="cb" type="checkbox">  Audio Content</a>
+					      <a href="#" class="list-group-item"><input class="cb" type="checkbox">  Interactive Media</a>
+					      <a href="#" class="list-group-item"><input class="cb" type="checkbox">  Learning Game</a>
+					      <a href="#" class="list-group-item"><input class="cb" type="checkbox">  Video</a>
 					    </div> 
 					    <a href="#demo2" class="list-group-item list-group-item strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-plane" aria-hidden="true"></i> 항공사 <i class="fa fa-caret-down"></i></a>
 					    <div class="collapse list-group-submenu" id="demo2">
-					      <a href="#" class="list-group-item"><input type="checkbox">  대한항공(KE)</a>
-					      <a href="#" class="list-group-item"><input type="checkbox">  아시아나항공(OZ)</a>
-					      <a href="#" class="list-group-item"><input type="checkbox">  진에어(JIN)</a>
-					      <a href="#" class="list-group-item"><input type="checkbox">  제주항공(7C)</a>
+					      <a href="#" class="list-group-item"><input class="cb" type="checkbox">  대한항공(KE)</a>
+					      <a href="#" class="list-group-item"><input class="cb" type="checkbox">  아시아나항공(OZ)</a>
+					      <a href="#" class="list-group-item"><input class="cb" type="checkbox">  진에어(JIN)</a>
+					      <a href="#" class="list-group-item"><input class="cb" type="checkbox">  제주항공(7C)</a>
 					    </div>
 					    <a href="#demo3" class="list-group-item list-group-item strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-credit-card" aria-hidden="true"></i> 가격 <i class="fa fa-caret-down"></i></a>
 					    <div class="collapse list-group-submenu" id="demo3">
-					      <a href="#" class="list-group-item"><input type="checkbox">  최고가</a>
-					      <a href="#" class="list-group-item"><input type="checkbox">  최저가</a>
+					      <a href="#" class="list-group-item"><input class="cb" name="priceRadio" type="radio" id="desc">최저가</a>
+					      <a href="#" class="list-group-item"><input class="cb" name="priceRadio" type="radio" onclick="resultFilter('this')" id="asc">최고가</a>
 					    </div>
 					      <a class="list-group-item list-group-item strong text-center" style="background: #008ca8; color: white;" data-toggle="collapse"><button type="button" class="btn btn-success btn-sm">SEARCH</button> </a>
 					  </div>
@@ -218,7 +217,8 @@
 							                        <div class="mainquote-group-price">
 							                           <a href="#" target="_blank"
 							                              class="mainquote-price expand-cba select-action"> <span
-							                              class="" aria-hidden="true"></span>${item.goPrice + item.backPrice}
+							                              class="" aria-hidden="true"></span>
+							                              <span  class="totalPrice" id="${stat.index }">${item.goPrice + item.backPrice}</span>
 							                           </a>
 							                        </div>
 							                     </div>
@@ -271,6 +271,5 @@
 			   
 	   </div>
 	</div></div>
-	
 </body>
 </html>

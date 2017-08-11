@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -75,5 +76,11 @@ public class SearchController {
 		
 		return new ModelAndView("search", "reList", reList);
 	}
-
+	
+	@RequestMapping(value="/getRvoLi", method=RequestMethod.POST)
+	@ResponseBody
+	public void getRvoList(@RequestBody String myArray) {
+		System.out.println("getRvoLi Controller!!!!!!!");
+		System.out.println(myArray);
+	}
 }
