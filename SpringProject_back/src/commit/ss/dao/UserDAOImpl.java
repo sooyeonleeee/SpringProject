@@ -40,19 +40,19 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public boolean signIn(UserVO user) {
-
+		boolean tf = false;
 		UserVO vo = session.selectOne("userMapper.selectUser", user.getId());
 		int cnt = session.selectOne("userMapper.selectCnt", user.getId());
 		System.out.println(cnt);
 		if (cnt == 1) {
 			if (user.getPwd().equals(vo.getPwd())) {
-				return true;
+				return tf=true;
+			}else{
+				return tf=false;
 			}
 		} else {
-			return false;
+			return tf=false;
 		}
-
-		return false;
 	}
 
 	public boolean signUp(UserVO user) {
@@ -82,8 +82,13 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public List<ResultVO> getBookMark(String id) {
-		List<ResultVO> list = redisDAO.getObject(bookmarkKey + id, List.class);
-		return list;
+		List<String> list = redisDAO.getObject(bookmarkKey + id, List.class);
+		ArrayList<ResultVO> result = new ArrayList<>();
+		for (String string : list) {
+			Gson gson = new Gson();
+			result.add(gson.fromJson(string, ResultVO.class));
+		}
+		return result;
 	}
 
 	public boolean addBookMark(String id, String bookmark) {
@@ -91,7 +96,8 @@ public class UserDAOImpl implements UserDAO {
 		return true;
 	}
 
-	public boolean deleteBookMark(String id, FlightVO flight) {
+	public boolean deleteBookMark(String id, ResultVO flight) {
+		redisDAO.removeObject(bookmarkKey+id, flight);
 		return true;
 	}
 

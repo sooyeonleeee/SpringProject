@@ -1,13 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
 <!-- Custom CSS -->
 <link href="resources/css/shop-item.css" rel="stylesheet">
 <link href="resources/css/table-item.css" rel="stylesheet">
@@ -16,21 +13,12 @@
 <link href="resources/css/reset.css" rel="stylesheet">
 <link href="resources/css/test.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <!-- Custom Fonts -->
-<link href="vendor/font-awesome/css/font-awesome.min.css"
-   rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-   rel="stylesheet" type="text/css">
-<link
-   href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
-   rel="stylesheet" type="text/css">
-
+<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="resources/js/searchJS.js" charset="utf-8"></script>
-
 </head>
 <body>
 
