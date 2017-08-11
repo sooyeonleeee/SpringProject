@@ -32,10 +32,10 @@ public class SearchController {
 	public ModelAndView getFlightList(@ModelAttribute SearchVO svo, ModelAndView mv, HttpSession session) {
 		String id = (String) session.getAttribute("id");
 		// 검색 기록에 추가
-
-		// if (id!=null) {
-		// dao.addHistory(id, svo);
-		// }
+//
+//		 if (id!=null) {
+//		 dao.addHistory(id, svo);
+//		 }
 
 		GpxApi ga = new GpxApi();
 		MakeResult gr = new MakeResult();
