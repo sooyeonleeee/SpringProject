@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.api.client.http.HttpRequest;
 import com.google.api.client.json.Json;
 import com.google.gson.JsonObject;
 
@@ -36,46 +38,28 @@ public class PageController {
 	// 로그인
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	@ResponseBody
-	public HashMap<String, Boolean> home1(UserVO user, HttpSession session) {
+	public HashMap<String, Boolean> home1(UserVO user, HttpServletRequest request, HttpSession session) {
+
 		boolean login = dao.signIn(user);
 		if (login == true) {
 			result.put("result", login);
+
 			session.setAttribute("id", user.getId());
 
-			//////////////////////////////////
-			List<ResultVO> list = new ArrayList<>();
-			list.add(new ResultVO("origin1", "destination1", "depDate1", "arrDate1", "goFlightCarrier1", 10, "goDepTime1",
-					"goArrTime1", 100000));
-			list.add(new ResultVO("origin2", "destination2", "depDate2", "arrDate2", "goFlightCarrier2", 20, "goDepTime2",
-					"goArrTime2", 200000));
-			list.add(new ResultVO("origin3", "destination3", "depDate3", "arrDate3", "goFlightCarrier3", 30, "goDepTime3",
-					"goArrTime3", 300000));
-			list.add(new ResultVO("origin4", "destination4", "depDate4", "arrDate4", "goFlightCarrier4", 40, "goDepTime4",
-					"goArrTime4", 400000));
-			list.add(new ResultVO("origin5", "destination5", "depDate5", "arrDate5", "goFlightCarrier5", 50, "goDepTime5",
-					"goArrTime5", 500000));
-			list.add(new ResultVO("origin6", "destination6", "depDate6", "arrDate6", "goFlightCarrier6", 60, "goDepTime6",
-					"goArrTime6", 600000));
-			list.add(new ResultVO("origin7", "destination7", "depDate7", "arrDate7", "goFlightCarrier7", 70, "goDepTime7",
-					"goArrTime7", 700000));
-			list.add(new ResultVO("origin8", "destination8", "depDate8", "arrDate8", "goFlightCarrier8", 80, "goDepTime8",
-					"goArrTime8", 800000));
-			list.add(new ResultVO("origin9", "destination9", "depDate9", "arrDate9", "goFlightCarrier9", 90, "goDepTime9",
-					"goArrTime9", 900000));
-			list.add(new ResultVO("origin10", "destination10", "depDate10", "arrDate10", "goFlightCarrier10", 100,
-					"goDepTime10", "goArrTime10", 1000000));
-			//////////////////////////////////////////////
-			session.setAttribute("bmlist", list);
 		} else
 			result.put("result", login);
 		return result;
 	}
 
 	// 로그아웃, 메인
-	@RequestMapping("/logout.do")
-	public String logout(HttpSession session) {
+
+	@RequestMapping(value = "/logout.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String logout( HttpSession session) {
 		session.removeAttribute("id");
-		return "index";
+		
+		return "success";
+
 	}
 
 	// 중복체크
@@ -100,50 +84,12 @@ public class PageController {
 		}
 	}
 
-	// 비밀번호 변경
-	// @RequestMapping(value = "/changePwd", method = RequestMethod.POST)
-	// public ModelAndView changePwd(HttpSession session, @RequestParam String
-	// pwd,
-	// @RequestParam String nowPwd) {
-	//
-	// String id1 = "";
-	// String result = "" ;
-	//
-	// id1 = (String) session.getAttribute("id");
-	//
-	// //session.selectOne("userMapper.selectUser", id1);
-	//
-	// System.out.println("====Test=====");
-	// System.out.println("id : " + id1);
-	// System.out.println("now pwd : " + nowPwd);
-	// System.out.println("pwd : " + pwd);
-	//
-	// UserVO user = new UserVO(id1, nowPwd);
-	//
-	// if(dao.signIn(user)) {
-	//
-	//
-	// UserVO new_user = new UserVO(id1,pwd);
-	//
-	// if (dao.changePwd(new_user)) {
-	// result = "success";
-	// } else {
-	// result = "fail";
-	// }
-	// }else {
-	// result = "fail";
-	// }
-	//
-	// System.out.println("==Result== " + result);
-	//
-	// return new ModelAndView("customer", "up_result", result);
-	// }
-
 	@RequestMapping(value = "/changePwd", method = RequestMethod.POST)
 	@ResponseBody
-	public HashMap<String, Boolean> changePwd(@RequestParam("newPwd") String newPwd, @RequestParam("nowPwd") String nowPwd, @RequestParam("id") String id) {
+	public HashMap<String, Boolean> changePwd(@RequestParam("newPwd") String newPwd,
+			@RequestParam("nowPwd") String nowPwd, @RequestParam("id") String id) {
 		result = new HashMap<String, Boolean>();
-		result.put("result", dao.changePwd(id, nowPwd, newPwd)); 
+		result.put("result", dao.changePwd(id, nowPwd, newPwd));
 		return result;
 	}
 
@@ -162,36 +108,15 @@ public class PageController {
 
 	// 마이페이지
 	@RequestMapping("/mypage")
-	public ModelAndView gotoMyPage(@RequestParam String id) {
-
-		return new ModelAndView("customer", "result", result);
+	public ModelAndView gotoMyPage(ModelAndView mv) {
+		mv.setViewName("customer");
+		return mv;
 	}
 
 	// 즐겨찾기 리스트
 	@RequestMapping("/bookmark")
 	public ModelAndView gotoBookMark(@RequestParam String id) {
-		List<ResultVO> list = new ArrayList<>();
-
-		list.add(new ResultVO("origin1", "destination1", "depDate1", "arrDate1", "goFlightCarrier1", 10, "goDepTime1",
-				"goArrTime1", 100000));
-		list.add(new ResultVO("origin2", "destination2", "depDate2", "arrDate2", "goFlightCarrier2", 20, "goDepTime2",
-				"goArrTime2", 200000));
-		list.add(new ResultVO("origin3", "destination3", "depDate3", "arrDate3", "goFlightCarrier3", 30, "goDepTime3",
-				"goArrTime3", 300000));
-		list.add(new ResultVO("origin4", "destination4", "depDate4", "arrDate4", "goFlightCarrier4", 40, "goDepTime4",
-				"goArrTime4", 400000));
-		list.add(new ResultVO("origin5", "destination5", "depDate5", "arrDate5", "goFlightCarrier5", 50, "goDepTime5",
-				"goArrTime5", 500000));
-		list.add(new ResultVO("origin6", "destination6", "depDate6", "arrDate6", "goFlightCarrier6", 60, "goDepTime6",
-				"goArrTime6", 600000));
-		list.add(new ResultVO("origin7", "destination7", "depDate7", "arrDate7", "goFlightCarrier7", 70, "goDepTime7",
-				"goArrTime7", 700000));
-		list.add(new ResultVO("origin8", "destination8", "depDate8", "arrDate8", "goFlightCarrier8", 80, "goDepTime8",
-				"goArrTime8", 800000));
-		list.add(new ResultVO("origin9", "destination9", "depDate9", "arrDate9", "goFlightCarrier9", 90, "goDepTime9",
-				"goArrTime9", 900000));
-		list.add(new ResultVO("origin10", "destination10", "depDate10", "arrDate10", "goFlightCarrier10", 100,
-				"goDepTime10", "goArrTime10", 1000000));
+		List<ResultVO> list = dao.getBookMark(id);
 		return new ModelAndView("book", "bookmark", list);
 	}
 
@@ -215,20 +140,19 @@ public class PageController {
 		dao.deleteAllHistory(id);
 		return "history";
 	}
-	
-	@RequestMapping(value="/checkBookmark")
+
+	@RequestMapping(value = "/checkBookmark")
 	@ResponseBody
 	public String checkBookmark(@RequestParam String id) {
-		
-		System.out.println("bookmark체크하는 함수 호출");
-		System.out.println("id--------------------"+id);
 		return "listinfo";
 	}
-	
-	@RequestMapping(value="/getModalJson", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/getModalJson", method = RequestMethod.POST)
 	@ResponseBody
-	public void getModalJson(@RequestBody String modal) {
-		
+	public void getModalJson(@RequestBody String modal, HttpSession session) {
+		System.out.println("-----------선택한 비행기편");
 		System.out.println(modal);
+		String id = (String) session.getAttribute("id");
+		dao.addBookMark(id, modal);
 	}
 }

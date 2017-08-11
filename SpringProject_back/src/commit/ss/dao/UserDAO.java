@@ -3,6 +3,7 @@ package commit.ss.dao;
 import java.util.List;
 
 import commit.ss.vo.FlightVO;
+import commit.ss.vo.ResultVO;
 import commit.ss.vo.SearchVO;
 import commit.ss.vo.UserVO;
 
@@ -21,10 +22,10 @@ public interface UserDAO {
 	public boolean changePwd(String id,String Nowpwd,String Newpwd);
 
 	// ���ã�� ���
-	public List<FlightVO> getBookMark(String id);
+	public List<ResultVO> getBookMark(String id);
 
 	// ���ã�� �߰�
-	public boolean addBookMark(String id, FlightVO flight);
+	public boolean addBookMark(String id, String bookmark);
 
 	// ���ã�� ����
 	public boolean deleteBookMark(String id, FlightVO flight);

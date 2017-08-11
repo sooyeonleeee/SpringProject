@@ -87,21 +87,34 @@ tr:nth-child(even) {
 								<table class="table">
 									<tr>
 										<th>번호</th>
+										<th>항공사</th>
 										<th>출발지</th>
 										<th>출발일시</th>
 										<th>도착지</th>
 										<th>도착일시</th>
 										<th>소요시간</th>
-										<th>가격</th>
 										<c:forEach var="bm" items="${bookmark}" varStatus="status">
 											<tr style="background-color: white">
 												<td>${status.count}</td>
+												<td>${bm.goFlightCarrier }</td>
 												<td>${bm.origin}</td>
-												<td>${bm.depDate}&nbsp;${bm.goDepTime}</td>
+												<td>${bm.depDate}&nbsp;&nbsp;${bm.goDepTime}</td>
 												<td>${bm.destination }</td>
-												<td>${bm.arrDate}&nbsp;${bm.goArrTime}</td>
-												<td>${bm.goDuration}</td>
-												<td>${bm.goPrice}</td>
+												<td>${bm.depDate}&nbsp;&nbsp;${bm.goArrTime}</td>
+												<td>${bm.goDuration}분</td>
+												
+											<c:if test="${bm.backFlightCarrier ne 'none'}">
+												<tr style="background-color: white">
+												<td></td>
+												<td>${bm.backFlightCarrier }</td>
+												<td>${bm.destination}</td>
+												<td>${bm.arrDate }&nbsp;&nbsp;${bm.backDepTime }</td>
+												<td>${bm.origin }</td>
+												<td>${bm.arrDate }&nbsp;&nbsp;${bm.backArrTime }</td>
+												<td>${bm.backDuration }분</td>
+												</tr>
+											</c:if>
+												
 											</tr>
 										</c:forEach>
 								</table>

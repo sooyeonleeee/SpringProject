@@ -8,7 +8,7 @@
 <div class="container">
 		<div id="row" style="margin-top: 75px">
 			<div class="well">
-				<form class="form-inline" action="http://localhost:8087/SpringProject/search?id=${sessionScope.id }" method="post">
+				<form class="form-inline" action="http://localhost:8087/SpringProject/search" method="post">
 					<table class="table no-border" border="0">
 						<thead>
 					
@@ -43,7 +43,7 @@
 											<button type="button" class="btn btn-default" data-dir="dwn" >
 												<span class="glyphicon glyphicon-minus"></span>
 											</button>
-										</span> <input type="text" class="form-control text-center" value="2" name="adultCount" > <span class="input-group-btn">
+										</span> <input type="text" class="form-control text-center" value="1" name="adultCount" > <span class="input-group-btn">
 											<button type="button" class="btn btn-default" data-dir="up">
 												<span class="glyphicon glyphicon-plus"></span>
 											</button>
@@ -56,7 +56,7 @@
 											<button type="button" class="btn btn-default" data-dir="dwn">
 												<span class="glyphicon glyphicon-minus"></span>
 											</button>
-										</span> <input type="text" class="form-control text-center" value="0" name="childCount"> <span class="input-group-btn">
+										</span> <input type="text" class="form-control text-center" value="1" name="childCount"> <span class="input-group-btn">
 											<button type="button" class="btn btn-default" data-dir="up">
 												<span class="glyphicon glyphicon-plus"></span>
 											</button>
@@ -158,7 +158,7 @@
 			yearSuffix : '',
 			changeMonth : true,
 			changeYear : true,
-
+			minDate:'0d',
 			yearRange : 'c-99:c+99',
 		};
 

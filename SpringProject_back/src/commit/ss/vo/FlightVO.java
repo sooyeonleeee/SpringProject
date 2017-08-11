@@ -58,5 +58,13 @@ public class FlightVO {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
+	@Override
+	public String toString() {
+		return "FlightVO [flightCarrier=" + flightCarrier + ", duration=" + duration + ", depTime=" + depTime
+				+ ", arrTime=" + arrTime + ", price=" + price + "]";
+	}
+	
+	
 	
 }

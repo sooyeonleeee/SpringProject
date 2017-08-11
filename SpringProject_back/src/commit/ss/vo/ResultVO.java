@@ -163,6 +163,15 @@ public class ResultVO {
 	public void setBackPrice(int backPrice) {
 		this.backPrice = backPrice;
 	}
+
+	@Override
+	public String toString() {
+		return "ResultVO [origin=" + origin + ", destination=" + destination + ", depDate=" + depDate + ", arrDate="
+				+ arrDate + ", goFlightCarrier=" + goFlightCarrier + ", goDuration=" + goDuration + ", goDepTime="
+				+ goDepTime + ", goArrTime=" + goArrTime + ", goPrice=" + goPrice + ", backFlightCarrier="
+				+ backFlightCarrier + ", backDuration=" + backDuration + ", backDepTime=" + backDepTime
+				+ ", backArrTime=" + backArrTime + ", backPrice=" + backPrice + "]";
+	}
 	
 	
 }

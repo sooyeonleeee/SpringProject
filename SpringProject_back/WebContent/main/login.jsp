@@ -47,12 +47,13 @@
 </div>
 <!-- line modal -->
 <script type="text/javascript">
+
 	var test_id = $("#login_id");
 	var test_pw = $("#login_pwd");
+	
 	$(document).ready(function(){
 		$("#skylogin").click(function() {
-			console.log(test_id.val());
-			console.log(test_pw.val());
+
 			$.ajax({
 				url : 'http://localhost:8087/SpringProject/login.do',
 				dataType : "json",
@@ -66,7 +67,8 @@
 						alert("로그인을 실패했습니다\n 다시 입력해주세요");
 					
 					} else {
-						location.href = "http://localhost:8087/SpringProject/";
+						alert("로그인성공");
+						location.reload();	
 
 					}
 				},

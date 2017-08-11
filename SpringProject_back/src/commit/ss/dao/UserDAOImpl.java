@@ -5,13 +5,13 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.google.gson.Gson;
 
 import commit.ss.vo.FlightVO;
+import commit.ss.vo.ResultVO;
 import commit.ss.vo.SearchVO;
 import commit.ss.vo.UserVO;
 
@@ -40,19 +40,19 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public boolean signIn(UserVO user) {
-
+		boolean tf = false;
 		UserVO vo = session.selectOne("userMapper.selectUser", user.getId());
 		int cnt = session.selectOne("userMapper.selectCnt", user.getId());
 		System.out.println(cnt);
 		if (cnt == 1) {
 			if (user.getPwd().equals(vo.getPwd())) {
-				return true;
+				return tf=true;
+			}else{
+				return tf=false;
 			}
 		} else {
-			return false;
+			return tf=false;
 		}
-
-		return false;
 	}
 
 	public boolean signUp(UserVO user) {
@@ -81,17 +81,18 @@ public class UserDAOImpl implements UserDAO {
 		return result;
 	}
 
-	public List<FlightVO> getBookMark(String id) {
-		List<FlightVO> list = redisDAO.getObject(bookmarkKey + id, List.class);
-		return list;
+	public List<ResultVO> getBookMark(String id) {
+		List<String> list = redisDAO.getObject(bookmarkKey + id, List.class);
+		ArrayList<ResultVO> result = new ArrayList<>();
+		for (String string : list) {
+			Gson gson = new Gson();
+			result.add(gson.fromJson(string, ResultVO.class));
+		}
+		return result;
 	}
 
-	public boolean addBookMark(String id, FlightVO flight) {
-		JSONObject obj = new JSONObject();
-		obj.put("date", getDate());
-		redisDAO.setObject(bookmarkKey + id, obj.toJSONString());
-		String bookmark = new Gson().toJson(flight);
-		redisDAO.setObject("bookmark", bookmark);
+	public boolean addBookMark(String id, String bookmark) {
+		redisDAO.setObject(bookmarkKey+id, bookmark);
 		return true;
 	}
 
