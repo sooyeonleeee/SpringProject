@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import commit.ss.dao.UserDAO;
 import commit.ss.googleapi.GpxApi;
 import commit.ss.googleapi.MakeResult;
@@ -31,7 +37,6 @@ public class SearchController {
 	
 	@RequestMapping(value="/search", method=RequestMethod.POST)
 	public ModelAndView getFlightList(@ModelAttribute SearchVO svo, @RequestParam String id, HttpSession session, ModelAndView mv) {
-
 		
 		//검색 기록에 추가
 		if (!id.isEmpty()) {
@@ -71,8 +76,24 @@ public class SearchController {
 
 	@RequestMapping(value = "/getRvoLi", method = RequestMethod.POST)
 	@ResponseBody
-	public void getRvoList(@RequestBody String myArray) {
-		System.out.println("getRvoLi Controller!!!!!!!");
-		System.out.println(myArray);
+	public List<ResultVO> getRvoList(@RequestBody String myArray, ModelAndView mv) {
+		Gson gson = new Gson();
+		
+//		JsonParser jsonParser = new JsonParser();
+//		JsonArray jsonArray = (JsonArray) jsonParser.parse(myArray);
+//		
+//		for(JsonElement jo : jsonArray) {
+//			System.out.println(jo.getAsString());
+//		}
+		JsonArray jsonArray = new JsonParser().parse(myArray).getAsJsonArray();
+		
+		List<ResultVO> reList = new ArrayList<>();
+		for (int i = 0; i < jsonArray.size(); i++) {
+			JsonElement str = jsonArray.get(i);
+	        ResultVO obj = gson.fromJson(str, ResultVO.class);
+	        reList.add(obj);
+	    }
+		
+		return reList;
 	}
 }

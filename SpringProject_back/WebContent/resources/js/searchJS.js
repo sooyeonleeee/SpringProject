@@ -1,46 +1,5 @@
-
-
-
-function getModalInfo(modalIdx) {
-	var reJson = new Object();
-
-	origin = $('#' + 'spanOrigin' + modalIdx).text();
-	destination = $('#' + 'spanDestination' + modalIdx).text();
-	depDate = $('#' + 'inputDepDate' + modalIdx).val();
-	arrDate = $('#' + 'inputArrDate' + modalIdx).val();
-	goFlightCarrier = $('#' + 'bGoFlightCarrier' + modalIdx).text();
-	goDuration = $('#' + 'pGoDuration' + modalIdx).text();
-	goDepTime = $('#' + 'pGoDepTime' + modalIdx).text();
-	goArrTime = $('#' + 'pGoArrTime' + modalIdx).text();
-	goPrice = $('#' + 'inputGoPrice' + modalIdx).val();
-	backFlightCarrier = $('#' + 'bBackFlightCarrier' + modalIdx).text();
-	backDuration = $('#' + 'pBackDuration' + modalIdx).text();
-	backDepTime = $('#' + 'pBackDepTime' + modalIdx).text();
-	backArrTime = $('#' + 'pBackArrTime' + modalIdx).text();
-	backPrice = $('#' + 'inputBackPrice' + modalIdx).val();
-
-	reJson.origin = origin;
-	reJson.destination = destination;
-	reJson.depDate = depDate;
-	reJson.arrDate = arrDate;
-	reJson.goFlightCarrier = goFlightCarrier;
-	reJson.goDuration = goDuration;
-	reJson.goDepTime = goDepTime;
-	reJson.goArrTime = goArrTime;
-	reJson.goPrice = goPrice;
-	reJson.backFlightCarrier = backFlightCarrier;
-	reJson.backDuration = backDuration;
-	reJson.backDepTime = backDepTime;
-	reJson.backArrTime = backArrTime;
-	reJson.backPrice = backPrice;
-
-	return reJson;
-}
-
-
 $(document).ready(function() {
-	$('.btn_like').on('click', function() {
-		alert("aaaa");
+	$('.btn_sLike').on('click', function() {
 		id = $(this).attr('id');
 		idx = id.substr(8);
 
@@ -67,6 +26,7 @@ $(document).ready(function() {
 		});
 
 	});
+	
 	$('input[name=priceRadio]').change(function(){
 		alert("cgsdfasdf");
 		resultFilter(this);
@@ -74,14 +34,18 @@ $(document).ready(function() {
 
 window.resultFilter = function(cb) {
 	dOrA = cb.id;
+	console.log("Aaaa"+dOrA);
 
 	li = getList();
+	
 	if (dOrA == "desc") {
 		descLi = getDesc(li);
 
 		var rvo = [];
+		
 		for (var i of descLi) {
-			rvo.push(getModalInfo(i.id)); }
+			rvo.push(getModalInfo(i.id));
+		}
 
 		console.log(rvo);
 
@@ -91,7 +55,11 @@ window.resultFilter = function(cb) {
 			data : JSON.stringify(rvo),
 			contentType : 'application/json; charset=utf-8',
 			success : function(data) {
-				alert(data);
+				list = data;
+				sessionStorage.setItem("reList", list);
+				$("#result").load("search.jsp #result", function(){
+					alert("dsfasldfjasldfji");
+				});
 			},
 			failure : function(errMsg) {
 				alert(errMsg);
