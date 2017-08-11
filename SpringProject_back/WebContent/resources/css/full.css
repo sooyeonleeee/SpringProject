@@ -3,16 +3,15 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
- 
- .navbar-brand{
-	margin-left:-600px;
-	margin-top:-6px;
- }
- 
-  .navbar-default {
- 	background-color:white;
- }
- 
+.navbar-brand {
+	margin-left: -600px;
+	margin-top: -6px;
+}
+
+.navbar-default {
+	background-color: white;
+}
+
 .navbar-brand-centered {
 	position: absolute;
 	left: 50%;
@@ -28,8 +27,8 @@
 
 .navbar>.container .navbar-brand-centered, .navbar>.container-fluid .navbar-brand-centered
 	{
-	margin-left:-570px;
-	margin-top:-6px;
+	margin-left: -570px;
+	margin-top: -6px;
 }
 
 #container {
@@ -72,7 +71,7 @@ body {
 	height: 70%;
 }
 
-.listbox span :not(img){
+.listbox span :not(img) {
 	min-height: 20px;
 	padding: 19px;
 	margin-bottom: 20px;
@@ -80,44 +79,57 @@ body {
 	border: 1px solid #e3e3e3;
 	border-radius: 4px;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-	
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
 }
- .listbox span {
-margin-left: 40px;
-}
- .listbox #down{
- position:absolute;
-	top:20px;
-	left:340px;
+
+.listbox span {
+	margin-left: 40px;
 }
 
-.well{
-	
-      background-color: rgba( 255, 255, 255, 0 ); 
-      border-style: none;
-      border-collapse: collapse;
+.listbox #down {
+	position: absolute;
+	top: 20px;
+	left: 340px;
 }
 
-.table.table-bordered{
-    border-style: none;
-    border-width:0;
-	
+
+.box-well {
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: rgba(255, 255, 255, 0); border-style : none;
+	border-collapse: collapse;
+	border-style: none;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+	border-style: none;
 }
 
-td,tr,th,thead,tbody{
+.table.table-bordered {
+	border-style: none;
+	border-width: 0;
+}
+
+td, tr, th, thead, tbody {
 	border-style: hidden;
-	border-width:0;
+	border-width: 0;
 }
 
-
-
-.top_info{
-	margin-bottom:15px;
+.top_info {
+	margin-bottom: 15px;
 }
 
-.search_fly{
-	width:200px;
+.search_fly {
+	width: 200px;
 }
 
+html,body{height:100%}
 
+body{margin:0}
+
+#body{min-height:100%}
+
+
+
+#foot{margin-top:-1.9em;height:1.9em}

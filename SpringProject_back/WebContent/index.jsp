@@ -7,7 +7,7 @@
 <jsp:include page="include/header.jsp" />
 <div class="container">
 		<div id="row" style="margin-top: 75px">
-			<div class="well">
+			<div class="box-well">
 				<form class="form-inline" action="http://localhost:8087/SpringProject/search" method="post">
 					<table class="table no-border" border="0">
 						<thead>
@@ -137,7 +137,7 @@
 			}, {
 				value : "울릉공항",
 				data : "VDH"
-			} ];
+			}];
 		$.datepicker.regional['ko'] = {
 			closeText : '닫기',
 			prevText : '이전달',

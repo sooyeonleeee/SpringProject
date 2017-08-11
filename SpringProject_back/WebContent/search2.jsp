@@ -19,11 +19,30 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="resources/js/searchJS.js" charset="utf-8"></script>
-<link href="resources/css/search.css" rel="stylesheet">
 </head>
 <body>
 	<!-- Header -->
 	<jsp:include page="include/header.jsp"></jsp:include>
+				<ol class="breadcrumb-primary">
+					<li>
+						<div class="searchTop">
+							<div class="icon">
+								<i class="fa fa-search" style="font-size: 16px; color: white;"></i>
+							</div>
+							<div class="searchStart">
+								<span class="start"> ####</span>
+							</div>
+							<div class="line">
+								<ul class="top_Line">
+									<li class="top_line"></li>
+								</ul>
+							</div>
+							<div class="searchArr">
+								<span class="arr"> #### </span>
+							</div>
+						</div>
+					</li>
+				</ol>
 	<!-- 	<ul class="nav nav-tabs-primary">	
 	
 		    <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-plane"></span> 항공권</a></li>
@@ -36,16 +55,9 @@
 		     <span class="stop-station" data-id="11876">GMP</span></span>
 		                  </div> -->
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-12 search-box form-inline">
-				<div class="form-group">
-					<input type="text" class="form-control" name="search" />
-					<button class="btn btn-info">검색</button>
-				</div>
-			</div>
-		</div>
-		<div class="row well">
-			<div class="col-sm-3">
+		
+		<div class="row" id="detCon">
+			<div class="col-sm-2">
 				<div class="list-group panel">
 					<a class="list-group-item list-group-item strong text-center" style="background: #008ca8; color: white;" data-toggle="collapse"> 정렬 </a> <a href="#demo1" class="list-group-item list-group-item-success strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-clock-o" aria-hidden="true"></i> 시간 설정 <i class="fa fa-caret-down"></i></a>
 					<div class="collapse list-group-submenu" id="demo1">
@@ -62,12 +74,9 @@
 					<a class="list-group-item list-group-item strong text-center" style="background: #008ca8; color: white;" data-toggle="collapse"><button type="button" class="btn btn-success btn-sm">SEARCH</button> </a>
 				</div>
 			</div>
-			<div class="col-sm-9 ">
-				<article data-cid="model_79942" data-deeplink="details" class="" ontouchstart=""> 
-				<c:if test="${empty result}">
-					<div class="col-sm-12 well">
-						<!--검색리스트페이지 -->
-						<c:forEach var="item" items="${reList }" varStatus="stat">
+			<div class="col-sm-10">
+				<article data-cid="model_79942" data-deeplink="details" class="card result clearfix no-details   " ontouchstart=""> <c:if test="${empty result}">
+					<c:forEach var="item" items="${reList }" varStatus="stat">
 						<c:set var="obj" value="${item}" scope="request" />
 						<li class="day-list-item clearfix " style="list-style: none">
 							<div class="card-body clearfix">
@@ -170,18 +179,12 @@
 								</div>
 							</div>
 						</li>
-						${result}
-				</c:if> </c:forEach> 
-						<!--검색리스트페이지 -->
-					</div>
-				</c:if> <c:if test="${not empty result}">
-					<div class="col-sm-12 well" style="background-color:white;">
-						검색된 페이지가 없습니다${result}<br>
-					</div>
-				</c:if> 
+				</c:if> </c:forEach> </c:if> <c:if test="${not empty result}">
 				
-				</article>
+					검색된 페이지가 업
+				</c:if> </article>
 			</div>
 		</div>
+	</div>
 </body>
 </html>

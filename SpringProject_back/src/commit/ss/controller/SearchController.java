@@ -31,22 +31,18 @@ public class SearchController {
 	public ModelAndView getFlightList(@ModelAttribute SearchVO svo, ModelAndView mv, HttpSession session) {
 		String id=(String) session.getAttribute("id");
 		// 검색 기록에 추가
-//		System.out.println(id);
-//		if (id!=null) {
-//			dao.addHistory(id, svo);
-//		}
+		
+		if (id!=null) {
+			dao.addHistory(id, svo);
+		}
 
 		GpxApi ga = new GpxApi();
 		MakeResult gr = new MakeResult();
 		List<ResultVO> reList = new ArrayList<ResultVO>();
 		List<Integer> result = new ArrayList<Integer>();
-		System.out.println("reList의 null여부"+reList.isEmpty());
-		if (reList.isEmpty()) {
-			result.add(1);
-			mv.setViewName("search");
-			mv.addObject("result", result);
-			return mv;
-		} else {
+		System.out.println("reList의 값:"+reList.isEmpty());
+		
+		
 			// ga.getTickets(출발지, 도착지, 출발일, 성인 수, 아동 수)
 			// 편도일 때.
 			if (svo.getIsOneWay().equals("0")) {
@@ -75,4 +71,4 @@ public class SearchController {
 		}
 	}
 
-}
+
