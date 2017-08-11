@@ -56,7 +56,7 @@ public class GpxApi {
 			slices.add(slice);
 
 			TripOptionsRequest request = new TripOptionsRequest();
-			request.setSolutions(20);
+			request.setSolutions(8);
 			request.setPassengers(passengers);
 			request.setSlice(slices);
 

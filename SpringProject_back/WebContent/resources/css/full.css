@@ -13,16 +13,16 @@
 }
 
 .navbar-brand-centered {
-	position: absolute;
-	left: 50%;
-	display: block;
-	width: 160px;
-	text-align: center;
-	background-color: transparent;
+   position: absolute;
+   left: 50%;
+   display: block;
+   width: 160px;
+   text-align: center;
+   background-color: transparent;
 }
 
 #id {
-	font-weight: 40px;
+   font-weight: 40px;
 }
 
 .navbar>.container .navbar-brand-centered, .navbar>.container-fluid .navbar-brand-centered
@@ -105,6 +105,12 @@ body {
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
 	border-style: none;
 }
+.well{
+   
+      background-color: rgba( 255, 255, 255, 0 ); 
+      border-style: none;
+      border-collapse: collapse;
+}
 
 .table.table-bordered {
 	border-style: none;
@@ -124,12 +130,40 @@ td, tr, th, thead, tbody {
 	width: 200px;
 }
 
-html,body{height:100%}
-
-body{margin:0}
-
-#body{min-height:100%}
-
-
 
 #foot{margin-top:-1.9em;height:1.9em}
+
+
+.search_fly{
+   width:200px;
+}
+
+.mid_container {
+	float:left;
+	padding-top :120px;
+	padding-right: 20px;
+	padding-left: 330px;
+}
+
+.search_info{
+	color:#fff;
+	background-color:#5bc0de;
+	text-align:center;
+	padding: 13px 30px;
+	font-size:16px;
+	border-color:#46b8da;
+	margin-top:55px;
+	
+}
+
+.btn_sLike{
+	float:right;
+	height:30px;
+	background-color:white;
+	margin-top:20px;
+}
+
+.travel_info{
+	margin-left:160px;
+}
+

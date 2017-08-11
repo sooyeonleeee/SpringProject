@@ -141,7 +141,8 @@
 											<div class="mq-container">
 												<div class="cba-price">
 													<div class="mainquote-group-price">
-														<a href="#" target="_blank" class="mainquote-price expand-cba select-action"> <span class="" aria-hidden="true"></span>${item.goPrice + item.backPrice}
+														<a href="#" target="_blank" class="mainquote-price expand-cba select-action">
+														<span  class="totalPrice" id="${stat.index }">${item.goPrice + item.backPrice}</span>
 														</a>
 													</div>
 												</div>
