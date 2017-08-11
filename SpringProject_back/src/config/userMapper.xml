@@ -17,6 +17,7 @@
 	<insert id="insertUser" parameterType="UserVO">
 		insert into users(id, pwd)
 		values(#{id}, #{pwd})
+		
 	</insert>
 
 </mapper>

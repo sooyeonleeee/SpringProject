@@ -8,7 +8,7 @@
 <div class="container">
 		<div id="row" style="margin-top: 75px">
 			<div class="well">
-				<form class="form-inline" action="http://localhost:8087/SpringProject/search?id=${sessionScope.id}" method="post">
+				<form class="form-inline" action="http://localhost:8087/SpringProject/search" method="post">
 					<table class="table no-border" border="0">
 						<thead>
 					

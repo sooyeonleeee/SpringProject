@@ -40,19 +40,19 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public boolean signIn(UserVO user) {
-
+		boolean tf = false;
 		UserVO vo = session.selectOne("userMapper.selectUser", user.getId());
 		int cnt = session.selectOne("userMapper.selectCnt", user.getId());
 		System.out.println(cnt);
 		if (cnt == 1) {
 			if (user.getPwd().equals(vo.getPwd())) {
-				return true;
+				return tf=true;
+			}else{
+				return tf=false;
 			}
 		} else {
-			return false;
+			return tf=false;
 		}
-
-		return false;
 	}
 
 	public boolean signUp(UserVO user) {

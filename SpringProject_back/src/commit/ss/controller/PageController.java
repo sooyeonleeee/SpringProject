@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.api.client.http.HttpRequest;
 import com.google.api.client.json.Json;
 import com.google.gson.JsonObject;
 
@@ -36,21 +38,28 @@ public class PageController {
 	// 로그인
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	@ResponseBody
-	public HashMap<String, Boolean> home1(UserVO user, HttpSession session) {
+	public HashMap<String, Boolean> home1(UserVO user, HttpServletRequest request, HttpSession session) {
+
 		boolean login = dao.signIn(user);
 		if (login == true) {
 			result.put("result", login);
+
 			session.setAttribute("id", user.getId());
+
 		} else
 			result.put("result", login);
 		return result;
 	}
 
 	// 로그아웃, 메인
-	@RequestMapping("/logout.do")
-	public String logout(HttpSession session) {
+
+	@RequestMapping(value = "/logout.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String logout( HttpSession session) {
 		session.removeAttribute("id");
-		return "/";
+		
+		return "success";
+
 	}
 
 	// 중복체크
@@ -75,50 +84,12 @@ public class PageController {
 		}
 	}
 
-	// 비밀번호 변경
-	// @RequestMapping(value = "/changePwd", method = RequestMethod.POST)
-	// public ModelAndView changePwd(HttpSession session, @RequestParam String
-	// pwd,
-	// @RequestParam String nowPwd) {
-	//
-	// String id1 = "";
-	// String result = "" ;
-	//
-	// id1 = (String) session.getAttribute("id");
-	//
-	// //session.selectOne("userMapper.selectUser", id1);
-	//
-	// System.out.println("====Test=====");
-	// System.out.println("id : " + id1);
-	// System.out.println("now pwd : " + nowPwd);
-	// System.out.println("pwd : " + pwd);
-	//
-	// UserVO user = new UserVO(id1, nowPwd);
-	//
-	// if(dao.signIn(user)) {
-	//
-	//
-	// UserVO new_user = new UserVO(id1,pwd);
-	//
-	// if (dao.changePwd(new_user)) {
-	// result = "success";
-	// } else {
-	// result = "fail";
-	// }
-	// }else {
-	// result = "fail";
-	// }
-	//
-	// System.out.println("==Result== " + result);
-	//
-	// return new ModelAndView("customer", "up_result", result);
-	// }
-
 	@RequestMapping(value = "/changePwd", method = RequestMethod.POST)
 	@ResponseBody
-	public HashMap<String, Boolean> changePwd(@RequestParam("newPwd") String newPwd, @RequestParam("nowPwd") String nowPwd, @RequestParam("id") String id) {
+	public HashMap<String, Boolean> changePwd(@RequestParam("newPwd") String newPwd,
+			@RequestParam("nowPwd") String nowPwd, @RequestParam("id") String id) {
 		result = new HashMap<String, Boolean>();
-		result.put("result", dao.changePwd(id, nowPwd, newPwd)); 
+		result.put("result", dao.changePwd(id, nowPwd, newPwd));
 		return result;
 	}
 
@@ -137,14 +108,14 @@ public class PageController {
 
 	// 마이페이지
 	@RequestMapping("/mypage")
-	public ModelAndView gotoMyPage(@RequestParam String id) {
-
-		return new ModelAndView("customer", "result", result);
+	public ModelAndView gotoMyPage(ModelAndView mv) {
+		mv.setViewName("customer");
+		return mv;
 	}
 
 	// 즐겨찾기 리스트
 	@RequestMapping("/bookmark")
-	public ModelAndView gotoBookMark(@RequestParam String id) {		
+	public ModelAndView gotoBookMark(@RequestParam String id) {
 		List<ResultVO> list = dao.getBookMark(id);
 		return new ModelAndView("book", "bookmark", list);
 	}
@@ -169,14 +140,14 @@ public class PageController {
 		dao.deleteAllHistory(id);
 		return "history";
 	}
-	
-	@RequestMapping(value="/checkBookmark")
+
+	@RequestMapping(value = "/checkBookmark")
 	@ResponseBody
 	public String checkBookmark(@RequestParam String id) {
 		return "listinfo";
 	}
-	
-	@RequestMapping(value="/getModalJson", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/getModalJson", method = RequestMethod.POST)
 	@ResponseBody
 	public void getModalJson(@RequestBody String modal, HttpSession session) {
 		System.out.println("-----------선택한 비행기편");

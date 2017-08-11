@@ -21,7 +21,6 @@
 				
 				<!-- 로그인 되어 있지 않은 상태에서 버튼 눌렀을 때 -->
 						<c:if test="${empty logincheck }">
-							
 							<script>
 								document.getElementById("btn_like"+${requestScope.stat.index}).onclick=function() {
 									alert("로그인이 필요한 서비스입니다.");
@@ -37,8 +36,6 @@
 							</script>
 					</c:if>
 
-						
-						
 				</div>
 			</div>
 			<div class="panel-body" style="margin-left: 10px">
