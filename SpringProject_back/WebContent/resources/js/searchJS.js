@@ -67,6 +67,7 @@ $(document).ready(function() {
 		});
 
 	});
+	
 	$('input[name=priceRadio]').change(function(){
 		alert("cgsdfasdf");
 		resultFilter(this);
@@ -74,14 +75,18 @@ $(document).ready(function() {
 
 window.resultFilter = function(cb) {
 	dOrA = cb.id;
+	console.log("Aaaa"+dOrA);
 
 	li = getList();
+	
 	if (dOrA == "desc") {
 		descLi = getDesc(li);
 
 		var rvo = [];
+		
 		for (var i of descLi) {
-			rvo.push(getModalInfo(i.id)); }
+			rvo.push(getModalInfo(i.id));
+		}
 
 		console.log(rvo);
 
@@ -91,7 +96,11 @@ window.resultFilter = function(cb) {
 			data : JSON.stringify(rvo),
 			contentType : 'application/json; charset=utf-8',
 			success : function(data) {
-				alert(data);
+				list = data;
+				sessionStorage.setItem("reList", list);
+				$("#result").load("search.jsp #result", function(){
+					alert("dsfasldfjasldfji");
+				});
 			},
 			failure : function(errMsg) {
 				alert(errMsg);
