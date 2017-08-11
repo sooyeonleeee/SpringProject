@@ -8,7 +8,7 @@ body{
 
 
 .card{
-	margin-left:130px;
+   margin-left:130px;
 }
 
 /* whole body */
@@ -20,13 +20,13 @@ body{
 }
 
 .day-list-item.clearfix{
-	margin-bottom:10px;
+   margin-bottom:10px;
 }
 
 /* left side */
 .card-body{
-	margin-left:-100px;
-	height:230px;
+   margin-left:-100px;
+   height:230px;
     width: calc(70% - 2px);
     background-color: white;
     float: left;
@@ -41,8 +41,8 @@ body{
 }
 
 .card-body .big-airline{
-	width : 60px;
-	height: 30px;
+   width : 60px;
+   height: 30px;
 }
 
 .card-body .card-main {

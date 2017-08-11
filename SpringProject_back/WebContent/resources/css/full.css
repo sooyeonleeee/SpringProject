@@ -3,16 +3,15 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
- 
- .navbar-brand{
-   margin-left:-600px;
-   margin-top:-6px;
- }
- 
-  .navbar-default {
-    background-color:white;
- }
- 
+.navbar-brand {
+	margin-left: -600px;
+	margin-top: -6px;
+}
+
+.navbar-default {
+	background-color: white;
+}
+
 .navbar-brand-centered {
    position: absolute;
    left: 50%;
@@ -27,71 +26,85 @@
 }
 
 .navbar>.container .navbar-brand-centered, .navbar>.container-fluid .navbar-brand-centered
-   {
-   margin-left:-570px;
-   margin-top:-6px;
+	{
+	margin-left: -570px;
+	margin-top: -6px;
 }
 
 #container {
-   width: 100%;
-   margin-top: 0px;
-   text-align: center;
+	width: 100%;
+	margin-top: 0px;
+	text-align: center;
 }
 
 #block {
-   width: 1200px;
-   display: inline-block;
-   margin: 300px 0;
+	width: 1200px;
+	display: inline-block;
+	margin: 300px 0;
 }
 
 #testhead {
-   height: 90px;
-   padding-top: 20px;
-   padding-bottom: 20px;
+	height: 90px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 body {
-   margin-top: 50px;
-   /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+	margin-top: 50px;
+	/* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 .full1:after {
-   background:
-      url(http://localhost:8087/SpringProject/resources/img/test1.jpg)
-      no-repeat center center fixed;
-   top: 0;
-   left: 0;
-   position: absolute;
-   background-size: 100%;
-   opacity: 0.4 !important;
-   filter: alpha(opacity = 40);
-   z-index: -1;
-   content: "";
-   width: 100%;
-   height: 70%;
+	background:
+		url(http://localhost:8087/SpringProject/resources/img/test1.jpg)
+		no-repeat center center fixed;
+	top: 0;
+	left: 0;
+	position: absolute;
+	background-size: 100%;
+	opacity: 0.4 !important;
+	filter: alpha(opacity = 40);
+	z-index: -1;
+	content: "";
+	width: 100%;
+	height: 70%;
 }
 
-.listbox span :not(img){
-   min-height: 20px;
-   padding: 19px;
-   margin-bottom: 20px;
-   background-color: #f5f5f5;
-   border: 1px solid #e3e3e3;
-   border-radius: 4px;
-   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-   
-   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-}
- .listbox span {
-margin-left: 40px;
-}
- .listbox #down{
- position:absolute;
-   top:20px;
-   left:340px;
+.listbox span :not(img) {
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: #f5f5f5;
+	border: 1px solid #e3e3e3;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
 }
 
+.listbox span {
+	margin-left: 40px;
+}
+
+.listbox #down {
+	position: absolute;
+	top: 20px;
+	left: 340px;
+}
+
+
+.box-well {
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: rgba(255, 255, 255, 0); border-style : none;
+	border-collapse: collapse;
+	border-style: none;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+	border-style: none;
+}
 .well{
    
       background-color: rgba( 255, 255, 255, 0 ); 
@@ -99,22 +112,27 @@ margin-left: 40px;
       border-collapse: collapse;
 }
 
-.table.table-bordered{
-    border-style: none;
-    border-width:0;
-   
+.table.table-bordered {
+	border-style: none;
+	border-width: 0;
 }
 
-td,tr,th,thead,tbody{
-   border-style: hidden;
-   border-width:0;
+td, tr, th, thead, tbody {
+	border-style: hidden;
+	border-width: 0;
+}
+
+.top_info {
+	margin-bottom: 15px;
+}
+
+.search_fly {
+	width: 200px;
 }
 
 
+#foot{margin-top:-1.9em;height:1.9em}
 
-.top_info{
-   margin-bottom:15px;
-}
 
 .search_fly{
    width:200px;
@@ -148,3 +166,4 @@ td,tr,th,thead,tbody{
 .travel_info{
 	margin-left:160px;
 }
+

@@ -42,10 +42,13 @@ line-style:none;
 <jsp:include page="include/header.jsp" />
 
 
+
 <div class="container">
+
+
       <div id="row" style="margin-top: 75px">
          <div class="well">
-            <form class="form-inline" action="http://localhost:8087/SpringProject/search?id=${sessionScope.id}" method="post">
+            <form class="form-inline" action="http://localhost:8087/SpringProject/search" method="post">
                <table class="table no-border" border="0">
                   <thead>
 
@@ -163,6 +166,88 @@ line-style:none;
 			</form>
 		</div>
 	</section>	
+					<button type="submit" class="yeosu_btn"></button>
+		<div id="row" style="margin-top: 75px">
+			<div class="well">
+				<form class="form-inline" action="http://localhost:8087/SpringProject/search" method="post">
+					<table class="table no-border" border="0">
+						<thead>
+					
+						
+							<th>출발지</th>
+							<th>도착지</th>
+							<th>가는시간</th>
+							<th>오는시간</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="ui-widget">
+										<input type="text" id="search1"  class="form-control" required="required" size="28"> <input type="hidden" class="search1_code" name="departure"  >
+									</div>
+								</td>
+								<td><div class="ui-widget">
+										<input type="text" id="search2" class="form-control" required="required" size="28"> <input type="hidden" name="arrival" class="search2_code">
+									</div></td>
+								<td><input type="text" name="depDate" class="form-control" id="datepicker1" required="required"></td>
+								<td><input type="text" name="arrDate" class="form-control" id="datepicker2" required="required"></td>
+							</tr>
+							<tr>
+								<td><b>성인석</b></td>
+								<td><b>소아미만</b></td>
+								<td colspan="2"><b>경로</b></td>
+							</tr>
+							<tr>
+								<td>
+									<div class="input-group number-spinner">
+										<span class="input-group-btn">
+											<button type="button" class="btn btn-default" data-dir="dwn" >
+												<span class="glyphicon glyphicon-minus"></span>
+											</button>
+										</span> <input type="text" class="form-control text-center" value="1" name="adultCount" > <span class="input-group-btn">
+											<button type="button" class="btn btn-default" data-dir="up">
+												<span class="glyphicon glyphicon-plus"></span>
+											</button>
+										</span>
+									</div>
+								</td>
+								<td>
+									<div class="input-group number-spinner">
+										<span class="input-group-btn">
+											<button type="button" class="btn btn-default" data-dir="dwn">
+												<span class="glyphicon glyphicon-minus"></span>
+											</button>
+										</span> <input type="text" class="form-control text-center" value="1" name="childCount"> <span class="input-group-btn">
+											<button type="button" class="btn btn-default" data-dir="up">
+												<span class="glyphicon glyphicon-plus"></span>
+											</button>
+										</span>
+									</div>
+								</td>
+						
+								
+								
+								<td colspan="2">
+									<span class="col-sm-3">
+										<label for="path1"><input type="radio" class="form-control text-center" name="isOneWay"  value="1" id="path1" checked="TRUE">왕복</label>
+									</span>
+									<span class="col-sm-3">
+										<label for="path2"><input type="radio" class="form-control text-center" name="isOneWay"value="0" id="path2">편도</label>
+									</span>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="4" class="text-center"><input type="submit" value="항공권검색" class="btn btn-info"></td>
+							</tr>
+						</tfoot>
+					</table>
+				</form>
+			</div>
+
+	</section>
+	
 	<section id = "third">
 
 	   <div class="footer-bottom"  style="height:10vh">
