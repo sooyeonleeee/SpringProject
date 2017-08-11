@@ -1,6 +1,9 @@
 package commit.ss.controller;
 
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -17,10 +20,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.google.api.client.http.HttpRequest;
-import com.google.api.client.json.Json;
-import com.google.gson.JsonObject;
 
 import commit.ss.dao.UserDAO;
 import commit.ss.vo.ResultVO;
@@ -117,6 +116,34 @@ public class PageController {
 	@RequestMapping("/bookmark")
 	public ModelAndView gotoBookMark(@RequestParam String id) {
 		List<ResultVO> list = dao.getBookMark(id);
+		for (ResultVO resultVO : list) {
+			Date now = Calendar.getInstance().getTime();
+			try {
+				Date depDate = new SimpleDateFormat("yyyy-mm-dd").parse(resultVO.getDepDate());
+				int compare = depDate.compareTo(now); 
+				// 출발날짜가 지금보다 이를 때
+				if (compare > 0 ) {
+					//지우기
+					dao.deleteBookMark(id, resultVO);
+				}				 
+				//출발날짜 = 지금
+				else if (compare == 0){	
+					// 시간비교
+					Date depTime = new SimpleDateFormat("HH:mm").parse(resultVO.getGoDepTime());
+					int compare2 = depTime.compareTo(now);
+					if (compare2<0 ) {
+						//지우기
+						dao.deleteBookMark(id, resultVO);
+					}
+				}
+				
+				
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			resultVO.getGoDepTime();
+		}		
 		return new ModelAndView("book", "bookmark", list);
 	}
 
@@ -150,8 +177,6 @@ public class PageController {
 	@RequestMapping(value = "/getModalJson", method = RequestMethod.POST)
 	@ResponseBody
 	public void getModalJson(@RequestBody String modal, HttpSession session) {
-		System.out.println("-----------선택한 비행기편");
-		System.out.println(modal);
 		String id = (String) session.getAttribute("id");
 		dao.addBookMark(id, modal);
 	}

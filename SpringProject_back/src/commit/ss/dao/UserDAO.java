@@ -28,7 +28,7 @@ public interface UserDAO {
 	public boolean addBookMark(String id, String bookmark);
 
 	// ���ã�� ����
-	public boolean deleteBookMark(String id, FlightVO flight);
+	public boolean deleteBookMark(String id, ResultVO flight);
 
 	// ���ã�� ��� ����
 	public boolean deleteAllBookMark(String id);
