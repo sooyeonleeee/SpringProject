@@ -120,3 +120,23 @@
     margin-top:13px;
 }
 
+/* .wel_btn{
+	width:120px;
+	height:30px;
+	color:#fff;
+	background-color:#5bc0de;
+	border-color:#46b8da;
+} */
+
+.logout_btn{
+	width:120px;
+	height:33px;
+	color:#fff;
+	background-color:#5bc0de;
+	border-color:#46b8da;
+	margin-top:15px;
+}
+
+.search_delete{
+	float:right;
+}

@@ -120,4 +120,13 @@ td,tr,th,thead,tbody{
 	width:200px;
 }
 
+.btn_sLike{
+	float:right;
+	height:30px;
+	background-color:white;
+	margin-top:20px;
+}
 
+.travel_info{
+	margin-left:160px;
+}

@@ -52,7 +52,7 @@
 						</c:if>
 						<c:if test="${not empty sessionScope.id}">
 							<li><a href="<%=request.getContextPath()%>/mypage?id=${sessionScope.id}"><button type="button" class="btn btn-info">${sessionScope.id}님&nbsp;환영합니다</button></a></li>
-							<li><br><button type="button" id="logoutbtn" class="btn btn-info">LOGOUT</button></li>
+							<li><button type="button" id="logoutbtn" class="btn logout_btn">LOGOUT</button></li>
 						</c:if>
 					</ul>
 				</div>

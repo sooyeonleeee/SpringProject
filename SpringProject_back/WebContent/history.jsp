@@ -63,13 +63,14 @@ tr:nth-child(even) {
 				<div class="cont">
 					<div class="well" style="background-color: white">
 						검색내용
+						<div class="search_delete">
 						<a href="<%=request.getContextPath()%>/deleteAllHistory?id=${sessionScope.id}"><button type="button" class="btn btn-default btn-sm">
     							      <span class="glyphicon glyphicon-trash"></span>검색기록 전체삭제
-       								  </button></a>
+       								  </button></a></div>
 						<hr>
 						<div class="row" style="background-color: white">
 
-							<table class="table table-bordered">
+							<table class="table">
 								<tr>
 									<th>번호</th>
 									<th>출발지</th>

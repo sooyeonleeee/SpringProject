@@ -1,18 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<head>
+<link href="resources/css/full.css" rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+</head>
+
+<body>	
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="row">
-				<div class="col-sm-11">
-					<b><h2>여행 일정확인</h2></b>
+				<div class="col-sm-10">
+					<div class="travel_info">
+						<b><h2>여행 일정확인</h2></b>
+					</div>
 				</div>
-				<div class="col-sm-1">
-					<button class="btn_like" id="btn_like${requestScope.stat.index}" type="button"
-						style="border: none; background-color: white">
+				<div class="col-sm-2">
+					<button class="btn_sLike" id="btn_like${requestScope.stat.index}" type="button"
+						style="border: none">
 						즐겨찾기에 추가
 					</button>
 
@@ -139,7 +148,7 @@
 					</h4>
 				</section>
 				<div class="row">
-					<div class="col-sm-7 col-sm-offset-2">
+					<div class="col-sm-8 col-sm-offset-2">
 						<ul class="list-group">
 							<div class="panel panel-default">
 								<div class="panel-heading ">
@@ -194,4 +203,4 @@
 		</div>
 	</div>
 </div>
-
+</body>
