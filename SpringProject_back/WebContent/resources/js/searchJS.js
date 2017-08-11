@@ -44,18 +44,26 @@ $(document).ready(function() {
 		backDepTime = $('#' + 'pBackDepTime' + modalIdx).text();
 		backArrTime = $('#' + 'pBackArrTime' + modalIdx).text();
 		backPrice = $('#' + 'inputBackPrice' + modalIdx).val();
-
+		
+		if (backFlightCarrier.length==0) {
+			backFlightCarrier = "none";
+			backDuration ="11111111";
+			backDepTime = "backDepTime";
+			backArrTime = "backArrTime";
+			backPrice = "2222222";
+		}
+		
 		reJson.origin = origin;
 		reJson.destination = destination;
 		reJson.depDate = depDate;
 		reJson.arrDate = arrDate;
 		reJson.goFlightCarrier = goFlightCarrier;
-		reJson.goDuration = goDuration;
+		reJson.goDuration = goDuration.slice(0, goDuration.length-1);
 		reJson.goDepTime = goDepTime;
 		reJson.goArrTime = goArrTime;
 		reJson.goPrice = goPrice;
 		reJson.backFlightCarrier = backFlightCarrier;
-		reJson.backDuration = backDuration;
+		reJson.backDuration = backDuration.slice(0, backDuration.length-1);
 		reJson.backDepTime = backDepTime;
 		reJson.backArrTime = backArrTime;
 		reJson.backPrice = backPrice;
