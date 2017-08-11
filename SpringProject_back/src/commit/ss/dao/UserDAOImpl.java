@@ -96,7 +96,8 @@ public class UserDAOImpl implements UserDAO {
 		return true;
 	}
 
-	public boolean deleteBookMark(String id, FlightVO flight) {
+	public boolean deleteBookMark(String id, ResultVO flight) {
+		redisDAO.removeObject(bookmarkKey+id, flight);
 		return true;
 	}
 

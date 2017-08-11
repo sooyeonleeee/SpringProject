@@ -21,6 +21,9 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link href="resources/css/nav-bar.css" rel="stylesheet">
+
+<link href="resources/css/shop_item.css" rel="stylesheet">
+
 </head>
 <c:set var="myContextPath" value="${pageContext.request.contextPath}" />
 <body>
@@ -52,7 +55,7 @@
 						</c:if>
 						<c:if test="${not empty sessionScope.id}">
 							<li><a href="<%=request.getContextPath()%>/mypage?id=${sessionScope.id}"><button type="button" class="btn btn-info">${sessionScope.id}님&nbsp;환영합니다</button></a></li>
-							<li><br><button type="button" id="logoutbtn" class="btn btn-info">LOGOUT</button></li>
+							<li><button type="button" id="logoutbtn" class="btn logout_btn">LOGOUT</button></li>
 						</c:if>
 					</ul>
 				</div>
