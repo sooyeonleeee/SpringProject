@@ -19,10 +19,6 @@ public class RedisDAOImpl implements RedisDAO {
 	@Override
 	public <T> void setObject(String key, T value) {
 		redisTemplate.opsForList().rightPush(key, value);
-		System.out.println("----------------------------------------총 " + redisTemplate.opsForList().size(key) + "건");
-		System.out.println("---------------------------------------------key + value");
-		System.out.println("key: " + key);
-		System.out.println("value: " + value);
 	}
 
 	@Override
